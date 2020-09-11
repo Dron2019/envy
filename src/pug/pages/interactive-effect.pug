@@ -1,0 +1,23 @@
+extends ../layout/main
+block variable
+    - var version = "ua";
+    - var pageName = "interactive-effect";
+block meta
+    title= ' '
+    meta(name='description', content='')
+block scripts
+block head
+    link(rel='stylesheet', href="./assets/styles/main.min.css")
+block content
+    h1 interactive-effect
+    //- <div class="item">
+    //-     <img src="./assets/images/interactive-effect/1.jpg" class="js-image" alt="">
+    //-     <h2>Some title</h2>
+    //-     <p>Lorem ipsum.</p>
+    //- </div>
+    canvas
+block footer
+    script(src="./assets/scripts/interactive-effect.js")
+    //- script(src="./assets/scripts/flowmap-deformation.js")
+    
+block header
