@@ -11,7 +11,123 @@ block scripts
 	script(defer src='./assets/scripts/libs.js')
 	script(defer src='./assets/scripts/index.js')
 	script(defer src='./assets/scripts/menu.js')
+	script(defer src='./assets/scripts/home.js')
 block content
+	.main-screen-slider.main-screen-slider-js
+		.slide-text
+			.subtitle.black BNW collection
+			.text.pink-gray Коллекция женской одежды от производителя Envy  весна-осень 2020
+			+button-std('Смотреть коллекцию','medium ')
+			.counter 
+				span.current.text.pink-gray  1
+				span.all  4
+		.slide(data-subtitle="BNB Collection" data-text="Коллекция женской одежды от производителя Envy  весна-осень 2020")
+			+img("home/ms-slide1.jpg")
+		.slide(data-subtitle="BNB Collection1" data-text="Коллекция женской одежды от производителя Envy  весна-осень 2020")
+			+img("home/ms-slide1.jpg")
+			//- .slide-text
+			//- 	.subtitle.black BNW collection
+			//- 	.text.pink-gray Коллекция женской одежды от производителя Envy  весна-осень 2020
+			//- 	+button-std('Смотреть коллекцию','medium ')
+			//- 	.counter 
+			//- 		span.current.text.pink-gray  1
+			//- 		span.all  4
+		.slide(data-subtitle="BNB Collection2" data-text="Коллекция женской одежды от производителя Envy  весна-осень 2020 Коллекция женской одежды от производителя Envy  весна-осень 2020 Коллекция женской одежды от производителя Envy  весна-осень 2020")
+			+img("home/ms-slide1.jpg")
+			//- .slide-text
+			//- 	.subtitle.black BNW collection
+			//- 	.text.pink-gray Коллекция женской одежды от производителя Envy  весна-осень 2020
+			//- 	+button-std('Смотреть коллекцию','medium ')
+			//- 	.counter 
+			//- 		span.current.text.pink-gray  1
+			//- 		span.all  4
+		.slide(data-subtitle="BNB Collection3" data-text="Коллекция женской одежды от производителя Envy  весна-осень 2020")
+			+img("home/ms-slide1.jpg")
+			//- .slide-text
+			//- 	.subtitle.black BNW collection
+			//- 	.text.pink-gray Коллекция женской одежды от производителя Envy  весна-осень 2020
+			//- 	+button-std('Смотреть коллекцию','medium ')
+			//- 	.counter 
+			//- 		span.current.text.pink-gray  1
+			//- 		span.all  4
+		.slide(data-subtitle="BNB Collection4" data-text="Коллекция женской одежды от производителя Envy  весна-осень 2020")
+			+img("home/ms-slide1.jpg")
+			//- .slide-text
+			//- 	.subtitle.black BNW collection
+			//- 	.text.pink-gray Коллекция женской одежды от производителя Envy  весна-осень 2020
+			//- 	+button-std('Смотреть коллекцию','medium ')
+			//- 	.counter 
+			//- 		span.current.text.pink-gray  1
+			//- 		span.all  4
+	.home-block2
+		a(href="catalogue.html#men").home-block2__part
+			.title-large WOMAN
+			//- +img('home/block2-rect.jpg').home-block2__rect
+			+img('home/block2-woman.png').home-block2__part-people-photo
+			<svg width="480" height="271" viewBox="0 0 480 271" fill="none" xmlns="http://www.w3.org/2000/svg">
+				<rect x="5" y="5.28571" width="470" height="260" stroke="url(#paint2_linear)" stroke-width="10"/>
+				<defs>
+				<linearGradient id="paint2_linear" x1="480" y1="0.285555" x2="-16.6884" y2="35.6056" gradientUnits="userSpaceOnUse">
+				<stop stop-color="#FAA6A6"/>
+				<stop offset="1" stop-color="#F8CEBC"/>
+				</linearGradient>
+				</defs>
+				</svg>
+		a(href="catalogue.html#woman").home-block2__part
+			.title-large MEN
+			<svg width="480" height="271" viewBox="0 0 480 271" fill="none" xmlns="http://www.w3.org/2000/svg">
+				<rect x="5" y="5.28571" width="470" height="260" stroke="url(#paint3_linear)" stroke-width="10"/>
+				<defs>
+				<linearGradient id="paint3_linear" x1="480" y1="0.285555" x2="-16.6884" y2="35.6056" gradientUnits="userSpaceOnUse">
+				<stop stop-color="#FAA6A6"/>
+				<stop offset="1" stop-color="#F8CEBC"/>
+				</linearGradient>
+				</defs>
+				</svg>
+			//- +img('home/block2-rect.jpg').home-block2__rect
+			+img('home/block2-man.png').home-block2__part-people-photo
+	.home-block3.home-news
+		.title NEWS
+		+button-std('Смотреть все новости','medium')
+		.home-news-slider
+			.news-card
+				+img('home/news1.jpg').news-card__img
+				.news-card__text
+					.news-card__text-title.subtitle Коллекция мужских курток 2020
+					.news-card__text-text.text.pink-gray Мо́да (фр. mode, от лат. modus — мера, образ, способ, правило, предписание) — совокупность привычек, ценностей и вкусов.
+					+button-std('Читать новость','medium')
+			.news-card
+				+img('home/news1.jpg').news-card__img
+				.news-card__text
+					.news-card__text-title.subtitle Коллекция мужских курток 2020
+					.news-card__text-text.text.pink-gray Мо́да (фр. mode, от лат. modus — мера, образ, способ, правило, предписание) — совокупность привычек, ценностей и вкусов.
+					+button-std('Читать новость','medium')
+			.news-card
+				+img('home/news1.jpg').news-card__img
+				.news-card__text
+					.news-card__text-title.subtitle Коллекция мужских курток 2020
+					.news-card__text-text.text.pink-gray Мо́да (фр. mode, от лат. modus — мера, образ, способ, правило, предписание) — совокупность привычек, ценностей и вкусов.
+					+button-std('Читать новость','medium')
+			.news-card
+				+img('home/news1.jpg').news-card__img
+				.news-card__text
+					.news-card__text-title.subtitle Коллекция мужских курток 2020
+					.news-card__text-text.text.pink-gray Мо́да (фр. mode, от лат. modus — мера, образ, способ, правило, предписание) — совокупность привычек, ценностей и вкусов.
+					+button-std('Читать новость','medium')
+			.news-card
+				+img('home/news1.jpg').news-card__img
+				.news-card__text
+					.news-card__text-title.subtitle Коллекция мужских курток 2020
+					.news-card__text-text.text.pink-gray Мо́да (фр. mode, от лат. modus — мера, образ, способ, правило, предписание) — совокупность привычек, ценностей и вкусов.
+					+button-std('Читать новость','medium')
+			.news-card
+				+img('home/news1.jpg').news-card__img
+				.news-card__text
+					.news-card__text-title.subtitle Коллекция мужских курток 2020
+					.news-card__text-text.text.pink-gray Мо́да (фр. mode, от лат. modus — мера, образ, способ, правило, предписание) — совокупность привычек, ценностей и вкусов.
+					+button-std('Читать новость','medium')
+
+
 block footer
 block header
 

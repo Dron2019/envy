@@ -1,5 +1,32 @@
 header {
-    padding: 25px var(--side-fields);
+    padding: 25px var(--side-fields) 25px 90px;
+    position: relative;
+    z-index: 6;
+    @include to(768px) {
+        padding: 20px var(--side-fields);
+    }
+    @include to(768px) {}
+    @include from(576px) {
+        .mobile-header-top,
+        .mobile-header-bottom {
+            display: none;
+        }
+    }
+    .mobile-menu {
+        opacity: 0;
+        pointer-events: none;
+    }
+    @include to(575px) {
+        padding: 10px var(--side-fields) 10px var(--side-fields);
+        z-index: 6;
+        .header-top,
+        .header-bottom {
+            display: none;
+        }
+        .mobile-header-top {
+            margin-bottom: 10px;
+        }
+    }
 }
 
 .header-top {
@@ -30,6 +57,15 @@ header {
     }
     .button-std {
         width: 190px;
+    }
+    .callback-form-mobile {
+        width: 14px;
+        height: 14px;
+    }
+    @include from(769px) {
+        .callback-form-mobile {
+            display: none;
+        }
     }
     @include to(768px) {
         &>.button-std,
@@ -150,6 +186,13 @@ header {
             transform-box: fill-box;
         }
     }
+    .catalogue-links {
+        color: var(--black);
+        text-decoration: none;
+    }
+    @include to(1200px) {
+        height: auto;
+    }
     @include from(769px) {
         .mobile-tablet-menu-button {
             display: none;
@@ -181,6 +224,109 @@ header {
         .mobile-tablet-menu-button:not(.opened)~&__menu {
             opacity: 0;
             pointer-events: none;
+        }
+        .sign-with-icon>svg {
+            margin-right: 6px;
+        }
+    }
+    @include from-to(576px, 768px) {
+        &__menu {
+            display: none;
+        }
+    }
+    @include to(575px) {
+        .catalogue-links {
+            display: none;
+        }
+    }
+}
+
+.mobile-header-top {
+    display: flex;
+    justify-content: space-between;
+    .main-logo {
+        --self-width: 56px;
+    }
+    &__right {
+        display: flex;
+        & .sign-with-icon>svg {
+            margin-right: 6px;
+        }
+    }
+    .sign-with-icon:last-child {
+        margin-left: 20px;
+    }
+    .mobile-tablet-menu-button {
+        display: flex;
+        align-items: center;
+        span {
+            margin-left: 15px;
+            max-width: 4ch;
+        }
+    }
+}
+
+.mobile-menu {
+    position: absolute;
+    left: 0;
+    top: 100%;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0 var(--side-fields);
+    transition: var(--transition);
+    z-index: 5;
+    background: #fff;
+    &-top {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-basis: 100%;
+        margin-bottom: 20px;
+        .icon--tel-tube {
+            margin-right: 10px;
+        }
+    }
+    &-top__telephone {
+        display: flex;
+        align-items: center;
+    }
+    .icon--entry {
+        margin-right: 10px;
+    }
+    &__tab {
+        font-weight: bold;
+        @include fontSizeLhToEm(14, 20);
+        padding: 10px 20px;
+        width: 50%;
+        transition: var(--transition);
+        text-align: center;
+    }
+    .search-input {
+        padding-top: 10px;
+        padding-bottom: 10px;
+        text-align: center;
+        justify-content: center;
+        background-color: #F5F5F5;
+        width: 100%;
+        input {
+            background-color: #F5F5F5;
+        }
+    }
+    .search-input:after {
+        display: none;
+    }
+    &__tab.active {
+        background-color: #F5F5F5;
+    }
+    .button-std.medium {
+        margin: 20px auto 30px auto;
+        flex-basis: 100%;
+        max-width: none;
+    }
+    @include from-to(576px, 768px) {
+        &-top {
+            display: none;
         }
     }
 }
@@ -328,6 +474,9 @@ header {
         height: 21px;
     }
     @include from(769px) {
+        &__short-text {
+            display: none;
+        }
         &:hover &__text {
             transform: translateX(-5px);
         }
@@ -341,12 +490,22 @@ header {
             transform: translateY(-5px);
         }
     }
+    @include to(768px) {
+        .bucket &__text {
+            display: none;
+        }
+    }
 }
 
 .main-logo {
     --self-width: 75px;
     width: var(--self-width);
     height: calc(var(--self-width) * 0.53);
+}
+
+.icon--tel-tube {
+    width: 14px;
+    height: 14px;
 }
 
 .icon--facebook {
@@ -371,4 +530,25 @@ header {
 .icon--heart {
     width: 18px;
     height: 16px;
+}
+
+.icon--entry {
+    width: 18px;
+    height: 16px;
+}
+
+.icon--bucket {
+    width: 14px;
+    height: 21px;
+}
+
+.mobile-tablet-menu {
+    @include from(769px) {
+        display: none;
+    }
+}
+
+.social-link {
+    display: flex;
+    align-items: center;
 }

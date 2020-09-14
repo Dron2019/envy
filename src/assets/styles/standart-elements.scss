@@ -1,0 +1,50 @@
+.subtitle {
+    @include fontSizeLhToEm(24, 24);
+    font-weight: normal;
+    &.black {
+        color: var(--black);
+    }
+}
+
+.text {
+    @include fontSizeLhToEm(14, 20);
+    &.pink-gray {
+        color: #6B586B;
+    }
+}
+
+.counter {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .current {}
+    .current:after {
+        content: ' /';
+    }
+}
+
+.title-large {
+    @include fontSizeLhToEm(72, 72);
+    text-decoration: none;
+    @include from(1680px) {
+        @include fontSizeLhToEm(96, 96);
+    }
+    @include to(768px) {
+        @include fontSizeLhToEm(48, 48);
+    }
+    @include to(575px) {
+        @include fontSizeLhToEm(30, 30);
+    }
+}
+
+.title {
+    @include fontSizeLhToEm(36, 48);
+    font-weight: normal;
+    color: #222222;
+    @include from(1680px) {
+        @include fontSizeLhToEm(48, 48);
+    }
+    @include to(575px) {
+        @include fontSizeLhToEm(24, 30);
+    }
+}

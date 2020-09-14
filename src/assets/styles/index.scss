@@ -16,6 +16,7 @@
         --side-padding: 20px;
     }
     @include to(575px) {
-        --side-padding: 10px;
+        --side-fields: 14px;
+        --side-padding: 14px;
     }
 }
