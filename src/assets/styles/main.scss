@@ -9,13 +9,15 @@
 @import './assets/animation'; // анимации
 @import './assets/class'; // main style
 @import './assets/interface'; // main style
+@import './standart-elements';
+//custom-elements
+@import './custom-elements/checkbox';
 //templates pages
 @import './templates';
+@import './assets/animate';
 // sass dima
 @import './footer';
 @import './404';
 @import './loader';
-@import './standart-elements';
 @import './header';
 @import './index';
-@import './assets/animate';

@@ -26,13 +26,38 @@ $('.home-news-slider').slick({
     slidesToShow: 4,
     slide: '.news-card',
     arrows: false,
-    initialSlide: 2,
+    initialSlide: 0,
     responsive: [{
-            breakpoint: 1680,
+            breakpoint: 1480,
             settings: {
                 slidesToShow: 3
             }
         }, {
+            breakpoint: 975,
+            settings: {
+                slidesToShow: 1.8
+            }
+        },
+        {
+            breakpoint: 575,
+            settings: {
+                slidesToShow: 1.2
+            }
+        }
+    ],
+});
+
+const doubleSlidesToShow = 4;
+$('.brands__slider-top-js').slick({
+    infinite: false,
+    slidesToShow: doubleSlidesToShow,
+    slide: 'img',
+    nextArrow: '.brands__slider-js .arrow-next',
+    prevArrow: '.brands__slider-js .arrow-prev',
+    asNavFor: '.brands__slider-bottom-js',
+    // arrows: false,
+    initialSlide: 0,
+    responsive: [{
             breakpoint: 975,
             settings: {
                 slidesToShow: 2
@@ -41,9 +66,32 @@ $('.home-news-slider').slick({
         {
             breakpoint: 575,
             settings: {
-
-                slidesToShow: 1.2
+                slidesToShow: 1
             }
         }
     ],
-})
+
+});
+$('.brands__slider-bottom-js').slick({
+    infinite: false,
+    slidesToShow: doubleSlidesToShow,
+    slide: 'img',
+    nextArrow: '.brands .arrow-next',
+    prevArrow: '.brands .arrow-prev',
+    asNavFor: '.brands__slider-top-js',
+    initialSlide: 0,
+    responsive: [{
+            breakpoint: 975,
+            settings: {
+                slidesToShow: 2
+            }
+        },
+        {
+            breakpoint: 575,
+            settings: {
+                slidesToShow: 1
+            }
+        }
+    ],
+
+});

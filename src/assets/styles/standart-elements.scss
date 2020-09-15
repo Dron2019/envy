@@ -7,7 +7,9 @@
 }
 
 .text {
-    @include fontSizeLhToEm(14, 20);
+    // @include fontSizeLhToEm(14, 20);
+    font-size: 14px;
+    line-height: 1.6em;
     &.pink-gray {
         color: #6B586B;
     }
@@ -46,5 +48,96 @@
     }
     @include to(575px) {
         @include fontSizeLhToEm(24, 30);
+    }
+}
+
+.arrows {
+    align-self: center;
+    margin-top: auto;
+    width: calc(100% - var(--side-padding) - var(--side-padding));
+    display: flex;
+    justify-content: space-between;
+    --self-arrow-side: 50px;
+    pointer-events: none;
+    & svg {
+        width: 20px;
+        height: 14.5px;
+    }
+    & .arrow-prev,
+    & .arrow-next {
+        border: 2px solid var(--blue);
+        pointer-events: all;
+    }
+    & path {
+        stroke: var(--black) !important;
+    }
+    &.blue rect {
+        fill: var(--black);
+    }
+    .arrow-prev,
+    .arrow-next {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: var(--self-arrow-side);
+        height: var(--self-arrow-side);
+        border: 1px solid var(--black);
+        cursor: pointer;
+        // border-right-color: transparent;
+        transition: .7s;
+    }
+    @include from(769px) {
+        .arrow-prev:hover svg,
+        .arrow-next:hover svg {
+            transform-origin: center;
+            transition: .7s;
+            // transform: scale(1.5);
+        }
+        &.blue .arrow-prev:hover svg path,
+        &.blue .arrow-next:hover svg path {
+            stroke: var(--black) !important;
+        }
+        &.blue .arrow-next:hover svg rect,
+        &.blue .arrow-prev:hover svg rect {
+            fill: var(--black);
+        }
+        .arrow-prev:hover,
+        .arrow-next:hover {
+            background-color: var(--blue);
+            border-color: var(--blue);
+        }
+    }
+    svg {
+        cursor: pointer;
+        transition: .5s;
+    }
+    svg path,
+    svg rect {
+        cursor: pointer;
+    }
+    .arrow-prev {
+        transform: rotate(-180deg);
+    }
+    .arrow-next {}
+    @include to(768px) {
+        margin-bottom: 0;
+    }
+    @include to(575px) {
+        --self-arrow-side: 36px;
+    }
+}
+
+.delimiter {
+    width: 100%;
+    height: 2px;
+    background-color: #E3D4CF;
+}
+
+.logo-with-slogan {
+    --self-width: 79px;
+    width: var(--self-width);
+    height: calc(var(--self-width) * 0.65);
+    @include to(768px) {
+        --self-width: 102px;
     }
 }

@@ -168,7 +168,7 @@
             height: 40vh;
         }
     }
-    @include to(1024px) {
+    @include from-to(769px, 1024px) {
         --part-block-start-padding: 0px;
         justify-content: space-between;
         &__part {
@@ -258,6 +258,10 @@
     }
     @include to(575px) {
         --vert-padding: 40px;
+        .news-card {
+            padding-left: 5px;
+            padding-right: 5px;
+        }
     }
 }
 
@@ -284,5 +288,279 @@
         transition: var(--transition);
         object-fit: cover;
         object-position: left top;
+    }
+    @include to(575px) {
+        &__text-title {
+            font-size: 18px;
+            line-height: 1.33em;
+        }
+        &__text {
+            padding: 25px 20px;
+        }
+        &__text-text {
+            line-height: 1.6em;
+        }
+    }
+}
+
+.brands {
+    padding: 60px 0;
+    .title {
+        margin-bottom: 50px;
+    }
+    &__slider {
+        width: 100%;
+    }
+    &__slider img {
+        height: 70px;
+        padding: 0 10px;
+    }
+    &__slider:first-child {
+        margin-bottom: 24px;
+    }
+    .double-slider-wrapper {
+        padding: 0 100px;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 58px;
+    }
+    .arrows {
+        position: absolute;
+        width: 100%;
+        left: 0;
+        top: 50%;
+        transform: translate(0, -50%);
+    }
+    .delimiter {
+        margin-bottom: 60px;
+    }
+    @include to(950px) {
+        .double-slider-wrapper {
+            @include shift-padding-left(2);
+            padding-right: 86px;
+        }
+        .title {
+            margin-bottom: 50px;
+        }
+    }
+    @include to(575px) {
+        padding: 40px 0;
+        .delimiter {
+            display: none;
+        }
+        .title {
+            margin-bottom: 24px;
+        }
+        .double-slider-wrapper {
+            padding: 0 75px;
+            margin-bottom: 40px;
+        }
+    }
+}
+
+.concept-block {
+    display: inline-flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    @include size(5);
+    .title {
+        width: 100%;
+    }
+    .logo-with-slogan {
+        @include size(2.4);
+    }
+    .text {
+        @include size(9.6);
+    }
+    .text p:not(:last-child) {
+        margin-bottom: 1.6em;
+    }
+    @include to(950px) {
+        width: 100%;
+    }
+    @include to(768px) {
+        .logo-with-slogan {
+            @include size(1.9);
+        }
+        .text {
+            @include size(10.1);
+        }
+    }
+    @include to(575px) {
+        .logo-with-slogan {
+            width: var(--self-width);
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 20px;
+        }
+        .text {
+            width: 100%;
+        }
+    }
+}
+
+.mailing-block {
+    display: inline-flex;
+    flex-wrap: wrap;
+    margin-left: auto;
+    @include size(5);
+    @include shift(1);
+    @include to(1024px) {
+        @include size(6);
+        @include shift-left(1);
+        @include shift-right(0);
+    }
+    @include to(950px) {
+        margin-left: 0;
+        margin-right: 0;
+        margin-top: 60px;
+        width: 100%;
+        .mailing-form {
+            @include shift-padding-left(2.3);
+        }
+    }
+    .title {
+        width: 100%;
+    }
+    @include to(575px) {
+        margin-top: 40px;
+        .mailing-form {
+            padding-left: 0;
+        }
+    }
+}
+
+.mailing-form {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    legend {
+        color: var(--yellow);
+        margin-bottom: 10px;
+        @include fontSizeLhToEm(24, 38);
+    }
+    button {
+        border: none;
+        font-family: $default-font;
+        width: 190px;
+    }
+    input,
+    textarea {
+        background: transparent;
+        border: none;
+        font-size: 14px;
+        line-height: 22px;
+        font-family: Raleway;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 13px;
+        line-height: 13px;
+    }
+    input::placeholder,
+    textarea::placeholder {
+        color: var(--white);
+    }
+    textarea {
+        resize: none;
+        height: calc(1.6em * 3);
+    }
+    .input-group {
+        position: relative;
+        display: flex;
+        align-items: flex-start;
+        padding-bottom: 25px;
+        margin-right: auto;
+    }
+    .input-group:first-child {
+        width: calc(100% - 190px - 18px);
+    }
+    .checkbox-group {
+        margin-top: 42px;
+    }
+    .checkbox-group:after {
+        display: none;
+        // margin-top: 42px;
+    }
+    .checkbox-group.unfilled .toggle {
+        --border-color: red;
+    }
+    .input-group svg {
+        margin-right: 20px;
+        align-self: center;
+    }
+    .input-group:after {
+        content: '';
+        position: absolute;
+        height: 2px;
+        width: 100%;
+        background-color: rgba(227, 212, 207, 0.5);
+        left: 0;
+        bottom: 0;
+        transition: .5s;
+    }
+    .input-group.unfilled:after {
+        background-color: red;
+    }
+    .toggle__text {
+        font-weight: 500;
+        font-size: 12px;
+        line-height: 20px;
+    }
+    .toggle__label {
+        padding-left: 35px;
+    }
+    [type=submit]:disabled,
+    [type=submit]:disabled .button-std__icon {
+        background-color: var(--gray);
+        pointer-events: none;
+    }
+    .icon--letter {
+        width: 17px;
+        height: 10px;
+    }
+    @include from(1720px) {
+        width: 90%;
+        margin-left: auto;
+        legend {
+            @include fontSizeLhToEm(36, 38);
+            margin-bottom: 30px;
+        }
+        input,
+        textarea {
+            @include fontSizeLhToEm(18, 22);
+        }
+        .input-group {
+            padding-bottom: 20px;
+        }
+        .input-group svg {
+            width: 18px;
+            height: 18px;
+            margin-right: 20px;
+            align-self: center;
+        }
+        textarea {
+            resize: none;
+            height: calc(1.6em * 2);
+        }
+        button {
+            --icon-width: 40px;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 30px;
+            width: 210px;
+        }
+    }
+    @include to(575px) {
+        .input-group:first-child {
+            width: 100%;
+        }
+        button {
+            order: 2;
+            margin-left: auto;
+            margin-right: auto;
+        }
     }
 }

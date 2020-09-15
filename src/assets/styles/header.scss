@@ -190,6 +190,16 @@ header {
         color: var(--black);
         text-decoration: none;
     }
+    @include from-to(769px, 1260px) {
+        &__right-group {
+            order: 2;
+        }
+        &__center-group {
+            order: 3;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    }
     @include to(1200px) {
         height: auto;
     }

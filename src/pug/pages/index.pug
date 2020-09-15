@@ -3,13 +3,14 @@ block variable
 	- var version = "ua";
 	
 block meta
-	title= 'ЖК Nordica Residence'
+	title= 'ENVY-сеть бутиков эксклюзивной женской одежды'
 	meta(name='description', content='')
 block head
 		link(rel='stylesheet', href="./assets/styles/main.min.css")
 block scripts
 	script(defer src='./assets/scripts/libs.js')
 	script(defer src='./assets/scripts/index.js')
+	script(defer src='./assets/scripts/forms-handler.js')
 	script(defer src='./assets/scripts/menu.js')
 	script(defer src='./assets/scripts/home.js')
 block content
@@ -90,44 +91,54 @@ block content
 		.title NEWS
 		+button-std('Смотреть все новости','medium')
 		.home-news-slider
-			.news-card
-				+img('home/news1.jpg').news-card__img
-				.news-card__text
-					.news-card__text-title.subtitle Коллекция мужских курток 2020
-					.news-card__text-text.text.pink-gray Мо́да (фр. mode, от лат. modus — мера, образ, способ, правило, предписание) — совокупность привычек, ценностей и вкусов.
-					+button-std('Читать новость','medium')
-			.news-card
-				+img('home/news1.jpg').news-card__img
-				.news-card__text
-					.news-card__text-title.subtitle Коллекция мужских курток 2020
-					.news-card__text-text.text.pink-gray Мо́да (фр. mode, от лат. modus — мера, образ, способ, правило, предписание) — совокупность привычек, ценностей и вкусов.
-					+button-std('Читать новость','medium')
-			.news-card
-				+img('home/news1.jpg').news-card__img
-				.news-card__text
-					.news-card__text-title.subtitle Коллекция мужских курток 2020
-					.news-card__text-text.text.pink-gray Мо́да (фр. mode, от лат. modus — мера, образ, способ, правило, предписание) — совокупность привычек, ценностей и вкусов.
-					+button-std('Читать новость','medium')
-			.news-card
-				+img('home/news1.jpg').news-card__img
-				.news-card__text
-					.news-card__text-title.subtitle Коллекция мужских курток 2020
-					.news-card__text-text.text.pink-gray Мо́да (фр. mode, от лат. modus — мера, образ, способ, правило, предписание) — совокупность привычек, ценностей и вкусов.
-					+button-std('Читать новость','medium')
-			.news-card
-				+img('home/news1.jpg').news-card__img
-				.news-card__text
-					.news-card__text-title.subtitle Коллекция мужских курток 2020
-					.news-card__text-text.text.pink-gray Мо́да (фр. mode, от лат. modus — мера, образ, способ, правило, предписание) — совокупность привычек, ценностей и вкусов.
-					+button-std('Читать новость','medium')
-			.news-card
-				+img('home/news1.jpg').news-card__img
-				.news-card__text
-					.news-card__text-title.subtitle Коллекция мужских курток 2020
-					.news-card__text-text.text.pink-gray Мо́да (фр. mode, от лат. modus — мера, образ, способ, правило, предписание) — совокупность привычек, ценностей и вкусов.
-					+button-std('Читать новость','medium')
-
-
+			- var n = 0;
+				while n < 5
+					.news-card
+						+img('home/news1.jpg').news-card__img
+						.news-card__text
+							.news-card__text-title.subtitle Коллекция мужских курток 2020
+							.news-card__text-text.text.pink-gray Мо́да (фр. mode, от лат. modus — мера, образ, способ, правило, предписание) — совокупность привычек, ценностей и вкусов.
+							+button-std('Читать новость','medium')
+					-n++
+	.home-block4.brands
+		.title БРЕНДЫ ENVY
+			- var brandsTop = ['Canali.svg','Corneliani.svg','Fabiana Filippi.svg','jacobcohen.svg','Luigi Bianchi Mantova.svg',];
+			- var brandsBottom = ['Max and Moi.svg','Moreschi.svg','Red Valentino.svg','stuartweitzman_logo 1.svg','Svevo.svg',];
+		.double-slider-wrapper
+			.brands__slider.brands__slider-top-js
+				each brand in  brandsTop
+					img(src="./assets/images/home/brands/"+brand)
+			.brands__slider.brands__slider-bottom-js
+				each brand in  brandsBottom
+					img(src="./assets/images/home/brands/"+brand)
+			.arrows
+				.arrow-prev.scene-nav.scene-nav--prev(data-nav='previous')
+					+svg('arrow')
+				.arrow-next.scene-nav.scene-nav--next(data-nav='next')
+					+svg('arrow')
+		.delimiter
+		.concept-block
+			.title ENVY CONCEPT STORE
+			+svg('logo-with-slogan').logo-with-slogan
+			.text.pink-gray
+				p Компанию «Галерея Мод» в 1996 году основали 3 человека: Аркадий Глусский, Игорь Альперович и Жанна Альперович. Сегодня компания имеет разветвленную сеть мужских и женских магазинов, в которых представлены коллекции ведущих мировых дизайнеров.
+				p Мужские магазины-монобренды KITON, CANALI, CORNELIANI, PATRICK HELLMANN и мультибреды PERSONA, PERSONA EXCLUSIVE, SAINT TROPEZ пользуются огромной популярностью у всех мужчин, следящих за модой и стремящихся выглядеть стильно, элегантно и современно. Управляют ими Аркадий Глусский и Игорь Альперович.
+				p Женскими бутиками руководит Жанна Альперович. Под ее началом и с помощью дружной компании профессионалов, знающих и искренне любящих свое дело, создается прекрасный, чарующий мир моды.
+				p Магазины с красивым названием «Envy» - это царство лучших итальянских и французских дизайнеров, роскошных нарядов, красоты и элегантности. Здесь Вам помогут обрести свой стиль и уверенность в себе.
+		.mailing-block
+			.title ПОДПИСАТСЯ НА РАССЫЛКУ НОВОСТЕЙ
+			form.mailing-form(data-name="contact-form")
+				.input-group
+					+svg('letter')
+					.input-group__icon
+					input(autocomplete="off" name="e-mail" data-required="true" type="text" data-pattern="^([a-z0-9_-]+\.)*[a-z0-9_-]+@[a-z0-9_-]+(\.[a-z0-9_-]+)*\.[a-z]{2,6}$" placeholder="Ваш e-mail")
+				button.button-std.medium.green.green-light-icon.text-white.submit-js(type="submit")
+					span Подписатся
+				.page__toggle.checkbox-group.input-group
+					label.toggle
+						input.toggle__input(type='checkbox' data-required="true")
+						span.toggle__label
+							span.toggle__text.text Нажав на кнопку «Подписаться», я подтверждаю свое согласие с политикой конфиденциальности Envy Concept Store и условиями предоставления услуг, а также согласие на получение касающейся учетной записи информации от компании envy concept store
 block footer
 block header
 
