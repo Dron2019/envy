@@ -1,0 +1,108 @@
+extends ../layout/main
+block variable
+	- var version = "ua";
+	- var pageName = "catalogue";
+block meta
+	title= ' '
+	meta(name='description', content='')
+block scripts
+	script(defer src='./assets/scripts/libs.js')
+	script(defer src='./assets/scripts/index.js')
+	script(defer src='./assets/scripts/forms-handler.js')
+	script(defer src='./assets/scripts/menu.js')
+	script(defer src="./assets/scripts/catalogue.js")
+block head
+	link(rel='stylesheet', href="./assets/styles/main.min.css")
+block content
+	+breadcrumbs(['index.html','catalogue.html','#'],['Главная','Каталог','Обувь'])
+	.content-block.catalogue
+		.catalogue__left
+			.goods-dropdown
+				.goods-dropdown__article
+					.goods-dropdown__article-title 
+						+svg('coat').goods-dropdown__article-icon
+						span Одежда
+						+svg('birdy')
+					.goods-dropdown__article-content
+						a(href="#") Платья
+						a(href="#") Блузы и топы
+						a(href="#") Брюки
+						a(href="#") Юбки
+						a(href="#") Костюмы
+						a(href="#") Пиджаки
+						a(href="#") Комбинезоны
+						a(href="#") Футболки
+						a(href="#") Шорты
+						a(href="#") Джинсовая одежда
+						a(href="#") Рубашки
+						a(href="#") Трикотажная одежда
+						a(href="#") Верхняя одежда
+						a(href="#") Пляжная одежда
+				.goods-dropdown__article
+					.goods-dropdown__article-title 
+						+svg('shoe').goods-dropdown__article-icon
+						span Обувь
+						+svg('birdy')
+					.goods-dropdown__article-content
+						a(href="#") Платья
+						a(href="#") Блузы и топы
+						a(href="#") Брюки
+						a(href="#") Юбки
+						a(href="#") Костюмы
+						a(href="#") Пиджаки
+					
+				.goods-dropdown__article
+					.goods-dropdown__article-title 
+						+svg('bag').goods-dropdown__article-icon
+						span Акксесуары
+						+svg('birdy')
+					.goods-dropdown__article-content
+						a(href="#") Платья
+						a(href="#") Блузы и топы
+				.goods-dropdown__article
+					.goods-dropdown__article-title 
+						+svg('maneken-stand').goods-dropdown__article-icon
+						span Бренды
+						+svg('birdy')
+					.goods-dropdown__article-content
+						a(href="#") Платья
+						a(href="#") Блузы и топы
+						a(href="#") Брюки
+						a(href="#") Юбки
+		.catalogue__right
+			.catalogue-slider.main-screen-slider.catalogue-slider-js
+				.slide-text
+					.subtitle.black BNW collection
+					.text.pink-gray Коллекция женской одежды от производителя Envy  весна-осень 2020
+					+button-std('Смотреть коллекцию','medium ')
+					.counter 
+						span.current.text.pink-gray  1
+						span.all  4
+				.slide(data-subtitle="BNB Collection" data-text="Коллекция женской одежды от производителя Envy  весна-осень 2020")
+					.slide-title Action/ акционные предложения
+					+img("catalogue/promotion-slide1.jpg")
+				.slide(data-subtitle="BNB Collection1" data-text="Коллекция женской одежды от производителя Envy  весна-осень 2020")
+					.slide-title Action/ акционные предложения
+					+img("catalogue/promotion-slide1.jpg")
+				.slide(data-subtitle="BNB Collection2" data-text="Коллекция женской одежды от производителя Envy  весна-осень 2020 Коллекция женской одежды от производителя Envy  весна-осень 2020 Коллекция женской одежды от производителя Envy  весна-осень 2020")
+					.slide-title Action/ акционные предложения
+					+img("catalogue/promotion-slide1.jpg")
+				.slide(data-subtitle="BNB Collection3" data-text="Коллекция женской одежды от производителя Envy  весна-осень 2020")
+					.slide-title Action/ акционные предложения
+					+img("catalogue/promotion-slide1.jpg")
+				.slide(data-subtitle="BNB Collection4" data-text="Коллекция женской одежды от производителя Envy  весна-осень 2020")
+					.slide-title Action/ акционные предложения
+					+img("catalogue/promotion-slide1.jpg")
+				.slide-custom-dots.slide-custom-dots-js
+			.special-offer
+				.special-offer-title.dark Sale/ специальные предложения
+				+img('catalogue/special1.jpg').special-offer-img 
+			.special-offer
+				.special-offer-title.white New/ новые поступления
+				+img('catalogue/special2.jpg').special-offer-img 
+			.catalogue-brands
+				-var brands = ['charo-ruiz.svg','Fabiana Filippi.svg','jacobcohen.svg','Kiton.svg','Max and Moi.svg','MC2.svg','Moorer.svg','Red Valentino.svg','stuartweitzman_logo 1.svg'];
+				each val in brands
+					img(src="assets/images/catalogue/brands/"+val)
+block footer
+block header

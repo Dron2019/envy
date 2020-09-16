@@ -26,6 +26,7 @@ $('.home-news-slider').slick({
     slidesToShow: 4,
     slide: '.news-card',
     arrows: false,
+    touchThreshold: 10,
     initialSlide: 0,
     responsive: [{
             breakpoint: 1480,

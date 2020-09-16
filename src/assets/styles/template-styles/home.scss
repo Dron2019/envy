@@ -2,6 +2,11 @@
     padding-left: 90px;
     padding-right: 50px;
     z-index: 5;
+    @include from-to(769px, 1100px) {
+        --side-fields: 25px;
+        padding-left: var(--side-fields);
+        padding-right: var(--side-fields);
+    }
     @include to(768px) {
         padding-left: var(--side-fields);
         padding-right: var(--side-fields);
