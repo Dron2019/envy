@@ -8,10 +8,16 @@
 
 .text {
     // @include fontSizeLhToEm(14, 20);
+    &.text-smaller {
+        font-size: 13px;
+    }
     font-size: 14px;
     line-height: 1.6em;
     &.pink-gray {
         color: #6B586B;
+    }
+    &.gray {
+        color: #A0A0A0;
     }
 }
 
@@ -22,6 +28,42 @@
     .current {}
     .current:after {
         content: ' /';
+    }
+}
+
+.content-block {
+    position: relative;
+    padding-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    &.with-line:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 1px;
+        width: calc(100% + var(--side-fields));
+        background-color: #F9F3F0;
+    }
+    @include from(576px) {
+        &__left {
+            @include size(3);
+        }
+        &__right {
+            @include size(9);
+        }
+    }
+    @include from(951px) {
+        &__left {
+            @include size(2);
+        }
+        &__right {
+            @include size(10);
+        }
+    }
+    @include to(575px) {
+        padding-top: 10px;
     }
 }
 
@@ -84,9 +126,16 @@
         border: 1px solid var(--black);
         cursor: pointer;
         // border-right-color: transparent;
-        transition: .7s;
+        // transition: .7s;
+        background: linear-gradient(267.71deg, #ffffff 0%, #ffffff 100%);
     }
     @include from(769px) {
+        .arrow-prev:hover,
+        .arrow-next:hover {
+            border-left: none;
+            border-color: transparent;
+            background: linear-gradient(267.71deg, #FF8298 0%, #FFDEAC 100%);
+        }
         .arrow-prev:hover svg,
         .arrow-next:hover svg {
             transform-origin: center;
@@ -100,11 +149,6 @@
         &.blue .arrow-next:hover svg rect,
         &.blue .arrow-prev:hover svg rect {
             fill: var(--black);
-        }
-        .arrow-prev:hover,
-        .arrow-next:hover {
-            background-color: var(--blue);
-            border-color: var(--blue);
         }
     }
     svg {
@@ -129,7 +173,7 @@
 
 .delimiter {
     width: 100%;
-    height: 2px;
+    height: 1px;
     background-color: #E3D4CF;
 }
 
@@ -243,5 +287,264 @@
             background-size: contain;
             margin-right: 10px;
         }
+    }
+}
+
+.select-std {
+    position: relative;
+    width: max-content;
+    &:focus-within::before {
+        transform: rotate(180deg);
+    }
+    &::before {
+        transition: .5s;
+        transform-origin: center;
+        position: absolute;
+        content: '';
+        right: 20px;
+        background-image: url(../images/common/select-birdy.svg);
+        background-repeat: no-repeat;
+        background-size: contain;
+        top: 50%;
+        width: 6px;
+        height: 3px;
+        z-index: 2;
+        transform: translateY(-50%);
+    }
+    select {
+        position: relative;
+        border: 1px solid #F9F3F0;
+        padding: 11px 20px;
+        width: 190px;
+        z-index: 1;
+        background: #ffffff;
+        -moz-appearance: none;
+        /* Firefox */
+        -webkit-appearance: none;
+        /* Safari and Chrome */
+        appearance: none;
+    }
+    &:focus-within .custom-options {
+        opacity: 1;
+    }
+    .custom-options {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        opacity: 0;
+        background-color: red;
+    }
+    option {
+        padding: 11px 20px;
+        background-color: #ffffff;
+        border: none;
+        display: inline-block;
+        line-height: 2em;
+        height: 30px;
+    }
+    @include from(1680px) {
+        select {
+            width: 240px;
+        }
+    }
+}
+
+.product-card {
+    --like-button-width: 16px;
+    --image-height: 250px;
+    &__top-block {
+        position: relative;
+    }
+    &__bottom-block {
+        padding: 30px 20px;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        transition: background-color .5s ease-out;
+    }
+    &__top-block-text {
+        position: absolute;
+        left: 30px;
+        top: 20px;
+        display: flex;
+        flex-direction: column;
+        padding-left: calc(var(--like-button-width) + 10px);
+    }
+    &__img {
+        height: var(--image-height);
+        object-fit: cover;
+        object-position: center;
+    }
+    &__like-button {
+        width: var(--like-button-width);
+        height: 14px;
+        position: absolute;
+        left: 0;
+        top: 0;
+    }
+    &__like-button.liked {
+        fill: red;
+    }
+    &__promotion-item {
+        clip-path: polygon(100% 0, 0 0, 100% 100%);
+        --side: 70px;
+        width: var(--side);
+        height: var(--side);
+        color: var(--white);
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 14px;
+        position: absolute;
+        right: 0;
+        top: 0;
+        span {
+            display: inline-block;
+            width: var(--side);
+            text-align: center;
+            // transform-origin: top left;
+            transform: /*translate(35px, 0px) */
+            rotate(45deg) translate(24%, 24%);
+            font-size: 14px;
+            line-height: 14px;
+        }
+    }
+    &__promotion-item.red {
+        background-color: #EB5757;
+    }
+    &__promotion-item.black {
+        background-color: #222222;
+    }
+    &__promotion-item.orange {
+        background-color: #F2994A;
+    }
+    &__price {
+        line-height: 1em;
+        margin-bottom: 5px;
+    }
+    &__special-price {
+        font-size: 10px;
+        line-height: 10px;
+        color: #EB5757;
+    }
+    &__special-price.strike {
+        text-decoration-line: line-through;
+    }
+    &:not(.liked) g.liked {
+        opacity: 0;
+    }
+    &.liked g.unliked {
+        opacity: 0;
+    }
+    &.liked g.liked {
+        opacity: 1;
+    }
+    &__name {
+        font-weight: bold;
+        font-size: 14px;
+        line-height: 20px;
+        width: 100%;
+        margin-bottom: 10px;
+    }
+    &__desc {
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 22px;
+        color: var(--light-gray);
+        width: 100%;
+        margin-bottom: 20px;
+    }
+    &__buy-button {
+        width: 120px;
+    }
+    &__link {
+        margin-left: auto;
+        font-size: 13px;
+        text-decoration: none;
+        color: var(--black);
+    }
+    .icon--product-card-bag {
+        width: 12px;
+        height: 18px;
+    }
+    .icon--product-card-arrow {
+        margin-left: 10px;
+        width: 14px;
+        height: 10px;
+    }
+    @include from(1680px) {
+        --image-height: 320px;
+    }
+    @include from(769px) {
+        &:hover &__bottom-block {
+            background-color: #E7E2E0;
+        }
+    }
+    @include to(575px) {
+        --like-button-width: 12px;
+        --image-height: 45vw;
+        &__like-button {
+            height: 10px;
+        }
+        &__promotion-item {
+            --side: 46px;
+            span {
+                transform: rotate(45deg) translate(20%, 10%);
+                font-size: 10px;
+                line-height: 14px;
+            }
+        }
+    }
+}
+
+.pagination {
+    display: flex;
+    font-weight: 500;
+    width: max-content;
+    a {
+        color: var(--black);
+        text-decoration: none;
+    }
+    a.innactive {
+        color: #E3D4CF;
+        text-decoration: none;
+    }
+    .back>svg {
+        transform: rotate(180deg);
+    }
+    .to-start>svg {
+        transform: rotate(180deg);
+        margin-right: 10px;
+    }
+    .to-finish>svg {
+        margin-left: 10px;
+    }
+    .icon--double-birdy {
+        width: 9px;
+        height: 10px;
+    }
+    .icon--arrow {
+        width: 14px;
+        height: 10px;
+    }
+    .digit {
+        --self-side: 30px;
+        width: var(--self-side);
+        height: var(--self-side);
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .digit:after {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        border: 1px solid var(--black);
+        display: inline-block;
+        transform: rotate(-45deg);
     }
 }

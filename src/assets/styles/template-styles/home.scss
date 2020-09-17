@@ -1,5 +1,5 @@
 .page__inner {
-    padding-left: 90px;
+    padding-left: 50px;
     padding-right: 50px;
     z-index: 5;
     @include from-to(769px, 1100px) {
@@ -18,7 +18,7 @@
         position: relative;
     }
     .slide img {
-        height: 50vh;
+        height: 65vh;
         width: 100%;
         object-fit: cover;
         object-position: left top;
@@ -60,6 +60,11 @@
         -webkit-box-orient: vertical;
         line-clamp: 2;
         box-orient: vertical;
+    }
+    @include from(1680px) {
+        .slide-text {
+            @include size(3);
+        }
     }
     @include to(1200px) {
         .slide-text {
@@ -152,25 +157,34 @@
         width: 85%;
         height: calc(100% - var(--part-block-start-padding) * 2);
     }
+    &__part>svg rect {
+        transition: .7s ease-out;
+    }
     @include from(1680px) {
         &__part>svg {
             stroke-width: 20;
         }
     }
     @include from(769px) {
-        &__part:first-child:hover .title-large {
-            transition-timing-function: ease-out;
-            transform: translateX(3%);
+        &__part:hover rect {
+            stroke-width: 30;
         }
-        &__part:last-child:hover .title-large {
-            transition-timing-function: ease-out;
-            transform: translateX(-3%);
-        }
+        // &__part:first-child:hover .title-large {
+        //     transition-timing-function: ease-out;
+        //     transform: translateX(3%);
+        // }
+        // &__part:last-child:hover .title-large {
+        //     transition-timing-function: ease-out;
+        //     transform: translateX(-3%);
+        // }
     }
     @include to(1150px) {
         --part-block-start-padding: 40px;
         &__part {
             height: 40vh;
+        }
+        &__part .title-large {
+            // padding-top: 3.2em;
         }
     }
     @include from-to(769px, 1024px) {
@@ -232,7 +246,7 @@
 }
 
 .home-news {
-    background: #E5E5E5;
+    background: #F5F5F5;
     padding-left: 90px;
     padding-right: 50px;
     --vert-padding: 80px;
@@ -277,6 +291,7 @@
 }
 
 .news-card {
+    transition: transform .7s ease-out;
     &__text {
         padding: 32px 50px;
         background-color: #fff;
@@ -293,6 +308,14 @@
         transition: var(--transition);
         object-fit: cover;
         object-position: left top;
+    }
+    @include from(769px) {
+        &:hover &__img {
+            filter: none;
+        }
+        &:hover {
+            transform: scale(1.05);
+        }
     }
     @include to(575px) {
         &__text-title {
@@ -417,6 +440,11 @@
         @include shift-left(1);
         @include shift-right(0);
     }
+    @include from(1680px) {
+        .title {
+            padding-right: 10%;
+        }
+    }
     @include to(950px) {
         margin-left: 0;
         margin-right: 0;
@@ -527,8 +555,9 @@
         height: 10px;
     }
     @include from(1720px) {
-        width: 90%;
-        margin-left: auto;
+        .input-group:first-child {
+            padding-top: 10px;
+        }
         legend {
             @include fontSizeLhToEm(36, 38);
             margin-bottom: 30px;
@@ -554,8 +583,9 @@
             --icon-width: 40px;
             margin-left: auto;
             margin-right: auto;
-            margin-top: 30px;
+            // margin-top: 30px;
             width: 210px;
+            margin-bottom: auto;
         }
     }
     @include to(575px) {

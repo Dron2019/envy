@@ -1,5 +1,5 @@
 header {
-    padding: 25px var(--side-fields) 25px 90px;
+    padding: 25px var(--side-fields) 25px var(--side-fields);
     position: relative;
     z-index: 6;
     @include from-to(769px, 1100px) {
@@ -68,6 +68,13 @@ header {
         height: 14px;
     }
     @include from(769px) {
+        position: relative;
+        .main-logo {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translateX(-50%) translateY(-50%);
+        }
         .callback-form-mobile {
             display: none;
         }
@@ -162,6 +169,30 @@ header {
             padding-right: 20px;
             position: relative;
         }
+        li>a {
+            overflow-y: hidden;
+            overflow-x: visible;
+            position: relative;
+            span {
+                display: inline-block;
+                -webkit-transition: -webkit-transform 0.3s;
+                -moz-transition: -moz-transform 0.3s;
+                transition: transform 0.3s;
+            }
+        }
+        li>a:before {
+            position: absolute;
+            right: 0;
+            top: 100%;
+            content: attr(data-hover);
+            font-weight: normal !important;
+            -webkit-transform: translate3d(0, 0, 0);
+            -moz-transform: translate3d(0, 0, 0);
+            transform: translate3d(0, 0, 0);
+            -webkit-transition: -webkit-transform 0.3s;
+            -moz-transition: -moz-transform 0.3s;
+            transition: transform 0.3s;
+        }
         li.dropdown .dropdown-content a span {
             position: relative;
             z-index: 2;
@@ -195,6 +226,16 @@ header {
         color: var(--black);
         text-decoration: none;
     }
+    @include from(1260px) {
+        &__center-group {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+    }
+    @include from(1680px) {
+        --between-margin: 60px;
+    }
     @include from-to(769px, 1260px) {
         &__right-group {
             order: 2;
@@ -209,6 +250,20 @@ header {
         height: auto;
     }
     @include from(769px) {
+        li>a:hover span {
+            -webkit-transform: translate3d(0, 0, 0);
+            -moz-transform: translate3d(0, 0, 0);
+            transform: translate3d(0, -100%, 0);
+        }
+        li>a:hover:before {
+            position: absolute;
+            top: 100%;
+            content: attr(data-hover);
+            font-weight: 500;
+            -webkit-transform: translate3d(0, 0, 0);
+            -moz-transform: translate3d(0, 0, 0);
+            transform: translate3d(0, -100%, 0);
+        }
         .mobile-tablet-menu-button {
             display: none;
         }
@@ -411,9 +466,6 @@ header {
             stroke: var(--black);
             fill: var(--black);
         }
-        &:hover>svg {
-            transform: translateX(-3px);
-        }
     }
 }
 
@@ -474,6 +526,33 @@ header {
     cursor: pointer;
     &__text {
         transition: var(--transition);
+        color: var(--black);
+        text-decoration: none;
+        position: relative;
+        -webkit-transition: -webkit-transform 0.3s;
+        -moz-transition: -moz-transform 0.3s;
+        transition: transform 0.3s;
+        span {
+            display: inline-block;
+            transform: translate3d(0, 0%, 0);
+            -webkit-transition: -webkit-transform 0.3s;
+            -moz-transition: -moz-transform 0.3s;
+            transition: transform 0.3s;
+        }
+    }
+    &__text:before {
+        pointer-events: none;
+        position: absolute;
+        top: 100%;
+        content: attr(data-hover);
+        right: 0;
+        font-weight: 600;
+        -webkit-transition: -webkit-transform 0.3s;
+        -moz-transition: -moz-transform 0.3s;
+        transition: transform 0.3s;
+        -webkit-transform: translate3d(0, 0, 0);
+        -moz-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
     }
     &>svg {
         margin-right: 20px;
@@ -489,21 +568,31 @@ header {
         height: 21px;
     }
     @include from(769px) {
+        overflow: hidden;
         &__short-text {
             display: none;
         }
-        &:hover &__text {
-            transform: translateX(-5px);
+        &:hover &__text:before {
+            -webkit-transition: -webkit-transform 0.3s;
+            -moz-transition: -moz-transform 0.3s;
+            transition: transform 0.3s;
+            transform: translate3d(0, -100%, 0);
         }
-        &:hover .icon--key,
-        &:hover .icon--heart {
-            transform: /* rotate(-90deg)*/
-            translateY(-5px);
+        &:hover &__text span {
+            transform: translate3d(0, -100%, 0);
         }
-        &:hover .icon--entry,
-        &:hover .icon-bucket {
-            transform: translateY(-5px);
-        }
+        // &:hover &__text {
+        //     transform: translateX(-5px);
+        // }
+        // &:hover .icon--key,
+        // &:hover .icon--heart {
+        //     transform: /* rotate(-90deg)*/
+        //     translateY(-5px);
+        // }
+        // &:hover .icon--entry,
+        // &:hover .icon-bucket {
+        //     transform: translateY(-5px);
+        // }
     }
     @include to(768px) {
         .bucket &__text {

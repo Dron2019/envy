@@ -7,8 +7,9 @@ $('.main-screen-slider-js').on('init', function(event, slickObject, current, nex
 })
 $('.main-screen-slider-js').on('beforeChange', function(event, slickObject, current, next) {
 
-    gsap.fromTo(slickObject.changeText, { rotationX: -180, autoAlpha: 0 }, { autoAlpha: 1, duration: 1, rotationX: 0 })
-    gsap.fromTo(slickObject.changeSubtitle, { rotationX: -180, autoAlpha: 0 }, { autoAlpha: 1, duration: 1, rotationX: 0 })
+
+    // gsap.fromTo(slickObject.changeText, { scaleY: 0, autoAlpha: 0 }, { transformOrigin: 'top', scaleY: 1, autoAlpha: 1, duration: 1, })
+    // gsap.fromTo(slickObject.changeSubtitle, { scaleY: 0, autoAlpha: 0 }, { transformOrigin: 'top', scaleY: 1, autoAlpha: 1, duration: 1, })
     slickObject.changeText.innerHTML = slickObject.$slides[next].dataset.text;
     slickObject.changeSubtitle.innerHTML = slickObject.$slides[next].dataset.subtitle;
     slickObject.currentCounter.innerHTML = next + 1;
@@ -96,3 +97,20 @@ $('.brands__slider-bottom-js').slick({
     ],
 
 });
+
+
+
+let homeBlock2Parts = document.querySelectorAll('.home-block2__part');
+
+homeBlock2Parts.forEach(part => {
+    part.hoverGradient = part.querySelectorAll('linearGradient')[1].id;
+    part.regularGradient = part.querySelectorAll('linearGradient')[0].id;
+    console.log(part.hoverGradient);
+    console.log(part.regularGradient);
+    part.addEventListener('mouseover', function(evt) {
+        part.querySelector('rect').setAttribute('stroke', `url(#${part.hoverGradient})`);
+    });
+    part.addEventListener('mouseout', function(evt) {
+        part.querySelector('rect').setAttribute('stroke', `url(#${part.regularGradient})`);
+    });
+})

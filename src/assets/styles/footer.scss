@@ -22,8 +22,9 @@
     padding-left: 90px;
     padding-right: var(--side-fields);
     margin-right: calc(var(--side-fields) - (var(--side-fields) * 2));
-    padding: 80px var(--side-fields) 120px 90px;
+    padding: 80px var(--side-fields) 90px 90px;
     /* identical to box height, or 160% */
+    @include from(1680px) {}
     @include to(768px) {
         width: calc(100% + var(--side-fields) * 2);
         margin-right: calc(var(--side-fields) - (var(--side-fields) * 2));
@@ -152,6 +153,11 @@
             transform: scaleX(1);
         }
     }
+    @include from(1680px) {
+        &__group {
+            padding-left: 7%;
+        }
+    }
     @include from-to(769px, 950px) {
         &__group {
             width: 33%;
@@ -259,6 +265,15 @@
         line-height: 2.42em;
     }
     @include from(1720px) {
+        &__text-block {
+            margin-left: 0;
+        }
+        .all-rights-phrase {
+            margin-right: 60px;
+        }
+        &__text-block {
+            width: 80%;
+        }
         &__text-block>*:not(:last-child) {
             margin-right: 60px;
         }

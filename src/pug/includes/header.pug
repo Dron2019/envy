@@ -28,26 +28,30 @@ header
         .mobile-tablet-menu
         ul.header-bottom__menu
             li 
-                a(href="about.html") О компании
+                a(href="about.html"  data-hover="О компании") 
+                    span О компании
             li 
-                a(href="news.html") Новости
+                a(href="news.html"  data-hover="Новости") 
+                    span Новости
             li.dropdown 
                 .dropdown-title Сервис
                 .dropdown-content
-                    a(href="") 
+                    a(href="#" data-hover="0")
                         span Обмен и возврат
-                    a(href="") 
+                    a(href="#" data-hover="0")
                         span Оплата и доставка
-                    a(href="") 
+                    a(href="#" data-hover="0")
                         span Вопрос ответ
-                    a(href="") 
+                    a(href="#" data-hover="0")
                         span Услуги портного в магазинах
-                    a(href="") 
+                    a(href="#" data-hover="0")
                         span Личный проффесиональный стилист
             li 
-                a(href="shops.html") Магазины
+                a(href="shops.html" data-hover="Магазины") 
+                    span Магазины
             li 
-                a(href="contacts.html") Контакты
+                a(href="contacts.html" data-hover="Контакты") 
+                    span Контакты
         .header-bottom__center-group
             a.button-std.no-bg.medium(href="catalogue.html").catalogue-links
                 <svg class="will-change-color" width="11" height="14" viewBox="0 0 13 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -84,36 +88,33 @@ header
         .header-bottom__right-group
             .sign-with-icon.sign-up
                 +svg('key')
-                .sign-with-icon__text Регистрация
+                a(href="#" data-hover="Регистрация").sign-with-icon__text 
+                    span Регистрация
             .sign-with-icon.sign-in
-                //- <svg class="icon--entry" width="18" height="16" viewBox="0 0 18 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                //-     <path d="M13.4505 0.999999L16.9998 0.999999L16.9998 15L13.4505 15C13.375 15 13.3026 14.9716 13.2491 14.9212C13.1957 14.8707 13.1657 14.8022 13.1657 14.7308C13.1657 14.6594 13.1957 14.5909 13.2491 14.5404C13.3026 14.4899 13.375 14.4615 13.4505 14.4615L16.4301 14.4615L16.4301 1.53846L13.4505 1.53846C13.375 1.53846 13.3026 1.51011 13.2491 1.45962C13.1957 1.40913 13.1657 1.34063 13.1657 1.26923C13.1657 1.19783 13.1957 1.12933 13.2491 1.07884C13.3026 1.02835 13.375 0.999999 13.4505 0.999999ZM0.999756 8C0.999756 8.0714 1.02972 8.1399 1.08314 8.19039C1.13656 8.24088 1.20906 8.26923 1.28461 8.26923L12.7811 8.26923L9.28885 11.6723C9.23835 11.7224 9.21019 11.7889 9.21019 11.8581C9.21019 11.9272 9.23835 11.9938 9.28885 12.0439C9.31533 12.0691 9.34684 12.0891 9.38155 12.1028C9.41626 12.1164 9.45348 12.1235 9.49108 12.1235C9.52868 12.1235 9.56597 12.1164 9.60068 12.1028C9.63539 12.0891 9.6669 12.0691 9.69338 12.0439L13.6471 8.17231L13.8407 7.98117L9.69338 3.92115C9.6669 3.89591 9.63539 3.87589 9.60068 3.86222C9.56597 3.84855 9.52868 3.84151 9.49108 3.84151C9.45348 3.84151 9.41626 3.84855 9.38155 3.86222C9.34684 3.87589 9.31533 3.89591 9.28885 3.92115C9.23619 3.97449 9.20693 4.04472 9.20693 4.11768C9.20693 4.19064 9.23619 4.26091 9.28885 4.31425L12.7811 7.73077L1.28461 7.73077C1.20906 7.73077 1.13656 7.75912 1.08314 7.80961C1.02972 7.8601 0.999756 7.9286 0.999756 8Z" fill="url(#paint0_linear)" stroke="url(#paint1_linear)" stroke-width="0.3"/>
-                //-     <defs>
-                //-     <linearGradient id="paint0_linear" x1="0.999747" y1="1" x2="1.50872" y2="15.5422" gradientUnits="userSpaceOnUse">
-                //-     <stop stop-color="#FAA6A6"/>
-                //-     <stop offset="1" stop-color="#F8CEBC"/>
-                //-     </linearGradient>
-                //-     <linearGradient id="paint1_linear" x1="0.999747" y1="1" x2="1.50872" y2="15.5422" gradientUnits="userSpaceOnUse">
-                //-     <stop stop-color="#FAA6A6"/>
-                //-     <stop offset="1" stop-color="#F8CEBC"/>
-                //-     </linearGradient>
-                //-     </defs>
-                //-     </svg>
                 +svg('entry')
-                .sign-with-icon__text Вход
+                a(href="#" data-hover="Вход").sign-with-icon__text 
+                    span Вход
             .sign-with-icon.small.prefered-goods-counter
                 +svg('heart')
-                .sign-with-icon__text 0
+                a(href="#" data-hover="0").sign-with-icon__text 
+                    span 0
             .sign-with-icon.bucket
                 +svg('bucket')
-                .sign-with-icon__text Корзина (0)
+                a(href="#" data-hover="Корзина").sign-with-icon__text 
+                    span Корзина
                 .sign-with-icon__short-text 0
     .mobile-header-top
         .mobile-tablet-menu-button.mobile-tablet-menu-button-js(data-state-open="Меню" data-state-close="Закрити")
             <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <line data-number="1" x1="30" y1="10" x2="4.37114e-08" y2="10" stroke="#222222"></line>
-            <line data-number="2" x1="30" y1="20" x2="4.37114e-08" y2="20" stroke="#222222"></line>
-            </svg>
+                <g class="open-show">
+                    <line x1="30" y1="10.5" x2="4.37114e-08" y2="10.5" stroke="#222222"/>
+                    <line x1="30" y1="20.5" x2="4.37114e-08" y2="20.5" stroke="#222222"/>
+                </g>
+                <g class="close-show" style="opacity:0">
+                    <line style="transform-origin:center" x1="29.6491" y1="29.3562" x2="0.435722" y2="0.572686" stroke="#222222"/>
+                    <line style="transform-origin:center" x1="0.422679" y1="29.4136" x2="29.6492" y2="0.643613" stroke="#222222"/>
+                </g>
+                </svg>
             span Меню
         <img class="main-logo" src="./assets/images/logo.svg" alt="foto">
         .mobile-header-top__right

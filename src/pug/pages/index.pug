@@ -72,6 +72,10 @@ block content
 				<stop stop-color="#FAA6A6"/>
 				<stop offset="1" stop-color="#F8CEBC"/>
 				</linearGradient>
+				<linearGradient id="paint2_linear_hover" x1="667" y1="-0.000191107" x2="-22.484" y2="53.7876" gradientUnits="userSpaceOnUse">
+				<stop stop-color="#FF8298"/>
+				<stop offset="1" stop-color="#FFDEAC"/>
+				</linearGradient>
 				</defs>
 				</svg>
 		a(href="catalogue.html#woman").home-block2__part
@@ -82,6 +86,10 @@ block content
 				<linearGradient id="paint3_linear" x1="480" y1="0.285555" x2="-16.6884" y2="35.6056" gradientUnits="userSpaceOnUse">
 				<stop stop-color="#FAA6A6"/>
 				<stop offset="1" stop-color="#F8CEBC"/>
+				</linearGradient>
+				<linearGradient id="paint3_linear_hover" x1="667" y1="-0.000191107" x2="-22.484" y2="53.7876" gradientUnits="userSpaceOnUse">
+				<stop stop-color="#FF8298"/>
+				<stop offset="1" stop-color="#FFDEAC"/>
 				</linearGradient>
 				</defs>
 				</svg>
@@ -94,7 +102,7 @@ block content
 			- var n = 0;
 				while n < 5
 					.news-card
-						+img('home/news1.jpg').news-card__img
+						img(src="./assets/images/home/news"+n+".jpg").news-card__img
 						.news-card__text
 							.news-card__text-title.subtitle Коллекция мужских курток 2020
 							.news-card__text-text.text.pink-gray Мо́да (фр. mode, от лат. modus — мера, образ, способ, правило, предписание) — совокупность привычек, ценностей и вкусов.

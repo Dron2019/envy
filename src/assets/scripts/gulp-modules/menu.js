@@ -12,19 +12,26 @@ menuContent.show = function() {
 menuButtons.forEach(button => {
     button.addEventListener('click', function(evt) {
         button.classList.toggle('opened');
+        let openedGroup = button.querySelector('.open-show'),
+            closedGroup = button.querySelector('.close-show');
+
+        let tl = new TimelineMax({ paused: true, duration: 0.7 })
+            .fromTo(openedGroup.querySelectorAll('line'), { scale: 1 }, { duration: 0.2, scale: 0 }, '<')
+            .to(closedGroup, { duration: 0.2, autoAlpha: 1 })
+            .fromTo(closedGroup.querySelectorAll('line'), { scale: 0 }, { duration: 0.2, scale: 1 }, '<')
         if (button.classList.contains('opened')) {
             // buttonIconTransform.play();
             menuContent.show();
             console.log(button.dataset.stateClose);
             if (button.dataset.stateClose !== undefined) {
-                gsap.fromTo(button.querySelector('span'), { rotationX: -180, autoAlpha: 0 }, { autoAlpha: 1, duration: 1, rotationX: 0 });
+                tl.play();
                 button.querySelector('span').innerHTML = button.dataset.stateClose;
             }
         } else {
 
             menuContent.hide();
             if (button.dataset.stateOpen !== undefined) {
-                gsap.fromTo(button.querySelector('span'), { rotationX: -180, autoAlpha: 0 }, { autoAlpha: 1, duration: 1, rotationX: 0 });
+                tl.reverse(0);
                 button.querySelector('span').innerHTML = button.dataset.stateOpen;
             }
 
