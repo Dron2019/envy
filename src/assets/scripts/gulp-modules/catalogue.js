@@ -87,8 +87,18 @@ function switchSlickActiveDot(slickObject, prev, next) {
 
 
 /**Каталог выпадайка */
-const dropdownHandlerObject = {
+const catalogueItemsDropdown = {
     parentSelector: '.catalogue .goods-dropdown',
+    childArticle: '.goods-dropdown__article',
+    childTitle: '.goods-dropdown__article-title',
+    childcontent: '.goods-dropdown__article-content',
+    customCallback: function(title, trnsfrmValue) {
+        title.querySelector('.icon--birdy').style.transform = `rotate(${trnsfrmValue}deg)`;
+    }
+
+}
+const filterItemsDropdown = {
+    parentSelector: '.goods-dropdown-filter',
     childArticle: '.goods-dropdown__article',
     childTitle: '.goods-dropdown__article-title',
     childcontent: '.goods-dropdown__article-content',
@@ -135,4 +145,5 @@ function dropDownMenuHandling(config) {
     }
 };
 
-dropDownMenuHandling(dropdownHandlerObject);
+dropDownMenuHandling(catalogueItemsDropdown);
+// dropDownMenuHandling(filterItemsDropdown);

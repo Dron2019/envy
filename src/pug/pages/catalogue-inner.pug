@@ -15,9 +15,25 @@ block head
     link(rel='stylesheet', href="./assets/styles/main.min.css")
 block content
     +breadcrumbs(['index.html','catalogue.html','#'],['Главная','Каталог','Обувь'])
+    .catalogue-inner-navigation-mobile
+        div.filter-call-js Фильтр 
+        .select-std
+            select(name="")
+                option(value="") Категории
+                option(value="") Акционные 
+        .select-std
+            select(name="")
+                option(value="") Сортировка
+                option(value="") По рейтингу 
+                option(value="") От дешевых к дорогим 
+                option(value="") От дорогих к дешевым 
+                option(value="") Популярные 
+                option(value="") Новинки 
+                option(value="") По рейтингу
     .content-block.with-line.catalogue-inner
         .content-block__left
-            .goods-dropdown
+            // Catalog
+            .goods-dropdown.goods-dropdown-products
                 .goods-dropdown__article
                     .goods-dropdown__article-title 
                         span Одежда
@@ -37,6 +53,46 @@ block content
                         a(href="catalogue-inner.html") Трикотажная одежда
                         a(href="catalogue-inner.html") Верхняя одежда
                         a(href="catalogue-inner.html") Пляжная одежда
+                .goods-dropdown__article
+                    .goods-dropdown__article-title 
+                        span Материал
+                        +svg('birdy')
+                    .goods-dropdown__article-content
+                        a(href="catalogue-inner.html") Платья
+                        a(href="catalogue-inner.html") Блузы и топы
+                        a(href="catalogue-inner.html") Брюки
+                .goods-dropdown__article
+                    .goods-dropdown__article-title 
+                        span Застежка
+                        +svg('birdy')
+                    .goods-dropdown__article-content
+                        a(href="catalogue-inner.html") Платья
+                        a(href="catalogue-inner.html") Блузы и топы
+                        a(href="catalogue-inner.html") Брюки
+                .goods-dropdown__article
+                    .goods-dropdown__article-title 
+                        span Тематическая мода
+                        +svg('birdy')
+                    .goods-dropdown__article-content
+                        a(href="catalogue-inner.html") Платья
+                        a(href="catalogue-inner.html") Блузы и топы
+                        a(href="catalogue-inner.html") Брюки
+            // Filter
+            .subtitle.black Фильтр
+            .goods-dropdown.goods-dropdown-filter
+                .goods-dropdown__article
+                    .goods-dropdown__article-title 
+                        span Каблук
+                        +svg('birdy')
+                    .goods-dropdown__article-content
+                        - var chBx = 0;
+                            while chBx < 150
+                                .page__toggle.checkbox-group.for-filter
+                                    label.toggle
+                                        input.toggle__input(type='checkbox' data-required="true")
+                                        span.toggle__label
+                                            span.toggle__text.text #{chBx}мм
+                                -chBx += 15;
         .content-block__right
             .top-filter-wrap
                 .subtitle.black Обувь
@@ -61,7 +117,7 @@ block content
                             option(value="") По рейтингу
             .cards-container
                 - var n = 0;
-                    while n < 20
+                    while n < 2
                         .product-card.liked
                             .product-card__top-block
                                 img(src="./assets/images/product-card-img.jpg").product-card__img
@@ -161,5 +217,14 @@ block content
                 a(href="#").to-finish 
                     span В конец
                     +svg('double-birdy')
+        .invisible-block-js.invisible-block
+            .subtitle Фильтр
+            <svg class="close" width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <g class="close-show">
+                    <line style="transform-origin:center" x1="29.6491" y1="29.3562" x2="0.435722" y2="0.572686" stroke="#222222"/>
+                    <line style="transform-origin:center" x1="0.422679" y1="29.4136" x2="29.6492" y2="0.643613" stroke="#222222"/>
+                </g>
+                </svg>
+            +button-std('Применить','medium')
 block footer
 block header

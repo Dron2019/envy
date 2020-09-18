@@ -6,6 +6,7 @@
     --uiToggleColor: var(--toggleColor, #222);
     display: var(--toggleDisplay, inline-flex);
     position: relative;
+    align-items: center;
 }
 
 .toggle__input {
@@ -66,6 +67,7 @@
 
 .toggle__input:not(:disabled):checked~.toggle__label::after {
     opacity: 1;
+    border: 1px solid var(--toggleBorderColor);
 }
 
 .toggle__text {
@@ -201,4 +203,55 @@ SETTINGS
     --toggleColor: linear-gradient(267.71deg, #FAA6A6 0%, #F8CEBC 100%);
     --toggleBackgroundColor: linear-gradient(267.71deg, #FAA6A6 0%, #F8CEBC 100%);
     --toggleSize: 16px;
+    --toggleBorderColor: transparent;
+}
+
+.checkbox-group {
+    &.for-filter {
+        position: relative;
+        padding-bottom: 10px;
+        margin-top: 10px;
+    }
+    &.for-filter .toggle__text {
+        font-weight: 500;
+        color: var(--black);
+    }
+    &.for-filter .toggle {
+        --border-color: #E3D4CF;
+        --uiToggleBorderWidth: 1px;
+        --toggleColor: transparent;
+        --toggleBorderColor: var(--black);
+        --toggleArrowColor: var(--black);
+        --toggleIndent: 15px;
+        align-items: center;
+    }
+    &.for-filter .toggle__label:before,
+    &.for-filter .toggle__input:not(:disabled):checked~.toggle__label:after {
+        transform: rotate(0deg) translateY(3px);
+    }
+    &.for-filter .toggle__input:not(:disabled)~.toggle__label .toggle__text::before {
+        transform: rotate(-40deg) skew(10deg) translateY(3px) translateX(-2px);
+    }
+    &.for-filter:not(:last-child):after {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        height: 1px;
+        width: 100%;
+        background-color: #F9F3F0;
+    }
+    &.for-filter .toggle__input:not(:disabled)~.toggle__label .toggle__text::before {
+        background-image: url("data:image/svg+xml,%3Csvg width='9' height='8' viewBox='0 0 9 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 3.81372L3.75 7.31372L8.5 1.31372' stroke='%23222222' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E%0A");
+        content: '';
+        background-repeat: no-repeat;
+        background-size: contain;
+        transform: none;
+        top: 0;
+        left: 0;
+        border: none;
+        width: calc(var(--uiToggleSize) * 0.65);
+        height: calc(var(--uiToggleSize) * 0.65);
+        transform: translate(26%, 55%);
+    }
 }

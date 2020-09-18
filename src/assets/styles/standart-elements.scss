@@ -63,7 +63,13 @@
         }
     }
     @include to(575px) {
+        &.with-line:before {
+            width: 100%;
+        }
         padding-top: 10px;
+        &__left {
+            width: 100%;
+        }
     }
 }
 
@@ -353,6 +359,7 @@
 .product-card {
     --like-button-width: 16px;
     --image-height: 250px;
+    transition: transform .5s ease-out;
     &__top-block {
         position: relative;
     }
@@ -361,7 +368,8 @@
         display: flex;
         flex-wrap: wrap;
         align-items: center;
-        transition: background-color .5s ease-out;
+        transition: background-color .5s ease-out, border-color .5s ease-out;
+        border: 1px solid transparent;
     }
     &__top-block-text {
         position: absolute;
@@ -388,6 +396,7 @@
     }
     &__promotion-item {
         clip-path: polygon(100% 0, 0 0, 100% 100%);
+        -webkit-clip-path: polygon(100% 0, 0 0, 100% 100%);
         --side: 70px;
         width: var(--side);
         height: var(--side);
@@ -476,8 +485,12 @@
         --image-height: 320px;
     }
     @include from(769px) {
+        &:hover {
+            transform: scale(1.025);
+        }
         &:hover &__bottom-block {
-            background-color: #E7E2E0;
+            border: 1px solid #E7E2E0;
+            // background-color: #E7E2E0;
         }
     }
     @include to(575px) {
@@ -494,6 +507,30 @@
                 line-height: 14px;
             }
         }
+        &__desc {
+            @include fontSizeLhToEm(10, 14);
+            margin-bottom: 15px;
+        }
+        &__name {
+            @include fontSizeLhToEm(12, 20);
+        }
+        &__bottom-block {
+            padding: 10px;
+        }
+        &__link {
+            display: none;
+        }
+        &__buy-button {
+            max-width: none;
+            width: 100%;
+        }
+        &__top-block-text {
+            top: 10px;
+            left: 10px;
+        }
+        &__price {
+            font-size: 12px;
+        }
     }
 }
 
@@ -501,6 +538,16 @@
     display: flex;
     font-weight: 500;
     width: max-content;
+    align-items: center;
+    &>*:not(.digit) {
+        margin-right: 20px;
+    }
+    &>*:last-child {
+        margin-right: 0;
+    }
+    &>*:nth-last-child(3) {
+        margin-right: 20px;
+    }
     a {
         color: var(--black);
         text-decoration: none;
@@ -511,10 +558,16 @@
     }
     .back>svg {
         transform: rotate(180deg);
+        stroke: #E3D4CF;
+        margin-right: 10px;
+    }
+    .forward>svg {
+        margin-left: 10px;
     }
     .to-start>svg {
         transform: rotate(180deg);
         margin-right: 10px;
+        stroke: #E3D4CF;
     }
     .to-finish>svg {
         margin-left: 10px;
@@ -529,22 +582,37 @@
     }
     .digit {
         --self-side: 30px;
-        width: var(--self-side);
-        height: var(--self-side);
+        --diagonal-side: 42.4px;
+        width: var(--diagonal-side);
+        height: var(--diagonal-side);
         position: relative;
         display: flex;
         align-items: center;
         justify-content: center;
+        cursor: pointer;
+        z-index: 1;
     }
     .digit:after {
         content: '';
+        transition: .5s ease-out;
         position: absolute;
-        left: 0;
-        top: 0;
-        width: 100%;
-        height: 100%;
+        left: 0%;
+        top: 50%;
+        width: var(--self-side);
+        height: var(--self-side);
         border: 1px solid var(--black);
         display: inline-block;
-        transform: rotate(-45deg);
+        transform: rotate(-45deg) translate(0, 0);
+        transform-origin: left top;
+        z-index: 0;
+        opacity: 0;
+    }
+    @include from(769px) {
+        .digit:hover:after {
+            opacity: 1;
+        }
+    }
+    @include to(575px) {
+        display: none;
     }
 }

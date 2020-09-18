@@ -9,6 +9,16 @@ const dropdownHandlerObject = {
     }
 
 }
+const filterItemsDropdown = {
+    parentSelector: '.goods-dropdown-filter',
+    childArticle: '.goods-dropdown__article',
+    childTitle: '.goods-dropdown__article-title',
+    childcontent: '.goods-dropdown__article-content',
+    customCallback: function(title, trnsfrmValue) {
+        title.querySelector('.icon--birdy').style.transform = `rotate(${trnsfrmValue}deg)`;
+    }
+
+}
 
 function dropDownMenuHandling(config) {
     let { childArticle, parentSelector, childTitle, childcontent } = config;
@@ -48,3 +58,34 @@ function dropDownMenuHandling(config) {
 };
 
 dropDownMenuHandling(dropdownHandlerObject);
+dropDownMenuHandling(filterItemsDropdown);
+
+
+
+
+
+
+if (document.documentElement.clientWidth < 576) {
+    let filterCall = document.querySelector('.filter-call-js');
+    let filterContainer = document.querySelector('.invisible-block');
+    let filterTransferBlock = document.querySelector('.goods-dropdown-filter');
+    filterTransferBlock.parent = filterTransferBlock.parentElement;
+    filterTransferBlock.prevSibling = filterTransferBlock.previousElementSibling;
+    console.log(filterTransferBlock.parent,
+        filterTransferBlock.prevSibling);
+    filterCall.addEventListener('click', () => {
+        filterContainer.insertAdjacentElement('beforeend', filterTransferBlock);
+        filterContainer.style.position = `fixed`;
+        filterContainer.style.left = `0`;
+        filterContainer.style.top = `0`;
+        filterContainer.style.width = `100%`;
+        filterContainer.style.display = `flex`;
+        filterContainer.style.zIndex = 10;
+        filterContainer.style.background = `white`;
+    });
+    filterContainer.querySelector('.close').addEventListener('click', function(evt) {
+
+        filterContainer.style.display = `none`;
+        filterTransferBlock.prevSibling.insertAdjacentElement('afterend', filterTransferBlock);
+    });
+}

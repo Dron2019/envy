@@ -165,6 +165,10 @@
 .goods-dropdown {
     --left-padding: 60px;
     --right-padding: 16px;
+    &.goods-dropdown-products &__article-content a {
+        color: var(--pink);
+        padding-left: 20px;
+    }
     &__article:not(:last-child) {
         margin-bottom: 32px;
     }

@@ -183,9 +183,10 @@ header {
         li>a:before {
             position: absolute;
             right: 0;
+            white-space: nowrap;
             top: 100%;
             content: attr(data-hover);
-            font-weight: normal !important;
+            font-weight: 500 !important;
             -webkit-transform: translate3d(0, 0, 0);
             -moz-transform: translate3d(0, 0, 0);
             transform: translate3d(0, 0, 0);
@@ -234,7 +235,7 @@ header {
         }
     }
     @include from(1680px) {
-        --between-margin: 60px;
+        --between-margin: 30px;
     }
     @include from-to(769px, 1260px) {
         &__right-group {
@@ -546,7 +547,7 @@ header {
         top: 100%;
         content: attr(data-hover);
         right: 0;
-        font-weight: 600;
+        font-weight: 500;
         -webkit-transition: -webkit-transform 0.3s;
         -moz-transition: -moz-transform 0.3s;
         transition: transform 0.3s;
