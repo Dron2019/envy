@@ -616,3 +616,9 @@
         display: none;
     }
 }
+
+.goods-dropdown {
+    &.no-icon &__article {
+        padding-left: 0;
+    }
+}

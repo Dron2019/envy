@@ -66,26 +66,100 @@ dropDownMenuHandling(filterItemsDropdown);
 
 
 if (document.documentElement.clientWidth < 576) {
-    let filterCall = document.querySelector('.filter-call-js');
-    let filterContainer = document.querySelector('.invisible-block');
-    let filterTransferBlock = document.querySelector('.goods-dropdown-filter');
-    filterTransferBlock.parent = filterTransferBlock.parentElement;
-    filterTransferBlock.prevSibling = filterTransferBlock.previousElementSibling;
-    console.log(filterTransferBlock.parent,
-        filterTransferBlock.prevSibling);
-    filterCall.addEventListener('click', () => {
-        filterContainer.insertAdjacentElement('beforeend', filterTransferBlock);
-        filterContainer.style.position = `fixed`;
-        filterContainer.style.left = `0`;
-        filterContainer.style.top = `0`;
-        filterContainer.style.width = `100%`;
-        filterContainer.style.display = `flex`;
-        filterContainer.style.zIndex = 10;
-        filterContainer.style.background = `white`;
-    });
-    filterContainer.querySelector('.close').addEventListener('click', function(evt) {
+    innerCatalogueMobilePopup();
+}
 
-        filterContainer.style.display = `none`;
-        filterTransferBlock.prevSibling.insertAdjacentElement('afterend', filterTransferBlock);
+function innerCatalogueMobilePopup() {
+    let filterCall = document.querySelector('.filter-call-js');
+    let filterCallList = document.querySelectorAll('.filter-call-js');
+    let container = document.querySelector('.invisible-block');
+    let transferBlock = document.querySelector('.goods-dropdown-filter');
+    var stylePopupOpened = {
+        position: `fixed`,
+        left: `0`,
+        top: `0`,
+        width: `100%`,
+        display: `flex`,
+        zIndex: 10,
+        background: `white`,
+        transformOrigin: `top`,
+    };
+
+    filterCallList.forEach(callButton => {
+        callButton.addEventListener('click', openPopup);
+        container.querySelector('.close').addEventListener('click', closePopup);
+        // window.addEventListener('resize', () => {
+        //     container.querySelector('.close').removeEventListener('click', closePopup);
+        //     callButton.removeEventListener('click', openPopup);
+        //     innerCatalogueMobilePopup();
+        // })
     });
+
+    function setStyles(el, styles = {}) {
+        for (const key in styles) {
+            el.style[key] = styles[key];
+        }
+    }
+
+    function openPopup(evt) {
+        transferBlock = document.querySelector(this.dataset.content);
+        transferBlock.parent = transferBlock.parentElement;
+        transferBlock.prevSibling = transferBlock.previousElementSibling;
+        setStyles(container, stylePopupOpened);
+        show(transferBlock);
+        container.querySelector('.button-std').insertAdjacentElement('beforebegin', transferBlock);
+        console.log(container.children);
+        gsap.fromTo(container.children, {
+            y: function(some, target) {
+                return -100;
+                // return -target.getBoundingClientRect().height;
+            },
+            autoAlpha: 0,
+
+        }, {
+            y: 0,
+            autoAlpha: 1,
+            duration: 0.7,
+            stagger: 0.025,
+            ease: Power4.easeOut,
+        });
+    };
+
+    function closePopup(evt) {
+        let tl = new TimelineLite();
+        tl.fromTo(container.children, { y: 0, autoAlpha: 1, }, {
+            y: function(some, target) {
+                return -100;
+                // return target.getBoundingClientRect().height * -1;
+            },
+            ease: null,
+            autoAlpha: 0,
+            duration: 0.5,
+            stagger: 0.025,
+        })
+
+        .add(function() {
+            container.style.display = `none`;
+        })
+        transferBlock.parent.insertAdjacentElement('afterend', transferBlock);
+        hide(transferBlock);
+    };
+
+    function hide(el) {
+        el.style.opacity = 0;
+        el.style.height = 0;
+        el.style.padding = 0;
+        el.style.width = 0;
+        el.style.opacity = 0;
+        el.style.overflow = 'hidden';
+    }
+
+    function show(el) {
+        el.style.opacity = 1;
+        el.style.height = '';
+        el.style.padding = '';
+        el.style.width = '';
+        el.style.opacity = 1;
+        el.style.overflow = 'auto';
+    }
 }

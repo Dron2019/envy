@@ -1,0 +1,37 @@
+extends ../layout/main
+block variable
+    - var version = "ua";
+    - var pageName = "product-page-inner";
+block meta
+    title= ' '
+    meta(name='description', content='')
+block scripts
+    script(defer src="./assets/scripts/product-page-inner.js")
+block head
+    link(rel='stylesheet', href="./assets/styles/main.min.css")
+block content
+    +breadcrumbs(['index.html','catalogue.html','catalogue-inner.html','catalogue-inner.html','#'],['Главная','Женщинам','Обувь','Балетки','Adelle BLACK',])
+    .content-block.with-line.product-page-inner
+        .content-block__left
+            .goods-dropdown.no-icon
+                .goods-dropdown__article
+                    .goods-dropdown__article-title Обувь
+                    .goods-dropdown__article-content Балетки
+
+            div одежда
+            div обувь
+        .content-block__right
+            ul
+                li.title Adelle BLACK
+                li fegeg
+                li fegeg
+                li fegeg
+                li fegeg
+                li fegeg
+                li fegeg
+                li fegeg
+                li fegeg
+                li fegeg
+    h1 product-page-inner
+block footer
+block header

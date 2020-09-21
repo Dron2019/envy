@@ -2,7 +2,7 @@
     display: flex;
     align-items: center;
     .select-std {
-        margin-left: 20px;
+        // margin-left: 20px;
     }
 }
 
@@ -26,6 +26,9 @@
             margin-top: 30px;
         }
     }
+    .button-std {
+        transition: none;
+    }
     @include to(1160px) {
         .select-filter-item>.text {
             display: none;
@@ -44,6 +47,10 @@
         }
     }
     @include to(575px) {
+        &>.goods-dropdown,
+        &>.top-filter-wrap {
+            display: none;
+        }
         .content-block__left {
             display: none;
         }
@@ -70,14 +77,15 @@
     flex-wrap: wrap;
     justify-content: space-between;
     width: 100%;
-    &>.product-card:last-child {
-        // margin-right: auto;
-    }
-    --offset:20px;
-    --cards-per-row:3;
+    --offset: 20px;
+    --cards-per-row: 3;
+    // &>.product-card:nth-last-child(-n+2) {
+    //     margin-left: var(--offset);
+    //     margin-right: auto;
+    // }
     &>.product-card {
         width: calc((100% / var(--cards-per-row)) - (var(--offset) / var(--cards-per-row) * (var(--cards-per-row) - 1)));
-        margin-bottom: 20px;
+        margin-bottom: var(--offset);
     }
     @include from(1680px) {
         --cards-per-row: 4;
@@ -106,6 +114,11 @@
     }
     .select-filter-item {
         margin-left: 30px;
+    }
+    @include from(769px) {
+        .select-filter-item>.text {
+            margin-right: 20px;
+        }
     }
     @include to(1160px) {
         .select-filter-item {
@@ -158,8 +171,58 @@
     @include from(769px) {
         display: none;
     }
+    @include to(375px) {
+        &>* {
+            padding: 10px 5px;
+        }
+    }
 }
 
 .invisible-block {
     display: none;
+    &>.subtitle,
+    &>svg {
+        margin-bottom: 20px;
+    }
+    &>.button-std,
+    &>.button-std.medium {
+        width: 100%;
+        max-width: none;
+    }
+    & select,
+    & .select-filter-item,
+    & .select-std,
+    .goods-dropdown-products {
+        width: 100%;
+    }
+    .goods-result-block {
+        display: none;
+    }
+    .top-filter-wrap {
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+    .top-filter-wrap .select-filter-item {
+        margin-bottom: 20px;
+        margin-left: 0;
+    }
+    .top-filter-wrap .subtitle {
+        display: none;
+    }
+}
+
+.mobile-pagination {
+    text-align: center;
+    &__text {
+        color: #A0A0A0;
+        @include fontSizeLhToEm(10, 10);
+    }
+    .button-std.medium {
+        max-width: none;
+        width: 100%;
+        margin-top: 10px;
+    }
+    @include from(575px) {
+        display: none;
+    }
 }
