@@ -4,6 +4,9 @@
     &.black {
         color: var(--black);
     }
+    @include to(575px) {
+        @include fontSizeLhToEm(16, 16);
+    }
 }
 
 .text {
@@ -37,6 +40,9 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+    &.single-side &__wrap {
+        width: 100%;
+    }
     &.with-line:before {
         content: '';
         position: absolute;
@@ -107,6 +113,10 @@
     justify-content: space-between;
     --self-arrow-side: 50px;
     pointer-events: none;
+    &.transparent .arrow-prev,
+    &.transparent .arrow-next {
+        background: transparent;
+    }
     & svg {
         width: 20px;
         height: 14.5px;
@@ -621,4 +631,27 @@
     &.no-icon &__article {
         padding-left: 0;
     }
+}
+
+.link-with-icon {
+    display: flex;
+    align-items: center;
+    color: var(--pink);
+    &>svg {
+        margin-right: 10px;
+    }
+}
+
+.icon--box {
+    width: 36px;
+    height: 30px;
+}
+
+.icon--clocks {
+    width: 30px;
+    height: 30px;
+}
+
+.mfp-bg {
+    background: transparent;
 }

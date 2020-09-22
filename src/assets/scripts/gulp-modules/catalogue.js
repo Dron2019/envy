@@ -8,8 +8,8 @@ $('.catalogue-slider-js').on('init', function(event, slickObject, current, next)
     // console.log(slickObject);
 })
 $('.catalogue-slider-js').on('beforeChange', function(event, slickObject, current, next) {
-    gsap.fromTo(slickObject.changeText, { rotationX: -180, autoAlpha: 0 }, { autoAlpha: 1, duration: 1, rotationX: 0 })
-    gsap.fromTo(slickObject.changeSubtitle, { rotationX: -180, autoAlpha: 0 }, { autoAlpha: 1, duration: 1, rotationX: 0 })
+    // gsap.fromTo(slickObject.changeText, { rotationX: -180, autoAlpha: 0 }, { autoAlpha: 1, duration: 1, rotationX: 0 })
+    // gsap.fromTo(slickObject.changeSubtitle, { rotationX: -180, autoAlpha: 0 }, { autoAlpha: 1, duration: 1, rotationX: 0 })
     slickObject.changeText.innerHTML = slickObject.$slides[next].dataset.text;
     slickObject.changeSubtitle.innerHTML = slickObject.$slides[next].dataset.subtitle;
     slickObject.currentCounter.innerHTML = next + 1;
@@ -31,8 +31,7 @@ $('.catalogue-slider-js').slick({
 
 
 
-let dots = document.querySelectorAll('svg.dot');
-let dotsHandler = {};
+
 
 function initSlickCustomDots(slickObject, destination) {
     renderSlickCustomDots(slickObject.$slides, destination);

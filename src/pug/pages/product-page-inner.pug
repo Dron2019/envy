@@ -6,6 +6,10 @@ block meta
     title= ' '
     meta(name='description', content='')
 block scripts
+    script(defer src='./assets/scripts/libs.js')
+    script(defer src='./assets/scripts/index.js')
+    script(defer src='./assets/scripts/forms-handler.js')
+    script(defer src='./assets/scripts/menu.js')
     script(defer src="./assets/scripts/product-page-inner.js")
 block head
     link(rel='stylesheet', href="./assets/styles/main.min.css")
@@ -13,25 +17,275 @@ block content
     +breadcrumbs(['index.html','catalogue.html','catalogue-inner.html','catalogue-inner.html','#'],['Главная','Женщинам','Обувь','Балетки','Adelle BLACK',])
     .content-block.with-line.product-page-inner
         .content-block__left
-            .goods-dropdown.no-icon
+            .goods-dropdown.pink.no-icon
                 .goods-dropdown__article
                     .goods-dropdown__article-title Обувь
-                    .goods-dropdown__article-content Балетки
-
-            div одежда
-            div обувь
+                    .goods-dropdown__article-content
+                        a(href="catalogue-inner.html") Платья
+                        a(href="catalogue-inner.html") Блузы и топы
+                        a(href="catalogue-inner.html") Брюки
+                        a(href="catalogue-inner.html") Юбки
+                        a(href="catalogue-inner.html") Костюмы
+                        a(href="catalogue-inner.html") Пиджаки
+                        a(href="catalogue-inner.html") Комбинезоны
+                        a(href="catalogue-inner.html") Футболки
+                        a(href="catalogue-inner.html") Шорты
+                        a(href="catalogue-inner.html") Джинсовая одежда
+                        a(href="catalogue-inner.html") Рубашки
+                        a(href="catalogue-inner.html") Трикотажная одежда
+                        a(href="catalogue-inner.html") Верхняя одежда
+                        a(href="catalogue-inner.html") Пляжная одежда
+                .goods-dropdown__article
+                    .goods-dropdown__article-title Обувь
+                    .goods-dropdown__article-content
+                        a(href="catalogue-inner.html") Платья
+                        a(href="catalogue-inner.html") Блузы и топы
+                        a(href="catalogue-inner.html") Брюки
+                        a(href="catalogue-inner.html") Юбки
+                        a(href="catalogue-inner.html") Костюмы
+                        a(href="catalogue-inner.html") Пиджаки
+                        a(href="catalogue-inner.html") Комбинезоны
+                        a(href="catalogue-inner.html") Футболки
+                        a(href="catalogue-inner.html") Шорты
+                        a(href="catalogue-inner.html") Джинсовая одежда
+                        a(href="catalogue-inner.html") Рубашки
+                        a(href="catalogue-inner.html") Трикотажная одежда
+                        a(href="catalogue-inner.html") Верхняя одежда
+                        a(href="catalogue-inner.html") Пляжная одежда
+                .goods-dropdown__article
+                    .goods-dropdown__article-title Обувь
+                    .goods-dropdown__article-content
+                        a(href="catalogue-inner.html") Платья
+                        a(href="catalogue-inner.html") Блузы и топы
+                        a(href="catalogue-inner.html") Брюки
+                        a(href="catalogue-inner.html") Юбки
+                        a(href="catalogue-inner.html") Костюмы
+                        a(href="catalogue-inner.html") Пиджаки
+                        a(href="catalogue-inner.html") Комбинезоны
+                        a(href="catalogue-inner.html") Футболки
+                        a(href="catalogue-inner.html") Шорты
+                        a(href="catalogue-inner.html") Джинсовая одежда
+                        a(href="catalogue-inner.html") Рубашки
+                        a(href="catalogue-inner.html") Трикотажная одежда
+                        a(href="catalogue-inner.html") Верхняя одежда
+                        a(href="catalogue-inner.html") Пляжная одежда
+                .goods-dropdown__article
+                    .goods-dropdown__article-title Обувь
+                    .goods-dropdown__article-content
+                        a(href="catalogue-inner.html") Платья
+                        a(href="catalogue-inner.html") Блузы и топы
+                        a(href="catalogue-inner.html") Брюки
+                        a(href="catalogue-inner.html") Юбки
+                        a(href="catalogue-inner.html") Костюмы
+                        a(href="catalogue-inner.html") Пиджаки
+                        a(href="catalogue-inner.html") Комбинезоны
+                        a(href="catalogue-inner.html") Футболки
+                        a(href="catalogue-inner.html") Шорты
+                        a(href="catalogue-inner.html") Джинсовая одежда
+                        a(href="catalogue-inner.html") Рубашки
+                        a(href="catalogue-inner.html") Трикотажная одежда
+                        a(href="catalogue-inner.html") Верхняя одежда
+                        a(href="catalogue-inner.html") Пляжная одежда
+                .goods-dropdown__article
+                    .goods-dropdown__article-title Обувь
+                    .goods-dropdown__article-content
+                        a(href="catalogue-inner.html") Платья
+                        a(href="catalogue-inner.html") Блузы и топы
+                        a(href="catalogue-inner.html") Брюки
+                        a(href="catalogue-inner.html") Юбки
+                        a(href="catalogue-inner.html") Костюмы
+                        a(href="catalogue-inner.html") Пиджаки
+                        a(href="catalogue-inner.html") Комбинезоны
+                        a(href="catalogue-inner.html") Футболки
+                        a(href="catalogue-inner.html") Шорты
+                        a(href="catalogue-inner.html") Джинсовая одежда
+                        a(href="catalogue-inner.html") Рубашки
+                        a(href="catalogue-inner.html") Трикотажная одежда
+                        a(href="catalogue-inner.html") Верхняя одежда
+                        a(href="catalogue-inner.html") Пляжная одежда
         .content-block__right
-            ul
-                li.title Adelle BLACK
-                li fegeg
-                li fegeg
-                li fegeg
-                li fegeg
-                li fegeg
-                li fegeg
-                li fegeg
-                li fegeg
-                li fegeg
-    h1 product-page-inner
+            .product-page-slider
+                -var slides = ['product-card-img.jpg','product-card-img2.jpg','product-card-img.jpg','product-card-img2.jpg']
+                .product-page-slider__top.product-page-slider__top-js
+                    each val in slides
+                        +img(val)
+                    .product-card__promotion-item.red
+                        span New
+                .mobile-dots-container
+                .product-page-slider__nav.product-page-slider__nav-js
+                    .slider-arrows
+                        +svg('arrow').prev
+                        +svg('arrow').next
+                    each val in slides
+                        +img(val)
+            .product-page-content
+                .product-page-content__wrap-for-mobile
+                    .title ADDELE BLACK
+                    <svg class="like-button liked" onclick="this.classList.toggle('liked')" width="18" height="16" viewBox="0 0 18 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <g class="liked">
+                            <path d="M13 1C11.16 1 9.59002 2.03454 9.00002 3.47543C8.41002 2.03454 6.84001 1 5.00001 1C2.5 1 1 3.15385 1 5.23789C1 7.37928 2.33249 9.66275 4.9575 12.0285C6.1705 13.113 7.48199 14.0828 8.87502 14.9252L9.00002 15L9.12502 14.9252C10.518 14.0828 11.8295 13.113 13.0425 12.0285C15.6675 9.66275 17 7.37928 17 5.23789C17 3.15385 15.5 1 13 1Z" fill="#EB5757" stroke="#EB5757" stroke-width="0.3"/>
+                            </g>
+                        <g class="unliked">
+                            <path d="M13 1C11.16 1 9.59002 2.03454 9.00002 3.47543C8.41002 2.03454 6.84001 1 5.00001 1C2.5 1 1 3.15385 1 5.23789C1 7.37928 2.33249 9.66275 4.9575 12.0285C6.1705 13.113 7.48199 14.0828 8.87502 14.9252L9.00002 15L9.12502 14.9252C10.518 14.0828 11.8295 13.113 13.0425 12.0285C15.6675 9.66275 17 7.37928 17 5.23789C17 3.15385 15.5 1 13 1ZM9.00002 14.4192C8.00002 13.8159 1.5 9.6827 1.5 5.23789C1.5 3.40064 2.81 1.49858 5.00001 1.49858C6.80251 1.49858 8.75002 2.74502 8.75002 4.73932H9.25002C9.25002 2.74502 11.1975 1.49858 13 1.49858C15.19 1.49858 16.5 3.40064 16.5 5.23789C16.5 9.6802 10 13.8159 9.00002 14.4192Z" fill="#222222" stroke="#222222" stroke-width="0.3"/>
+                            <path d="M12.9209 3.15381C12.8711 3.15381 12.8235 3.18218 12.7883 3.23267C12.7531 3.28316 12.7334 3.35163 12.7334 3.42304C12.7334 3.49444 12.7531 3.56292 12.7883 3.61341C12.8235 3.6639 12.8711 3.69227 12.9209 3.69227C13.9032 3.69227 14.4918 4.92535 14.4918 6.11535C14.4918 6.18675 14.5116 6.25523 14.5467 6.30572C14.5819 6.35621 14.6296 6.38458 14.6793 6.38458C14.729 6.38458 14.7767 6.35621 14.8118 6.30572C14.847 6.25523 14.8667 6.18675 14.8667 6.11535C14.8667 4.65881 14.1375 3.15381 12.9209 3.15381Z" fill="#222222" stroke="#222222" stroke-width="0.3"/>
+                            </g>
+                    </svg>
+                    .product-page-content__price-wrap
+                        .product-page-content__price.subtitle 14 450 грн.
+                        .product-page-content__promotion-price
+                            span.striked 6 040 грн 
+                            span (-30%)
+                    .product-page-content__articule-block.text.gray 
+                        span Код товара: 
+                        span.product-page-content__articule 128177
+                .product-page-content__size-block
+                    .text.gray Выберите размер
+                    .text.pink.sizes-popup-js Таблица размеров
+                    ul.sizes-list
+                        li.aviable 36
+                        li.selected 37
+                        li 38
+                        li 38.5
+                        li 39
+                        li 39.5
+                        li 40
+                        li 41
+                a().link-with-icon
+                    +svg('box')
+                    span Оплата и доставка
+                a().link-with-icon
+                    +svg('clocks')
+                    span Возврат и обмен
+                +button-std('Купить в 1 клик','no-icon no-bg')
+                +button-std('В корзину','','bucket-black')
+                .product-page-characteristics
+                    .product-page__characteristics-title Информация о товаре
+                    .product-page__characteristics
+                        .product-page__characteristic 
+                            span.text.name Декор: металлическое    
+                            span.text.value сердце с логотипом
+                        .product-page__characteristic 
+                            span.text.name Производство:           
+                            span.text.value Италия         
+                        .product-page__characteristic 
+                            span.text.name Высота                  
+                            span.text.value подошвы: 1 см
+                        .product-page__characteristic 
+                            span.text.name Уход:                   
+                            span.text.value специализированная чистка
+                        .product-page__characteristic 
+                            span.text.name Размер                  
+                            span.text.value стельки: 25 см
+                        .product-page__characteristic 
+                            span.text.name Подошва:                
+                            span.text.value кожа
+                        .product-page__characteristic 
+                            span.text.name Внутренняя отделка:     
+                            span.text.value кожа
+                        .product-page__characteristic 
+                            span.text.name Состав:                 
+                            span.text.value кожа
+                        .product-page__characteristic 
+                            span.text.name Стелька:                
+                            span.text.value кожа
+                        .product-page__characteristic 
+                            span.text.name Размер на модели:       
+                            span.text.value 38
+                        .product-page__characteristic 
+                            span.text.name Цвет:                   
+                            span.text.value бежевый
+            .additional-goods-slider.gray
+                .subtitle Дополнить образ
+                .arrows.transparent
+                    .arrow-prev.scene-nav.scene-nav--prev(data-nav='previous')
+                        +svg('arrow')
+                    .arrow-next.scene-nav.scene-nav--next(data-nav='next')
+                        +svg('arrow')
+                -var count = 0;
+                while count < 7
+                    .product-card.liked
+                        .product-card__top-block
+                            img(src="./assets/images/product-card-img.jpg").product-card__img
+                            .product-card__promotion-item.red
+                                span New
+                            .product-card__top-block-text
+                                <svg class="product-card__like-button liked" width="18" height="16" viewBox="0 0 18 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <g class="liked">
+                                        <path d="M13 1C11.16 1 9.59002 2.03454 9.00002 3.47543C8.41002 2.03454 6.84001 1 5.00001 1C2.5 1 1 3.15385 1 5.23789C1 7.37928 2.33249 9.66275 4.9575 12.0285C6.1705 13.113 7.48199 14.0828 8.87502 14.9252L9.00002 15L9.12502 14.9252C10.518 14.0828 11.8295 13.113 13.0425 12.0285C15.6675 9.66275 17 7.37928 17 5.23789C17 3.15385 15.5 1 13 1Z" fill="#EB5757" stroke="#EB5757" stroke-width="0.3"/>
+                                        </g>
+                                    <g class="unliked">
+                                        <path d="M13 1C11.16 1 9.59002 2.03454 9.00002 3.47543C8.41002 2.03454 6.84001 1 5.00001 1C2.5 1 1 3.15385 1 5.23789C1 7.37928 2.33249 9.66275 4.9575 12.0285C6.1705 13.113 7.48199 14.0828 8.87502 14.9252L9.00002 15L9.12502 14.9252C10.518 14.0828 11.8295 13.113 13.0425 12.0285C15.6675 9.66275 17 7.37928 17 5.23789C17 3.15385 15.5 1 13 1ZM9.00002 14.4192C8.00002 13.8159 1.5 9.6827 1.5 5.23789C1.5 3.40064 2.81 1.49858 5.00001 1.49858C6.80251 1.49858 8.75002 2.74502 8.75002 4.73932H9.25002C9.25002 2.74502 11.1975 1.49858 13 1.49858C15.19 1.49858 16.5 3.40064 16.5 5.23789C16.5 9.6802 10 13.8159 9.00002 14.4192Z" fill="#222222" stroke="#222222" stroke-width="0.3"/>
+                                        <path d="M12.9209 3.15381C12.8711 3.15381 12.8235 3.18218 12.7883 3.23267C12.7531 3.28316 12.7334 3.35163 12.7334 3.42304C12.7334 3.49444 12.7531 3.56292 12.7883 3.61341C12.8235 3.6639 12.8711 3.69227 12.9209 3.69227C13.9032 3.69227 14.4918 4.92535 14.4918 6.11535C14.4918 6.18675 14.5116 6.25523 14.5467 6.30572C14.5819 6.35621 14.6296 6.38458 14.6793 6.38458C14.729 6.38458 14.7767 6.35621 14.8118 6.30572C14.847 6.25523 14.8667 6.18675 14.8667 6.11535C14.8667 4.65881 14.1375 3.15381 12.9209 3.15381Z" fill="#222222" stroke="#222222" stroke-width="0.3"/>
+                                        </g>
+                                </svg>
+                                .product-card__price 13 350 грн.
+                                .product-card__special-price 3+2.
+                        .product-card__bottom-block
+                            .product-card__name ADELA Black
+                            .product-card__desc Балетки — мягкая (в отличие от жёстких пуант) балетная обувь из кожи или ткани.
+                            .product-card__buy-button.button-std.medium 
+                                +svg('product-card-bag')
+                                span Купить
+                            a(href="product-page-inner.html").product-card__link 
+                                span Подробнее
+                                +svg('product-card-arrow')
+                    -count++
+        .invisible-block
+            .sizes-popup-content-js.sizes-popup-content
+                +svg('horizontal-lines')
+                .subtitle Таблица размеров
+                <svg class="mfp-close" width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M11.6688 35.6688C11.5505 35.5505 11.484 35.39 11.484 35.2227C11.484 35.0554 11.5505 34.895 11.6688 34.7767L22.6818 23.7636L11.9052 12.987C11.7868 12.8687 11.7204 12.7083 11.7204 12.541C11.7204 12.3737 11.7868 12.2132 11.9052 12.0948C12.0235 11.9765 12.184 11.9101 12.3513 11.9101C12.5186 11.9101 12.679 11.9765 12.7973 12.0948L23.5739 22.8715L34.306 12.1394C34.4243 12.0211 34.5847 11.9547 34.752 11.9547C34.9193 11.9547 35.0798 12.0211 35.1981 12.1394C35.3164 12.2577 35.3829 12.4182 35.3829 12.5856C35.3829 12.7529 35.3164 12.9132 35.1981 13.0316L24.466 23.7636L35.4345 34.7321C35.5528 34.8504 35.6193 35.0108 35.6193 35.1781C35.6193 35.3454 35.5528 35.5059 35.4345 35.6242C35.3162 35.7425 35.1557 35.809 34.9884 35.809C34.8211 35.809 34.6607 35.7425 34.5424 35.6242L23.5739 24.6557L12.5609 35.6688C12.4426 35.7871 12.2821 35.8536 12.1148 35.8536C11.9475 35.8536 11.7871 35.7871 11.6688 35.6688Z" fill="url(#paint0_linearsizes-popup)"/>
+                    <defs>
+                    <linearGradient id="paint0_linearsizes-popup" x1="23.5293" y1="0.470647"  x2="0.075159" y2="25.8793" gradientUnits="userSpaceOnUse">
+                    <stop stop-color="#FAA6A6"/>
+                    <stop offset="1" stop-color="#F8CEBC"/>
+                    </linearGradient>
+                    </defs>
+                    </svg>
+                table.size-table
+                    tr
+                        td.text Американский:
+                        td.text US
+                        td.text(colspan="2") 5
+                        td.text.med-gray 5.5
+                        td.text 6 
+                        td.text.med-gray 6.5
+                        td.text 7
+                        td.text.med-gray 7.5 
+                        td.text 8 
+                        td.text.med-gray 8.5 
+                        td.text 9
+                        td.text(colspan="2") 9.5 
+                        td.text.med-gray 10
+                    tr
+                        td.text Европейский:
+                        td.text EU
+                        td.text 35
+                        td.text 35.5
+                        td.text 36
+                        td.text 36.5
+                        td.text 37
+                        td.text 37.5
+                        td.text 38
+                        td.text 38.5
+                        td.text 39
+                        td.text 39.5
+                        td.text 40
+                        td.text 40.5
+                        td.text 41
+                    tr
+                        td.text В см:
+                        td.text см.
+                        td.text 22
+                        td.text 22.5
+                        td.text(colspan="2") 23.0
+                        td.text 23.5
+                        td.text 24
+                        td.text(colspan="2") 24.5
+                        td.text 25
+                        td.text 25.5
+                        td.text(colspan="2") 26
+                        td.text 26.5
 block footer
 block header

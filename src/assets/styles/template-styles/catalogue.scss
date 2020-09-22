@@ -172,6 +172,9 @@
     &__article:not(:last-child) {
         margin-bottom: 32px;
     }
+    &.no-icon &__article:not(:last-child) {
+        margin-bottom: 10px;
+    }
     &__article {
         position: relative;
         padding-left: var(--left-padding);
