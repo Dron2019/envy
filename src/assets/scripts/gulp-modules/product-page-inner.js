@@ -115,6 +115,13 @@ $('.sizes-popup-js').magnificPopup({
     }, ]
 
 });
+$('.payment-details-popup-js').magnificPopup({
+    items: [{
+        src: $('.payment-details-popup-content-js'), // Dynamically created element
+        type: 'inline'
+    }, ]
+
+});
 /**Sizes Popup Handler end*/
 
 
@@ -172,12 +179,32 @@ if (document.documentElement.clientWidth < 769) {
 
 /** additional produtcs sliders*/
 
-$('.additional-goods-slider').slick({
+$('.add-prod-js').slick({
+    slidesToShow: 4,
+    slide: '.product-card',
+    infinite: false,
+    nextArrow: '.add-prod-js .arrows .arrow-next',
+    prevArrow: '.add-prod-js .arrows .arrow-prev',
+    responsive: [{
+            breakpoint: 1680,
+            settings: {
+                slidesToShow: 3,
+            },
+        },
+        {
+            breakpoint: 575,
+            settings: {
+                slidesToShow: 2.1,
+            },
+        },
+    ],
+})
+$('.same-prod-js').slick({
         slidesToShow: 4,
         slide: '.product-card',
         infinite: false,
-        nextArrow: '.arrows .arrow-next',
-        prevArrow: '.arrows .arrow-prev',
+        nextArrow: '.same-prod-js .arrows .arrow-next',
+        prevArrow: '.same-prod-js .arrows .arrow-prev',
         responsive: [{
                 breakpoint: 1680,
                 settings: {
@@ -185,9 +212,15 @@ $('.additional-goods-slider').slick({
                 },
             },
             {
-                breakpoint: 950,
+                breakpoint: 1024,
                 settings: {
                     slidesToShow: 2.5,
+                },
+            },
+            {
+                breakpoint: 575,
+                settings: {
+                    slidesToShow: 2.1,
                 },
             },
         ],

@@ -138,6 +138,10 @@ header {
             align-items: center;
             line-height: var(--self-height);
         }
+        li.dropdown .dropdown-title>span {
+            position: relative;
+            top: 1px;
+        }
         li.dropdown .dropdown-title:after {
             content: '';
             transition: .5s ease-out;

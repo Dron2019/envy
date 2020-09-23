@@ -11,6 +11,12 @@
 
 .text {
     // @include fontSizeLhToEm(14, 20);
+    &>p:not(:last-child) {
+        margin-bottom: 1.6em;
+    }
+    &.bold {
+        font-weight: bold;
+    }
     &.text-smaller {
         font-size: 13px;
     }
@@ -395,11 +401,16 @@
         object-position: center;
     }
     &__like-button {
+        cursor: pointer;
         width: var(--like-button-width);
         height: 14px;
         position: absolute;
+        transition: .5s;
         left: 0;
         top: 0;
+    }
+    &__like-button g {
+        transition: .5s ease-out;
     }
     &__like-button.liked {
         fill: red;
@@ -501,6 +512,11 @@
         &:hover &__bottom-block {
             border: 1px solid #E7E2E0;
             // background-color: #E7E2E0;
+        }
+    }
+    @include to(1100px) {
+        &__bottom-block {
+            padding: 30px 10px;
         }
     }
     @include to(575px) {
@@ -652,6 +668,22 @@
     height: 30px;
 }
 
+.icon--cash {
+    height: 19.78px;
+    width: 33.31px;
+}
+
+.icon--bucket-black {
+    height: 21px;
+    width: 14px;
+}
+
 .mfp-bg {
-    background: transparent;
+    // background: transparent;
+    background: #f9afab40;
+}
+
+.mfp-content>* {
+    margin-left: auto;
+    margin-right: auto;
 }

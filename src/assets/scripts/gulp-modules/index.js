@@ -25,4 +25,4 @@ function buttonHoverEffect(button) {
         gsap.to(button, { duration: 0.2, background: `linear-gradient(267.71deg, ${ button.color1} 0%, ${ button.color2} 100%) repeat` });
         // gsap.to(button, { x: 0 });
     });
-}
+};
