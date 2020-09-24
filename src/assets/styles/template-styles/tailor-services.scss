@@ -1,0 +1,56 @@
+.tailor-services {
+    .title {
+        margin-bottom: 20px;
+    }
+    .content-block__right .text-block {
+        display: inline-block;
+        width: calc(100% / 12 * 6 - (#{$offset} / 2));
+        vertical-align: top;
+    }
+    .invisible-block {
+        align-items: center;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        padding: var(--side-fields);
+        a {
+            width: 100%;
+        }
+        a:not(:last-child) {
+            margin-bottom: 20px;
+        }
+    }
+    @include to(768px) {
+        .content-block__right .text-block {
+            width: 100%;
+        }
+    }
+    @include to(575px) {
+        .content-block__right .text-block:not(:first-child) {
+            margin-top: 20px;
+        }
+    }
+}
+
+.tailor-contacts-block {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    &__title {
+        margin-bottom: 20px;
+    }
+    &__subtitle {
+        margin-bottom: 10px;
+    }
+    a {
+        display: flex;
+        align-items: center;
+        .text {
+            line-height: 2.14em;
+        }
+        svg {
+            width: 14px;
+            margin-right: 10px;
+        }
+    }
+}

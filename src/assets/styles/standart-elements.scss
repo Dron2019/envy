@@ -11,6 +11,10 @@
 
 .text {
     // @include fontSizeLhToEm(14, 20);
+    text-decoration: none;
+    span {
+        text-decoration: none;
+    }
     &>p:not(:last-child) {
         margin-bottom: 1.6em;
     }
@@ -22,6 +26,9 @@
     }
     font-size: 14px;
     line-height: 1.6em;
+    &.pink {
+        color: #8F677F;
+    }
     &.pink-gray {
         color: #6B586B;
     }
@@ -46,6 +53,15 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+    &.color-bg {
+        width: calc(100% + ( var(--side-fields) * 2));
+        margin-left: calc(var(--side-fields) - (var(--side-fields) * 2));
+        margin-right: calc(var(--side-fields) - (var(--side-fields) * 2));
+        padding: 20px var(--side-fields) 60px var(--side-fields);
+    }
+    &.light-gray {
+        background-color: #FBFBFB;
+    }
     &.single-side &__wrap {
         width: 100%;
     }
@@ -57,6 +73,11 @@
         height: 1px;
         width: calc(100% + var(--side-fields));
         background-color: #F9F3F0;
+    }
+    @include from(1680px) {
+        &.color-bg {
+            padding: 20px var(--side-fields) 75px var(--side-fields);
+        }
     }
     @include from(576px) {
         &__left {
@@ -75,6 +96,9 @@
         }
     }
     @include to(575px) {
+        &.color-bg {
+            padding: 10px var(--side-fields) 30px var(--side-fields);
+        }
         &.with-line:before {
             width: 100%;
         }
@@ -686,4 +710,102 @@
 .mfp-content>* {
     margin-left: auto;
     margin-right: auto;
+}
+
+.faq-menu {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--white);
+    padding: 23px 30px;
+    a.current-page {
+        color: var(--black);
+    }
+    &>.text {
+        // font-size: 14px;
+        margin-top: 0.7em;
+        margin-bottom: 0.7em;
+        line-height: 1.36em;
+    }
+    a {
+        text-decoration: none;
+    }
+    .mobile-open-button {
+        border: 0.5px solid #E3D4CF;
+        width: 100%;
+        padding: 11px;
+        text-align: center;
+        font-weight: 500;
+        cursor: pointer;
+    }
+    @include from(576px) {
+        .mobile-open-button {
+            display: none;
+        }
+    }
+    @include from(1680px) {
+        padding: 20px 40px;
+    }
+    @include to(1100px) {
+        padding: 23px 10px;
+    }
+    @include to(768px) {
+        padding: 23px 18px;
+    }
+}
+
+.text-block {
+    padding: 20px 50px 30px 50px;
+    a {
+        text-decoration: none;
+    }
+    &.brown {
+        background-color: #E3D4CF;
+    }
+    .list-std {
+        margin-left: 20px;
+    }
+    @include to(1100px) {
+        padding: 20px 30px 30px 30px;
+    }
+    @include to(768px) {
+        padding: 20px 30px 20px 30px;
+    }
+    @include to(575px) {
+        padding: 20px 18px 20px 18px;
+    }
+}
+
+.list-std {
+    li {
+        padding-left: 10px;
+        position: relative;
+        line-height: 1.5em;
+        margin-top: 0.6em;
+    }
+    li:after {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0.7em;
+        width: 3px;
+        height: 3px;
+        border-radius: 50%;
+        background-color: var(--black);
+    }
+    margin-bottom: 0.6em;
+}
+
+.icon--tel-tube-rose {
+    width: 14px;
+    height: 14px;
+}
+
+.icon--marker {
+    width: 10px;
+    height: 14px;
+}
+
+.icon--clock {
+    width: 14px;
+    height: 14px;
 }
