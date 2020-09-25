@@ -1,0 +1,90 @@
+extends ../layout/main
+block variable
+    - var version = "ua";
+    - var pageName = "faq";
+block meta
+    title= 'Вопрос ответ - ENVY'
+    meta(name='description', content='')
+block scripts
+    script(defer src='./assets/scripts/libs.js')
+    script(defer src='./assets/scripts/index.js')
+    script(defer src='./assets/scripts/forms-handler.js')
+    script(defer src='./assets/scripts/menu.js')
+    script(defer src='./assets/scripts/service-menu-handler.js')
+    script(defer src="./assets/scripts/faq.js")
+block head
+    link(rel='stylesheet', href="./assets/styles/main.min.css")
+block content
+    +breadcrumbs(['index.html','#'],['Главная','Вопрос ответ'])
+    .content-block.light-gray.color-bg.faq
+        .content-block__left
+            include ../includes/faq-menu.pug
+        .content-block__right 
+            .title Вопрос ответ
+            .text-block.brown
+                .subtitle Envy Group
+            -
+                var faqs = [
+                ['Какие бренды представлены в интернет-магазине?','Перечень брендов в интернет-магазине envy-shop.com - это тщательно продуманная подборка, которая  максимально ориентирована на потребности клиента. зарегистрированные пользователи сайта имеют доступ к полному ассортименту товаров.'],
+                ['Зачем мне подписываться на рассылку?','Перечень брендов в интернет-магазине envy-shop.com - это тщательно продуманная подборка, которая  максимально ориентирована на потребности клиента. зарегистрированные пользователи сайта имеют доступ к полному ассортименту товаров.'],
+                ['Отличается ли цена товара в интернет-магазине от его стоимости в магазинах сети envy group?','Перечень брендов в интернет-магазине envy-shop.com - это тщательно продуманная подборка, которая  максимально ориентирована на потребности клиента. зарегистрированные пользователи сайта имеют доступ к полному ассортименту товаров.'],
+                ['Куда обращаться с дополнительными вопросами?','Перечень брендов в интернет-магазине envy-shop.com - это тщательно продуманная подборка, которая  максимально ориентирована на потребности клиента. зарегистрированные пользователи сайта имеют доступ к полному ассортименту товаров.'],
+                ];
+            .questions-wrap
+                each val in faqs 
+                    .text-block.faq-part.white
+                        .faq-part__question.text.text-smaller.bold 
+                            span #{val[0]}
+                            <svg class="faq-part__close" width="6" height="3" viewBox="0 0 6 3" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M3 -2.62268e-07L6 3L0 3L3 -2.62268e-07Z" fill="#222222"/>
+                            </svg>
+                        .faq-part__answer.text.text-smaller.pink 
+                            div #{val[1]}
+            .text-block.brown
+                .subtitle Регистрация
+                -
+                    var faqs = [
+                    ['Зачем нужна регистрация?','Перечень брендов в интернет-магазине envy-shop.com - это тщательно продуманная подборка, которая  максимально ориентирована на потребности клиента. зарегистрированные пользователи сайта имеют доступ к полному ассортименту товаров.'],
+                    ['Будете ли вы передавать кому-то мои данные? ','Перечень брендов в интернет-магазине envy-shop.com - это тщательно продуманная подборка, которая  максимально ориентирована на потребности клиента. зарегистрированные пользователи сайта имеют доступ к полному ассортименту товаров.'],
+                    ['Что делать, если вы забыли свой пароль?','Перечень брендов в интернет-магазине envy-shop.com - это тщательно продуманная подборка, которая  максимально ориентирована на потребности клиента. зарегистрированные пользователи сайта имеют доступ к полному ассортименту товаров.'],
+                    ['Покупка. как купить? как отменить заказ?','Перечень брендов в интернет-магазине envy-shop.com - это тщательно продуманная подборка, которая  максимально ориентирована на потребности клиента. зарегистрированные пользователи сайта имеют доступ к полному ассортименту товаров.'],
+                    ];
+            .questions-wrap
+                each val in faqs 
+                    .text-block.faq-part.white
+                        .faq-part__question.text.text-smaller.bold 
+                            span #{val[0]}
+                            <svg class="faq-part__close" width="6" height="3" viewBox="0 0 6 3" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M3 -2.62268e-07L6 3L0 3L3 -2.62268e-07Z" fill="#222222"/>
+                            </svg>
+                        .faq-part__answer.text.text-smaller.pink 
+                            div #{val[1]}
+            .text-block.brown
+                .subtitle Доставка/оплата
+                -
+                    var faqs = [
+                    ['Какова стоимость доставки?','Перечень брендов в интернет-магазине envy-shop.com - это тщательно продуманная подборка, которая  максимально ориентирована на потребности клиента. зарегистрированные пользователи сайта имеют доступ к полному ассортименту товаров.'],
+                    ['Как оплатить товар?','Перечень брендов в интернет-магазине envy-shop.com - это тщательно продуманная подборка, которая  максимально ориентирована на потребности клиента. зарегистрированные пользователи сайта имеют доступ к полному ассортименту товаров.'],
+                    ['Как правильно выбрать обувь?','Перечень брендов в интернет-магазине envy-shop.com - это тщательно продуманная подборка, которая  максимально ориентирована на потребности клиента. зарегистрированные пользователи сайта имеют доступ к полному ассортименту товаров.'],
+                    ['Как ухаживать за обувью?','Перечень брендов в интернет-магазине envy-shop.com - это тщательно продуманная подборка, которая  максимально ориентирована на потребности клиента. зарегистрированные пользователи сайта имеют доступ к полному ассортименту товаров.'],
+                    ];
+            .questions-wrap
+                each val in faqs 
+                    .text-block.faq-part.white
+                        .faq-part__question.text.text-smaller.bold 
+                            span #{val[0]}
+                            <svg class="faq-part__close" width="6" height="3" viewBox="0 0 6 3" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M3 -2.62268e-07L6 3L0 3L3 -2.62268e-07Z" fill="#222222"/>
+                            </svg>
+                        .faq-part__answer.text.text-smaller.pink 
+                            div #{val[1]}
+        .invisible-block-js.invisible-block.mobile-popup-menu-js
+            .subtitle Сервис
+            <svg class="close" width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <g class="close-show">
+                    <line style="transform-origin:center" x1="29.6491" y1="29.3562" x2="0.435722" y2="0.572686" stroke="#222222"/>
+                    <line style="transform-origin:center" x1="0.422679" y1="29.4136" x2="29.6492" y2="0.643613" stroke="#222222"/>
+                </g>
+            </svg>
+block footer
+block header

@@ -241,7 +241,7 @@ header {
     @include from(1680px) {
         --between-margin: 30px;
     }
-    @include from-to(769px, 1260px) {
+    @include from-to(769px, 1200px) {
         &__right-group {
             order: 2;
         }
@@ -572,8 +572,8 @@ header {
         width: 21px;
         height: 21px;
     }
+    overflow: hidden;
     @include from(769px) {
-        overflow: hidden;
         &__short-text {
             display: none;
         }

@@ -1,0 +1,93 @@
+.payment-and-delivery {
+    .title {
+        margin-bottom: 20px;
+    }
+    .content-block__right {
+        font-size: 0;
+    }
+    .delivery-wrap,
+    .payment-wrap {
+        display: inline-block;
+    }
+    .content-block__right .delivery-wrap,
+    .content-block__right .payment-wrap {
+        display: inline-block;
+        width: calc(100% / 12 * 6 - (#{$offset} / 2));
+        vertical-align: top;
+    }
+    .content-block__right .delivery-wrap {
+        margin-left: #{$offset};
+    }
+    .invisible-block {
+        align-items: center;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        padding: var(--side-fields);
+        a {
+            width: 100%;
+        }
+        a:not(:last-child) {
+            margin-bottom: 20px;
+        }
+    }
+    @include from(576px) {
+        .service-menu-paragraph__text p {
+            padding-left: 20px;
+        }
+    }
+    @include from(1680px) {
+        .content-block__right .delivery-wrap,
+        .content-block__right .payment-wrap {
+            display: inline-block;
+            width: calc(100% / 12 * 4.8 - (#{$offset} / 2));
+            vertical-align: top;
+        }
+        .content-block__right .delivery-wrap {
+            margin-left: calc(100% / 12 + #{$offset});
+        }
+    }
+    @include to(768px) {
+        .content-block__right .delivery-wrap,
+        .content-block__right .payment-wrap {
+            width: 100%;
+        }
+        .content-block__right .delivery-wrap {
+            margin-left: 0;
+        }
+    }
+    @include to(575px) {
+        .content-block__right .text-block:not(:first-child) {
+            margin-top: 0;
+        }
+    }
+}
+
+.alert-window {
+    background-image: linear-gradient(267.71deg, #FF8298 0%, #FFDEAC 100%);
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding-top: 23px;
+    padding-bottom: 23px;
+    margin-bottom: 20px;
+    .subtitle {
+        letter-spacing: 0.02em;
+        margin-top: 0.5em;
+        margin-bottom: 0.5em;
+        text-transform: uppercase;
+    }
+    .text {
+        max-width: 80%;
+    }
+    @include shift-padding(0.8);
+    @include from(1680px) {
+        margin-bottom: 30px;
+        padding-top: 32px;
+        padding-bottom: 32px;
+        @include shift-right(1.322);
+    }
+    @include to(575px) {
+        .text {
+            max-width: none;
+        }
+    }
+}

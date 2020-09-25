@@ -1,0 +1,53 @@
+extends ../layout/main
+block variable
+    - var version = "ua";
+    - var pageName = "about";
+block meta
+    title= ' '
+    meta(name='description', content='')
+block scripts
+    script(defer src='./assets/scripts/libs.js')
+    script(defer src='./assets/scripts/index.js')
+    script(defer src='./assets/scripts/forms-handler.js')
+    script(defer src='./assets/scripts/menu.js')
+    script(defer src="./assets/scripts/about.js")
+block head
+    link(rel='stylesheet', href="./assets/styles/main.min.css")
+block content
+    +breadcrumbs(['index.html','#'],['Главная','О компании'])
+    .content-block.light-gray.about.color-bg
+        h1.title О компании
+        .text-block.brown.text
+            p Компанию «Галерея Мод» в 1996 году основали 3 человека: Аркадий Глусский, Игорь Альперович и Жанна Альперович. Сегодня компания имеет разветвленную сеть мужских и женских магазинов, в которых представлены коллекции ведущих мировых дизайнеров.
+            p Мужские магазины-монобренды KITON, CANALI, CORNELIANI, PATRICK HELLMANN и мультибреды PERSONA, PERSONA EXCLUSIVE, SAINT TROPEZ пользуются огромной популярностью у всех мужчин, следящих за модой и стремящихся выглядеть стильно, элегантно и современно. Управляют ими Аркадий Глусский и Игорь Альперович.
+            p Женскими бутиками руководит Жанна Альперович. Под ее началом и с помощью дружной компании профессионалов, знающих и искренне любящих свое дело, создается прекрасный, чарующий мир моды. 
+            p Магазины с красивым названием «Envy» - это царство лучших итальянских и французских дизайнеров, роскошных нарядов, красоты и элегантности. Здесь Вам помогут обрести свой стиль и уверенность в себе.
+        .about-slider.about-slider-js
+            +img('about/test.jpg')
+            +img('about/test1.jpg')
+            +img('about/test.jpg')
+            +img('about/test1.jpg')
+            +img('about/test.jpg')
+            #nav-arrows.arrows.nav-arrows
+                .arrow-prev.scene-nav.scene-nav--prev(data-nav='previous')
+                    +svg('arrow')
+                .arrow-next.scene-nav.scene-nav--next(data-nav='next')
+                    +svg('arrow')
+        .brands
+            .title БРЕНДЫ ENVY
+                - var brandsTop = ['Frame 10_brand.png','Frame 11_brand.png','Frame 12_brand.png','Frame 13_brand.png','Frame 4_brand.png',];
+                - var brandsBottom = ['Frame 5_brand.png','Frame 6_brand.png','Frame 7_brand.png','Frame 8_brand.png','Frame 9_brand.png',];
+            .double-slider-wrapper
+                .brands__slider.brands__slider-top-js
+                    each brand in  brandsTop
+                        img(src="./assets/images/brands/"+brand)
+                .brands__slider.brands__slider-bottom-js
+                    each brand in  brandsBottom
+                        img(src="./assets/images/brands/"+brand)
+                .arrows
+                    .arrow-prev.scene-nav.scene-nav--prev(data-nav='previous')
+                        +svg('arrow')
+                    .arrow-next.scene-nav.scene-nav--next(data-nav='next')
+                        +svg('arrow')
+block footer
+block header

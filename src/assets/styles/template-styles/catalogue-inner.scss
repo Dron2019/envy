@@ -180,6 +180,7 @@
 
 .invisible-block {
     display: none;
+    overflow: hidden;
     &>.subtitle,
     &>svg {
         margin-bottom: 20px;

@@ -1,0 +1,105 @@
+.faq {
+    .title {
+        margin-bottom: 20px;
+    }
+    .text-block {
+        padding-top: 13px;
+        padding-bottom: 13px;
+    }
+    .invisible-block {
+        align-items: center;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        padding: var(--side-fields);
+        a {
+            width: 100%;
+        }
+        a:not(:last-child) {
+            margin-bottom: 20px;
+        }
+    }
+    @include from(1680px) {
+        .title {
+            margin-bottom: 40px;
+        }
+    }
+    @include to(575px) {
+        .text-block {
+            display: flex;
+            align-items: flex-start;
+            padding-top: calc(0.16em + 6px);
+            padding-bottom: calc(0.16em + 6px);
+            justify-content: center;
+            flex-direction: column;
+        }
+    }
+}
+
+.faq-part {
+    position: relative;
+    --self-ver-padding: 20px;
+    --self-hor-padding: 40px;
+    padding: var(--self-ver-padding) var(--self-hor-padding);
+    &__close {
+        width: 6px;
+        height: 3px;
+        // position: absolute;
+        // right: var(--self-hor-padding);
+        // top: var(--self-ver-padding);
+        margin-left: auto;
+    }
+    &__question {
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        span {
+            width: calc(100% - 16px);
+            margin-right: 10px;
+        }
+    }
+    &__answer {
+        margin-top: 20px;
+    }
+    @include from(1680px) {
+        --self-hor-padding: 50px;
+    }
+    @include to(575px) {
+        --self-hor-padding: 17px;
+        &__answer {
+            margin-top: 0;
+        }
+        &__question {
+            width: 100%;
+            margin-bottom: 6px;
+        }
+    }
+}
+
+.questions-wrap {
+    margin-top: 20px;
+    margin-bottom: 40px;
+    column-count: 2;
+    column-gap: $offset;
+    break-inside: avoid;
+    break-before: avoid;
+    .faq-part:not(:first-child) {
+        break-inside: avoid;
+        margin-top: 20px;
+    }
+    @include from(1680px) {
+        column-gap: calc(100% / 12 + (#{$offset} * 2));
+    }
+    @include to(950px) {
+        column-count: auto;
+    }
+}
+
+.headroom--top {
+    transition: .5s ease-out;
+    transform: translateY(92px) !important;
+}
+
+.headroom--not-top {
+    transition: .5s ease-out;
+    transform: translateY(0px) !important;
+}

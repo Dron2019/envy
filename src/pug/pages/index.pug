@@ -108,17 +108,33 @@ block content
 							.news-card__text-text.text.pink-gray Мо́да (фр. mode, от лат. modus — мера, образ, способ, правило, предписание) — совокупность привычек, ценностей и вкусов.
 							+button-std('Читать новость','medium')
 					-n++
-	.home-block4.brands
+		//- .home-block4.brands
+		//- 	.title БРЕНДЫ ENVY
+		//- 		- var brandsTop = ['Canali.svg','Corneliani.svg','Fabiana Filippi.svg','jacobcohen.svg','Luigi Bianchi Mantova.svg',];
+		//- 		- var brandsBottom = ['Max and Moi.svg','Moreschi.svg','Red Valentino.svg','stuartweitzman_logo 1.svg','Svevo.svg',];
+		//- 	.double-slider-wrapper
+		//- 		.brands__slider.brands__slider-top-js
+		//- 			each brand in  brandsTop
+		//- 				img(src="./assets/images/home/brands/"+brand)
+		//- 		.brands__slider.brands__slider-bottom-js
+		//- 			each brand in  brandsBottom
+		//- 				img(src="./assets/images/home/brands/"+brand)
+		//- 		.arrows
+		//- 			.arrow-prev.scene-nav.scene-nav--prev(data-nav='previous')
+		//- 				+svg('arrow')
+		//- 			.arrow-next.scene-nav.scene-nav--next(data-nav='next')
+		//- 				+svg('arrow')
+	.brands.home-block4
 		.title БРЕНДЫ ENVY
-			- var brandsTop = ['Canali.svg','Corneliani.svg','Fabiana Filippi.svg','jacobcohen.svg','Luigi Bianchi Mantova.svg',];
-			- var brandsBottom = ['Max and Moi.svg','Moreschi.svg','Red Valentino.svg','stuartweitzman_logo 1.svg','Svevo.svg',];
+			- var brandsTop = ['Frame 10_brand.png','Frame 11_brand.png','Frame 12_brand.png','Frame 13_brand.png','Frame 4_brand.png',];
+			- var brandsBottom = ['Frame 5_brand.png','Frame 6_brand.png','Frame 7_brand.png','Frame 8_brand.png','Frame 9_brand.png',];
 		.double-slider-wrapper
 			.brands__slider.brands__slider-top-js
 				each brand in  brandsTop
-					img(src="./assets/images/home/brands/"+brand)
+					img(src="./assets/images/brands/"+brand)
 			.brands__slider.brands__slider-bottom-js
 				each brand in  brandsBottom
-					img(src="./assets/images/home/brands/"+brand)
+					img(src="./assets/images/brands/"+brand)
 			.arrows
 				.arrow-prev.scene-nav.scene-nav--prev(data-nav='previous')
 					+svg('arrow')

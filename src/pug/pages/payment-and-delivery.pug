@@ -1,0 +1,91 @@
+extends ../layout/main
+block variable
+    - var version = "ua";
+    - var pageName = "payment-and-delivery";
+block meta
+    title= 'ENVY - оплата и доставка'
+    meta(name='description', content='')
+block scripts
+    script(defer src='./assets/scripts/libs.js')
+    script(defer src='./assets/scripts/index.js')
+    script(defer src='./assets/scripts/forms-handler.js')
+    script(defer src='./assets/scripts/menu.js')
+    script(defer src='./assets/scripts/service-menu-handler.js')
+    script(defer src="./assets/scripts/payment-and-delivery.js")
+block head
+    link(rel='stylesheet', href="./assets/styles/main.min.css")
+block content
+    +breadcrumbs(['index.html','#'],['Главная','Оплата и доставка'])
+    .content-block.light-gray.color-bg.payment-and-delivery
+        .content-block__left
+            include ../includes/faq-menu.pug
+        .content-block__right
+            .title Оплата и доставка
+            .alert-window
+                .subtitle.bold Уважаемые клиенты!
+                .text-large.text Убедительная просьба не оплачивать товар без подтверждения наличия менеджером интернет-магазина!
+            .payment-wrap
+                .text-block.brown.for-title.subtitle Оплата
+                .service-menu-paragraph.text-block
+                    .service-menu-paragraph__title.text.bold Возврат денежных средств
+                    .service-menu-paragraph__text.text.pink
+                        ul.list-std
+                            li  При доставке курьером по г. Киеву
+                            li  При самовывозе из магазинов сети Envy-group
+                .service-menu-paragraph.text-block
+                    .service-menu-paragraph__title.text.bold Банковской картой
+                    .service-menu-paragraph__text.text.pink
+                        ul.list-std
+                            li   На сайте интернет-магазина
+                        p Выберете вид оплаты «Банковской картой на сайте» и нажмите кнопку "Перейти к оплате". Она перенаправит вас на платежный шлюз. На странице платежного шлюза введите следующие реквизиты:
+                        ul.list-std.no-markers
+                            li -   Номер карты
+                            li -   Срок дей ствия карты
+                            li -   CVV / CVC код
+                        p и нажмите кнопку “Продолжить”. После на странице высветится информация о состоянии оплаты.
+                        ul.list-std
+                            li   При самовывозе из магазинов сети Envy-group
+                .service-menu-paragraph.text-block
+                    .service-menu-paragraph__title.text.bold Наложенным платежом
+                    .service-menu-paragraph__text.text.pink
+                        ul.list-std
+                            li   При доставке заказа стоимостью до 20 тыс. грн. курьерской службой Новая почта по Украине. 
+                        p Для клиентов, выбравших доставку по территории Украины, при выборе данного способа оплаты, в момент получения посылки необходимо оплатить стоимость товара, а также пересылку денежных средств в г. Киев. Обращаем внимание, что при пересылке денежных средств взимается комиссия в размере 2% от суммы заказа.
+                .text-block.text.black Доставка заказов клиентам интернет-магазина Envy-shop осуществляется бесплатно: по г. Киеву и пригородной зоне  – в течение трех рабочих дней после оформления заказа, по Украине – при оформлении заказа до 12:00 отправка осуществляется в этот же день, при оформлении заказа после 12:00 – отправка осуществляется на следующий рабочий день. 
+            .delivery-wrap
+                .text-block.brown.for-title.subtitle  Доставка
+                .text-block
+                    .text.pink Мы предлагаем следующие способы доставки:
+                    .service-menu-paragraph
+                        .service-menu-paragraph__title.text.bold Курьерская экспресс-доставка по Киеву и пригородной зоне.
+                        .service-menu-paragraph__text.text.pink
+                            ul.list-std
+                                li Доставка товаров по Киеву и пригородной зоне (Вишневое, Софиевская Борщаговка, Петропавловская Борщаговка, Коцюбинское, Пуща Водица, Быковня, Бортничи, Хотив, Конча-Заспа) осуществляется курьерской службой Dostavim dostavim.zolteco.com.
+                        .text  Доставка заказанных товаров осуществляется бесплатно с 13:00 до 19:00, при оформлении заказа до 12:00 – день в день, при оформлении заказа после 12:00 – на следующий день. Доставка товаров в магазины сети Envy - в течение 2 часов. 
+                    .service-menu-paragraph
+                        .service-menu-paragraph__title.text.bold Доставка по Украине курьерской службой Новая Почта.
+                        .service-menu-paragraph__text.text.pink
+                            ul.list-std
+                                li Доставка по Украине курьерской службой осуществляется бесплатно. После передачи заказа курьерской службе Вы получите СМС сообщение с номером декларации для отслеживания доставки. В момент получения посылки необходимо оплатить стоимость товара, а также пересылку денежных средств в г. Киев. Обращаем внимание, что при пересылке денежных средств взимается комиссия в размере 2% от суммы заказа.
+                        .text  При доставке на сумму до 20 000 грн. Вы сможете оплатить заказ наложенным платежом курьеру после получения или в ближайшем отделении Новой Почты, в которое будет доставлен Ваш заказ. Заказ хранится в отделении курьерской службы не более 5 рабочих дней.
+                    .service-menu-paragraph
+                        .service-menu-paragraph__title.text.bold Самовывоз из магазинов Envy-group.
+                        .service-menu-paragraph__text.text.pink
+                            ul.list-std
+                                li Заказ можно забрать самостоятельно из магазинов сети Envy-group с 10:00 до 22:00, предварительно согласовав с менеджером интернет-магазина адрес:
+                            ul.list-std.no-markers  
+                                li -   ТЦ «Мандарин Плаза», г. Киев, ул. Бассейная 4а 
+                                li -   Envy Concept Store, г. Киев, Владимирская, 37
+                                li -   Envy outlet, г. Киев, ул. Городецкого 10
+                            p Для получения заказа сообщите Ваше имя на кассе магазина
+
+        .invisible-block-js.invisible-block.mobile-popup-menu-js
+            .subtitle Сервис
+            <svg class="close" width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <g class="close-show">
+                    <line style="transform-origin:center" x1="29.6491" y1="29.3562" x2="0.435722" y2="0.572686" stroke="#222222"/>
+                    <line style="transform-origin:center" x1="0.422679" y1="29.4136" x2="29.6492" y2="0.643613" stroke="#222222"/>
+                </g>
+                </svg>
+block footer
+block header

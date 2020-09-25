@@ -1,0 +1,76 @@
+extends ../layout/main
+block variable
+    - var version = "ua";
+    - var pageName = "tailor-services";
+block meta
+    title= 'Обмен и возврат'
+    meta(name='description', content='')
+block scripts
+    script(defer src='./assets/scripts/libs.js')
+    script(defer src='./assets/scripts/index.js')
+    script(defer src='./assets/scripts/forms-handler.js')
+    script(defer src='./assets/scripts/menu.js')
+    script(defer src='./assets/scripts/service-menu-handler.js')
+    script(defer src="./assets/scripts/tailor-services.js")
+    script(defer src="./assets/scripts/return-conditions.js")
+block head
+    link(rel='stylesheet', href="./assets/styles/main.min.css")
+block content
+    +breadcrumbs(['index.html','#'],['Главная','Обмен и возврат'])
+    .content-block.light-gray.color-bg.return-conditions
+        .content-block__left
+            include ../includes/faq-menu.pug
+        .content-block__right
+            .title Обмен возврат
+            .text-block.brown.text
+                p Мы приложили все усилия для того, чтобы цвета наших товаров, продаваемых через интернет-магазин envy-shop, отображались как можно точнее. однако поскольку компьютерные мониторы и экраны смартфонов отличаются друг от друга, мы не можем гарантировать полное соответствие всех цветов, отображаемых на вашем мониторе.
+                p Если Вам не подошел размер или модель, Вы можете легко обменять или вернуть товар в течение 14 дней со дня покупки.
+                p Для обмена Вам необходимо сначала оформить возврат предыдущего товара. 
+            .text-block.white
+                .service-menu-paragraph
+                    .service-menu-paragraph__title.text.bold Требования к товарам, подлежащим возврату
+                    .service-menu-paragraph__text.text.pink 
+                        p Для возврата Вам необходимо предоставить товар в его первоначальном виде: без повреждений и следов использования, с оригинальными лейбами, бирками и в оригинальной упаковке. Если товар был приобретен в комплекте, он должен быть возвращен в полном составе.
+                        p Правила возврата товаров, приобретенных в интернет-магазине Envy-shop, регулируются Законом Украины «О защите прав потребителей».
+                        p Не возвращаются и не подлежат обмену ювелирные изделия, нижнее белье, купальники и парфюм.
+                        p Мы оставляем за собой право не принимать возвращенные товары, если состояние товаров отличается от того, в котором Вы их получили.
+                .service-menu-paragraph
+                    .service-menu-paragraph__title.text.bold Обмен / Возврат товара в пределах Киева 
+                    .service-menu-paragraph__text.text.pink 
+                        p Вы можете оформить обмен или возврат в любых магазинах Envy-group с 10:00 до 22:00. 
+                        p Если Вы планируете делать обмен, свяжитесь с нами по номеру  (068) 297-70-77, что бы сообщить в каком именно магазине вы желаете сделать обмен/возврат. Менеджер интернет-магазина зарезервирует для Вас товар, который будет ждать Вас на кассе магазина.
+                .service-menu-paragraph
+                    .service-menu-paragraph__title.text.bold Обмен / Возврат товара по Украине
+                    .service-menu-paragraph__text.text.pink 
+                        p Вы можете оформить обмен / возврат:
+                        ul.list-std
+                            li Вызвав курьера транспортной компании;
+                            li В ближайшем отделении курьерской службы;
+                        p Для получения реквизитов и документов для оформления обмена/возврата свяжитесь с нами по телефону  (068) 297-70-77. В случае обмена расходы на обратную доставку несет интернет-магазин Envy, в случае возврата – клиент. 
+                        p Если Вы планируете делать обмен, менеджер интернет-магазина зарезервирует для Вас товар и отправит его после получения возврата. 
+                .service-menu-paragraph
+                    .service-menu-paragraph__title.text.bold Возврат денежных средств
+                    .service-menu-paragraph__text.text.pink 
+                        p Возврат денег за товары возможен только банковским переводом на карточный счет физического лица. 
+                        p Для перевода денег Вам необходимо указать следующие реквизиты: 
+                        ul.list-std
+                            li Банк получателя
+                            li МФО банка
+                            li Получатель
+                            li Код получателя
+                            li Расчетный счет (получателя)
+                            li Назначение платежа Пополнение карточного счета №  ....(р/с личный)
+                            li ФИО и ИНН 
+                            li Номер карты 
+                        p Обратите внимание! номер карточного счета — это не номер вашей банковской карты, указанный на самой карте, а номер, под которым карта зарегистрирована в банке. свой номер карточного счета вы можете узнать у оператора вашего банка, обратившись в ближайшее отделение или по телефону "горячей линии".
+                        p Срок возврата денежных средств на расчетный счет получателя зависит от политики учреждения, выпустившего карту.
+        .invisible-block-js.invisible-block.mobile-popup-menu-js
+            .subtitle Сервис
+            <svg class="close" width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <g class="close-show">
+                    <line style="transform-origin:center" x1="29.6491" y1="29.3562" x2="0.435722" y2="0.572686" stroke="#222222"/>
+                    <line style="transform-origin:center" x1="0.422679" y1="29.4136" x2="29.6492" y2="0.643613" stroke="#222222"/>
+                </g>
+                </svg>
+block footer
+block header

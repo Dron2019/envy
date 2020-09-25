@@ -1,0 +1,91 @@
+.about {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    .title {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+    .text-block {
+        @include size(5);
+        @include size-md(6);
+    }
+    .brands {
+        width: 100%;
+        img {
+            height: auto;
+        }
+    }
+    @include from(1680px) {
+        .text-block {
+            height: 50vh;
+            @include shift-left(1);
+            @include size(4)
+        }
+    }
+    @include to(768px) {
+        .text-block {
+            width: 100%;
+        }
+    }
+    @include to(575px) {
+        margin-bottom: 10px;
+        .brands {
+            padding-bottom: 0;
+            padding-top: 20px;
+        }
+    }
+}
+
+.about-slider {
+    position: relative;
+    background-color: white;
+    img {
+        object-fit: cover;
+        height: 50vh;
+        padding-top: 40px;
+        padding-bottom: 40px;
+    }
+    .arrows {
+        position: absolute;
+        left: 50%;
+        width: calc(100% - 60px);
+        top: 50%;
+        transform: translate(-50%, -50%);
+    }
+    @include shift-padding(1);
+    @include size(7);
+    @include from(1680px) {
+        @include shift-right(1);
+        @include size(6);
+    }
+    @include to(1100px) {
+        .arrows {
+            width: 100%;
+        }
+        padding: 0 50px;
+    }
+    @include to(768px) {
+        width: 100%;
+    }
+    @include from-to(576px, 768px) {
+        img {
+            height: 70vh;
+            padding-left: 70px;
+            padding-right: 70px;
+        }
+    }
+    @include to(575px) {
+        padding: 0;
+        .slick-list {
+            overflow: visible;
+        }
+        .arrows {
+            display: none;
+        }
+        img {
+            padding-right: 20px;
+            height: 50vh;
+        }
+    }
+}

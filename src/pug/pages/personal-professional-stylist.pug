@@ -3,7 +3,7 @@ block variable
     - var version = "ua";
     - var pageName = "tailor-services";
 block meta
-    title= ' '
+    title= 'Персональный профессиональный стилист'
     meta(name='description', content='')
 block scripts
     script(defer src='./assets/scripts/libs.js')
@@ -15,31 +15,25 @@ block scripts
 block head
     link(rel='stylesheet', href="./assets/styles/main.min.css")
 block content
-    +breadcrumbs(['index.html','#'],['Главная','Услуги портного в магазинах'])
-    .content-block.light-gray.color-bg.tailor-services
+    +breadcrumbs(['index.html','#'],['Главная','Личный профессиональный стилист'])
+    .content-block.light-gray.color-bg.personal-professional-stylist
         .content-block__left
             include ../includes/faq-menu.pug
         .content-block__right
-            .title Услуги портного в магазинах
+            .title Личный профессиональный стилист
             .text-block.brown.text
-                p Компания Envy group предоставляет своим клиентам возможность воспользоваться услугами высококвалифицированных мастеров ателье, способных выполнить на самом высоком уровне сложные портновские операции:
-                ul.list-std
-                    li  Подгонка изделий по фигуре;
-                    li  Ремонт изделий, приобретенных в магазинах сети Envy  group;
-                    li  Ремонт личных вещей клиентов.
-                p При покупке изделий из новой коллекции все услуги ателье по данным изделиях предоставляются бесплатно.
+                p Услуга «Личный стилист» сделает Ваш виртуальный шопинг максимально реальным.
+                p Профессиональные стилисты Envy group сформируют для Вас идеальные образы для важных мероприятий с учетом Вашего цветотипа и пожеланий к дресс-коду. Исходя из Ваших предпочтений, личный стилист будет информировать Вас о новых коллекциях, пополнениях ассортимента и модных тенденциях сезона.
+                p В пределах Киева и пригородной зоны персональный стилист может приехать к Вам по указанному адресу.
             .text-block.white.tailor-contacts-block
                 .text.bold.tailor-contacts-block__title Для заказа услуг
-                .text.pink.tailor-contacts-block__subtitle Позвоните в контакт-центр Envy group:
+                .text.pink.tailor-contacts-block__subtitle Оставьте комментарий к заказу при покупке товара в Интернет-магазине или позвоните в контакт-центр Envy group
                 a(href="tel:0682977077") 
                     +svg('tel-tube-rose')
                     span.text.pink 068 297 70 77 
                 a(href="tel:0682977077") 
                     +svg('marker')
                     span.text.pink Пн.-Пт.: 10: 00-19: 00
-                a(href="tel:0682977077") 
-                    +svg('clock')
-                    span.text.pink или посетите магазин Envy г.. Киев, ул.  Владимирская, 37.
         .invisible-block-js.invisible-block.mobile-popup-menu-js
             .subtitle Сервис
             <svg class="close" width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">

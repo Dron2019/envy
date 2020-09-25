@@ -1,6 +1,9 @@
 .subtitle {
     @include fontSizeLhToEm(24, 24);
     font-weight: normal;
+    &.bold {
+        font-weight: bold;
+    }
     &.black {
         color: var(--black);
     }
@@ -17,6 +20,9 @@
     }
     &>p:not(:last-child) {
         margin-bottom: 1.6em;
+    }
+    &.text-large {
+        font-size: 18px;
     }
     &.bold {
         font-weight: bold;
@@ -131,7 +137,7 @@
         @include fontSizeLhToEm(48, 48);
     }
     @include to(575px) {
-        @include fontSizeLhToEm(24, 30);
+        @include fontSizeLhToEm(18, 24);
     }
 }
 
@@ -153,7 +159,7 @@
     }
     & .arrow-prev,
     & .arrow-next {
-        border: 2px solid var(--blue);
+        border: 0.5px solid var(--blue);
         pointer-events: all;
     }
     & path {
@@ -169,7 +175,7 @@
         justify-content: center;
         width: var(--self-arrow-side);
         height: var(--self-arrow-side);
-        border: 1px solid var(--black);
+        border: 0.5px solid var(--black);
         cursor: pointer;
         // border-right-color: transparent;
         // transition: .7s;
@@ -751,18 +757,34 @@
     @include to(768px) {
         padding: 23px 18px;
     }
+    @include to(575px) {
+        padding: 0;
+        &>*:not(.mobile-open-button) {
+            display: none;
+        }
+    }
 }
 
 .text-block {
-    padding: 20px 50px 30px 50px;
+    padding: 20px 30px 30px 30px;
+    &.for-title {
+        padding-top: 13px;
+        padding-bottom: 13px;
+    }
     a {
         text-decoration: none;
     }
     &.brown {
         background-color: #E3D4CF;
     }
+    &.white {
+        background-color: var(--white);
+    }
     .list-std {
         margin-left: 20px;
+    }
+    @include from(1680px) {
+        padding: 20px 50px 30px 50px;
     }
     @include to(1100px) {
         padding: 20px 30px 30px 30px;
@@ -776,6 +798,9 @@
 }
 
 .list-std {
+    &.no-markers li:after {
+        opacity: 0;
+    }
     li {
         padding-left: 10px;
         position: relative;
@@ -793,6 +818,37 @@
         background-color: var(--black);
     }
     margin-bottom: 0.6em;
+}
+
+.service-menu-paragraph {
+    position: relative;
+    padding-bottom: 20px;
+    .list-std li {
+        padding-left: 18px;
+    }
+    .list-std li:after {
+        background-color: var(--pink);
+    }
+    &:not(:first-child) {
+        margin-top: 20px;
+    }
+    &:not(:last-child):after {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        background-color: rgba(227, 212, 207, 0.5);
+        width: 100%;
+        height: 1px;
+    }
+    &__title {
+        margin-bottom: 10px;
+    }
+    @include to(575px) {
+        &__title {
+            margin-bottom: 10px;
+        }
+    }
 }
 
 .icon--tel-tube-rose {

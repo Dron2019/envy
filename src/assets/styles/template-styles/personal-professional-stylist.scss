@@ -1,4 +1,4 @@
-.tailor-services {
+.personal-professional-stylist {
     .title {
         margin-bottom: 20px;
     }
@@ -46,30 +46,6 @@
     @include to(575px) {
         .content-block__right .text-block:not(:first-child) {
             margin-top: 0;
-        }
-    }
-}
-
-.tailor-contacts-block {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-    &__title {
-        margin-bottom: 20px;
-    }
-    &__subtitle {
-        margin-bottom: 10px;
-    }
-    a {
-        display: flex;
-        align-items: baseline;
-        .text {
-            line-height: 2.14em;
-        }
-        svg {
-            width: 14px;
-            margin-right: 10px;
         }
     }
 }
