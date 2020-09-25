@@ -4,11 +4,25 @@ const filterItemsDropdown = {
     childTitle: '.faq-part__question',
     childcontent: '.faq-part__answer',
     customCallback: function(title, trnsfrmValue) {
+        let answerBlock = title.querySelector(this.childcontent);
         gsap.to(title.querySelector('.faq-part__close'), {
             rotate: trnsfrmValue
         });
         gsap.set(title.querySelector(this.childTitle), { perspective: 10, z: 10 })
-        gsap.fromTo(title.querySelector(this.childcontent + ' div'), { y: -30 }, { y: 0 })
+        gsap.fromTo(title.querySelector(this.childcontent + ' div'), { y: -30 }, { y: 0 });
+        if (trnsfrmValue == 0) {
+            gsap.fromTo(
+                answerBlock, { height: 0 }, { height: function(e, target) { return answerBlock.scrollHeight; } })
+        } else {
+            gsap.fromTo(
+                answerBlock, {
+                    height: answerBlock.getBoundingClientRect().height,
+                }, {
+                    marginTop: 0,
+                    height: 0,
+                })
+
+        }
     }
 
 }
@@ -23,8 +37,12 @@ function dropDownMenuHandling(config) {
         article.querySelector(childTitle).addEventListener('click', function(evt) {
             this.status = !this.status;
             if (this.status) {
-                hide(article.querySelector(childcontent));
+
+
                 config.customCallback(article, 180);
+                setTimeout(() => {
+                    hide(article.querySelector(childcontent));
+                }, 800);
             } else {
                 show(article.querySelector(childcontent));
                 config.customCallback(article, 0);

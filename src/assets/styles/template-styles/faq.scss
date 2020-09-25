@@ -59,6 +59,7 @@
     }
     &__answer {
         margin-top: 20px;
+        overflow: hidden !important;
     }
     @include from(1680px) {
         --self-hor-padding: 50px;

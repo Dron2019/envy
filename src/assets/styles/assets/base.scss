@@ -20,7 +20,8 @@
 html {
     font-size: 12px;
     --text-size: 14px;
-    font-weight: normal;
+    // font-weight: normal;
+    font-weight: 500;
     @include from(1720px) {
         --text-size: 14px;
     }
