@@ -1,0 +1,79 @@
+extends ../layout/main
+block variable
+    - var version = "ua";
+    - var pageName = "news";
+block meta
+    title= ' ENVY - новости'
+    meta(name='description', content='')
+block scripts
+    script(defer src='./assets/scripts/libs.js')
+    script(defer src='./assets/scripts/index.js')
+    script(defer src='./assets/scripts/forms-handler.js')
+    script(defer src='./assets/scripts/menu.js')
+    script(defer src="./assets/scripts/single-news.js")
+block head
+    link(rel='stylesheet', href="./assets/styles/main.min.css")
+block content
+    +breadcrumbs(['index.html','news.html','#'],['Главная','Новости', 'Колекция курток 2020'])
+    .content-block.color-bg.light-gray.single-news
+        .title Коллекция мужских курток 2020
+        .single-news-container
+            .slider 
+                .slide
+                    +img('test-image.jpg')
+                .slide
+                    +img('test-image.jpg')
+                .slide
+                    +img('test-image.jpg')
+                .slide
+                    +img('test-image.jpg')
+                .slide
+                    +img('test-image.jpg')
+                .slide
+                    +img('test-image.jpg')
+                .arrows
+                    .arrow-prev.scene-nav.scene-nav--prev(data-nav='previous')
+                        +svg('arrow')
+                    .arrow-next.scene-nav.scene-nav--next(data-nav='next')
+                        +svg('arrow')
+            .news-date 23 Июля 2020
+            h2 Название для списка
+            ul
+                li Документ, подтверждающий покупку товара: товарную накладную или кассовый чек;
+                li Документ, удостоверяющий Вашу личность;
+                li Расписку о получении возвращенных средств (в случае наличного расчета).
+            p Мо́да (фр. mode, от лат. modus — мера, образ, способ, правило, предписание) — совокупность привычек, ценностей и вкусов, принятых в определённой среде в определённое время. Установление идеологии или стиля в какой-либо сфере жизни или культуры. Мода может определять тип или форму одежды и аксессуаров, набор идей, принципы поведения людей в обществе друг друга и этикета, и понятий нормы в стилизации и организации пространства. 
+            p Иногда понятие моды распространяют на представления об образе жизни, искусстве, литературе, архитектуре, кулинарии, индустрии развлечений и отдыха, рассматривают ее влияние на тип человеческого тела и т. д. Понятие моды, как правило, подразумевает непрочное и быстро проходящее установление. Стремление неукоснительно следовать условным модным правилам и веяниям часто привлекало внимание карикатуристов.
+            a(href="catalogue.html") Смотреть коллекцию
+            .video-container
+                video(poster="./assets/images/test-image.jpg" controls="no" )
+                    source(src="./static/water.mp4")
+                +svg('video-play-button').video-play-button
+        .same-news-container
+            .title Похожие новости
+            a(href="single-news.html").news-card
+                img(src="./assets/images/home/news1.jpg").news-card__img
+                .news-card__text
+                    .news-card__text-title.subtitle Коллекция мужских курток 2020
+                    .news-card__text-text.text.pink-gray Мо́да (фр. mode, от лат. modus — мера, образ, способ, правило, предписание) — совокупность привычек, ценностей и вкусов.
+                    +button-std('Читать новость','medium')
+            a(href="single-news.html").news-card
+                img(src="./assets/images/home/news1.jpg").news-card__img
+                .news-card__text
+                    .news-card__text-title.subtitle Коллекция мужских курток 2020
+                    .news-card__text-text.text.pink-gray Мо́да (фр. mode, от лат. modus — мера, образ, способ, правило, предписание) — совокупность привычек, ценностей и вкусов.
+                    +button-std('Читать новость','medium')
+            a(href="single-news.html").news-card
+                img(src="./assets/images/home/news1.jpg").news-card__img
+                .news-card__text
+                    .news-card__text-title.subtitle Коллекция мужских курток 2020
+                    .news-card__text-text.text.pink-gray Мо́да (фр. mode, от лат. modus — мера, образ, способ, правило, предписание) — совокупность привычек, ценностей и вкусов.
+                    +button-std('Читать новость','medium')
+            a(href="single-news.html").news-card
+                img(src="./assets/images/home/news1.jpg").news-card__img
+                .news-card__text
+                    .news-card__text-title.subtitle Коллекция мужских курток 2020
+                    .news-card__text-text.text.pink-gray Мо́да (фр. mode, от лат. modus — мера, образ, способ, правило, предписание) — совокупность привычек, ценностей и вкусов.
+                    +button-std('Читать новость','medium')
+block footer
+block header

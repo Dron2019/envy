@@ -1,0 +1,56 @@
+extends ../layout/main
+block variable
+    - var version = "ua";
+    - var pageName = "news";
+block meta
+    title= ' ENVY - новости'
+    meta(name='description', content='')
+block scripts
+    script(defer src='./assets/scripts/libs.js')
+    script(defer src='./assets/scripts/index.js')
+    script(defer src='./assets/scripts/forms-handler.js')
+    script(defer src='./assets/scripts/menu.js')
+    script(defer src="./assets/scripts/news.js")
+block head
+    link(rel='stylesheet', href="./assets/styles/main.min.css")
+block content
+    +breadcrumbs(['index.html','#'],['Главная','Новости'])
+    .content-block.color-bg.light-gray.news
+        .title Новости
+        .news-container
+            - var n = 0;
+                while n < 5
+                    a(href="single-news.html").news-card
+                        img(src="./assets/images/home/news"+n+".jpg").news-card__img
+                        .news-card__text
+                            .news-card__text-title.subtitle Коллекция мужских курток 2020
+                            .news-card__text-text.text.pink-gray Мо́да (фр. mode, от лат. modus — мера, образ, способ, правило, предписание) — совокупность привычек, ценностей и вкусов.
+                            +button-std('Читать новость','medium')
+                    -n++
+        .pagination
+            a(href="#").to-start.innactive 
+                +svg('double-birdy')
+                span В начало
+            a(href="#").back.innactive
+                +svg('arrow')
+                span Назад
+            .digit 1
+            .digit 2
+            .digit 3
+            .digit 10
+            a(href="#").forward 
+                span Вперед
+                +svg('arrow')
+            a(href="#").to-finish 
+                span В конец
+                +svg('double-birdy')
+        .mobile-pagination
+            .mobile-pagination__text 
+                span На странице 
+                span.mob-current 10 
+                span из 
+                span.mob-all 130 
+                span товаров
+            +button-std('Показать еще','medium')
+block footer
+block header

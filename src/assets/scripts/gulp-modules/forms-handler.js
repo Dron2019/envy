@@ -45,11 +45,15 @@ function checkRequiredFields(form) {
 
         } else if (input.dataset.required === 'true' && checkboxes.includes(input.type) && !input.checked) {
             inputGroup.classList.add('unfilled');
-
         } else {
             inputGroup.classList.remove('unfilled');
         }
-        sendObject[input.name] = input.value;
+        if (checkboxes.includes(input.type)) {
+            if (input.checked) sendObject[input.name] = input.value;
+        } else {
+            sendObject[input.name] = input.value;
+        }
+
     });
     if (form.querySelector('.unfilled') === null) {
         //console.log(sendObject);

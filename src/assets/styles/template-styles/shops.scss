@@ -1,0 +1,110 @@
+.shops-container {
+    @include row-flex();
+    margin-top: 20px;
+    font-size: 0;
+    .shop-card {
+        // @include col-ib();
+        @include size(6);
+        @include shift(0);
+    }
+    .shop-card:nth-child(n+3) {
+        margin-top: 20px;
+    }
+    @include from(1680px) {
+        margin-top: 40px;
+        @include shift(1);
+        .shop-card {
+            margin-left: calc(0% + 15px);
+            @include size(5.9);
+            margin-right: calc(0% + 15px);
+        }
+        .shop-card:nth-child(n+3) {
+            margin-top: 30px;
+        }
+    }
+    @include to(575px) {
+        margin-top: 10px;
+        .shop-card {
+            @include size-xs(12);
+        }
+        .shop-card:nth-child(n+1) {
+            margin-top: 20px;
+        }
+    }
+}
+
+.shop-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    border: 1px solid #F9F3F0;
+    background-color: var(--white);
+    padding: 30px 30px 30px 50px;
+    min-height: 300px;
+    &.no-image {
+        border: none;
+        background: transparent;
+    }
+    &.no-image &__img {
+        display: none;
+    }
+    &.no-image &__text {
+        width: 100%;
+    }
+    &__text {
+        width: 45%;
+        .text {
+            margin-bottom: 10px;
+        }
+        svg {
+            width: 15px;
+            height: 15px;
+            margin-right: 13px;
+            display: inline-block;
+            vertical-align: top;
+            position: relative;
+            top: 0.3em;
+        }
+        .text span {
+            display: inline-block;
+            max-width: 80%;
+        }
+        &-tel span {
+            display: inline-block;
+            max-width: 15ch !important;
+        }
+        &-tel span:not(::first-line),
+        .text span:not(::first-line) {
+            padding-left: 15px;
+        }
+    }
+    &__text>*:first-child {
+        margin-bottom: 20px;
+    }
+    &__img {
+        width: 55%;
+        height: 100%;
+        object-fit: cover;
+    }
+    @include to(1200px) {
+        padding: 25px 25px 25px 30px;
+    }
+    @include to(950px) {
+        padding: 30px;
+        flex-direction: column-reverse;
+        &__text,
+        &__img {
+            width: 100%;
+        }
+        &__text {
+            margin-top: 10px;
+        }
+        &__img {
+            height: 200px;
+        }
+    }
+    @include to(575px) {
+        padding: 17px;
+    }
+}

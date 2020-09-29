@@ -1,0 +1,48 @@
+.news {
+    .pagination {
+        margin-top: 40px;
+    }
+    @include from(1680px) {
+        padding-top: 60px;
+    }
+    @include to(950px) {
+        margin-top: 20px;
+    }
+    @include to(575px) {
+        .mobile-pagination {
+            margin-top: 20px;
+            width: 100%;
+        }
+    }
+}
+
+.news-container {
+    @include row-ib();
+    font-size: 0;
+    margin-top: 20px;
+    .news-card {
+        @include col-ib();
+        @include shift(0);
+        @include size(4);
+        @include size-md(6);
+        @include size-xs(12);
+    }
+    .news-card:nth-last-child(n+3) {
+        margin-bottom: 20px;
+    }
+    @include from(1680px) {
+        .news-card {
+            @include size(2.9);
+            margin-left: calc(0% + 15px);
+            margin-right: calc(0% + 15px);
+        }
+        .news-card:nth-last-child(n+3) {
+            margin-bottom: 30px;
+        }
+    }
+    @include to(575px) {
+        .news-card .button-std {
+            max-width: none;
+        }
+    }
+}

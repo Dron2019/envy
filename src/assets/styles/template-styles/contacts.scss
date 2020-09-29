@@ -1,0 +1,168 @@
+.contacts {
+    align-items: flex-start;
+    @include row-flex();
+    .shops-container {
+        padding-top: 20px;
+        background: var(--white);
+        @include size(7);
+        @include shift(0);
+        .shop-card {
+            min-height: auto;
+        }
+    }
+    form {
+        padding: 45px 40px;
+        @include size(5);
+        @include shift(0);
+        margin-top: 20px;
+    }
+    .time-group-js {
+        opacity: 0;
+    }
+}
+
+.contact-form {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    background-color: var(--white);
+    .help-span {
+        margin-top: 20px;
+        color: #E3D4CF;
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 14px;
+    }
+    legend {
+        color: var(--yellow);
+        margin-bottom: 10px;
+        @include fontSizeLhToEm(24, 30);
+    }
+    button {
+        border: none;
+        font-family: $default-font;
+        width: 190px;
+        margin-left: auto;
+        margin-top: 20px;
+    }
+    input,
+    textarea {
+        background: transparent;
+        border: none;
+        font-size: 14px;
+        line-height: 22px;
+        font-family: Raleway;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 13px;
+        line-height: 13px;
+        width: 100%;
+    }
+    input::placeholder,
+    textarea::placeholder {
+        color: var(--black);
+    }
+    textarea {
+        resize: none;
+        height: calc(1.6em * 3);
+    }
+    .input-group {
+        position: relative;
+        display: flex;
+        align-items: flex-start;
+        margin-top: 30px;
+        padding-bottom: 25px;
+        margin-right: auto;
+        width: 100%;
+        overflow: hidden;
+    }
+    .checkbox-group {
+        margin-top: 20px;
+        padding-bottom: 0;
+    }
+    .checkbox-group:after {
+        display: none;
+        // margin-top: 42px;
+    }
+    .checkbox-group.unfilled .toggle {
+        --border-color: red;
+    }
+    .input-group svg {
+        margin-right: 20px;
+        align-self: center;
+    }
+    .input-group:after {
+        content: '';
+        position: absolute;
+        height: 2px;
+        width: 100%;
+        background-color: rgba(227, 212, 207, 0.5);
+        left: 0;
+        bottom: 0;
+        transition: .5s;
+    }
+    .input-group.unfilled:after {
+        background-color: red;
+    }
+    .toggle__text {
+        font-weight: 500;
+        font-size: 12px;
+        line-height: 20px;
+    }
+    .toggle__label {
+        padding-left: 35px;
+    }
+    [type=submit]:disabled,
+    [type=submit]:disabled .button-std__icon {
+        background-color: var(--gray);
+        pointer-events: none;
+    }
+    .icon--letter {
+        width: 17px;
+        height: 10px;
+    }
+    .input-group.textarea svg {
+        align-self: flex-start;
+    }
+    @include from(1720px) {
+        .input-group:first-child {
+            padding-top: 10px;
+        }
+        legend {
+            @include fontSizeLhToEm(36, 38);
+            margin-bottom: 30px;
+        }
+        input,
+        textarea {
+            @include fontSizeLhToEm(18, 22);
+        }
+        .input-group {
+            padding-bottom: 20px;
+        }
+        .input-group svg {
+            width: 18px;
+            height: 18px;
+            margin-right: 20px;
+            align-self: center;
+        }
+        button {
+            --icon-width: 40px;
+            margin-left: auto;
+            margin-right: auto;
+            // margin-top: 30px;
+            width: 210px;
+            margin-bottom: auto;
+        }
+    }
+    @include to(575px) {
+        .input-group:first-child {
+            width: 100%;
+        }
+        button {
+            order: 2;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    }
+}

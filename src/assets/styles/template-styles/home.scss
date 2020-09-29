@@ -291,6 +291,8 @@
 }
 
 .news-card {
+    text-decoration: none;
+    color: var(--black);
     transition: transform .7s ease-out;
     &__text {
         padding: 32px 50px;
@@ -496,7 +498,7 @@
     }
     input::placeholder,
     textarea::placeholder {
-        color: var(--white);
+        color: var(--black);
     }
     textarea {
         resize: none;
