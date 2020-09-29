@@ -19,6 +19,11 @@
     .time-group-js {
         opacity: 0;
     }
+    @include to(950px) {
+        .shops-container {
+            @include size(12);
+        }
+    }
 }
 
 .contact-form {
