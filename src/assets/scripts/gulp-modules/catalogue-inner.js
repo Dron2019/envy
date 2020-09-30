@@ -59,6 +59,8 @@ function dropDownMenuHandling(config) {
 
 dropDownMenuHandling(dropdownHandlerObject);
 dropDownMenuHandling(filterItemsDropdown);
+document.querySelector(dropdownHandlerObject.parentSelector + ' ' + dropdownHandlerObject.childTitle).click();
+document.querySelector(dropdownHandlerObject.parentSelector + ' ' + filterItemsDropdown.childTitle).click();
 
 
 

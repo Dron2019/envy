@@ -49,7 +49,7 @@
     justify-content: center;
     .current {}
     .current:after {
-        content: ' /';
+        content: ' \a0 / \a0 ';
     }
 }
 
@@ -257,6 +257,8 @@
     }
     &__item span {
         position: relative;
+        display: inline-block;
+        transition: 0.3s ease-out;
     }
     &__item span:before {
         transition: .7s;
@@ -298,9 +300,8 @@
         }
     }
     @include from(769px) {
-        &__item:hover span:before {
-            transform: skewX(0deg);
-            background-color: var(--yellow);
+        &__item:hover span {
+            color: var(--pink);
         }
     }
     @include to(768px) {
@@ -407,8 +408,18 @@
     --like-button-width: 16px;
     --image-height: 250px;
     transition: transform .5s ease-out;
+    text-decoration: none;
     &__top-block {
         position: relative;
+        padding-top: 95%;
+    }
+    &__img {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
     }
     &__bottom-block {
         padding: 30px 20px;
@@ -427,7 +438,7 @@
         padding-left: calc(var(--like-button-width) + 10px);
     }
     &__img {
-        height: var(--image-height);
+        // height: var(--image-height);
         object-fit: cover;
         object-position: center;
     }
@@ -482,6 +493,7 @@
     &__price {
         line-height: 1em;
         margin-bottom: 5px;
+        color: var(--black);
     }
     &__special-price {
         font-size: 10px;
@@ -506,6 +518,8 @@
         line-height: 20px;
         width: 100%;
         margin-bottom: 10px;
+        color: var(--black);
+        text-decoration: none;
     }
     &__desc {
         font-weight: 500;
@@ -513,9 +527,11 @@
         line-height: 22px;
         color: var(--light-gray);
         width: 100%;
+        text-decoration: none;
         margin-bottom: 20px;
     }
     &__buy-button {
+        color: var(--black);
         width: 120px;
     }
     &__link {
@@ -532,6 +548,10 @@
         margin-left: 10px;
         width: 14px;
         height: 10px;
+    }
+    object {
+        display: inline-block;
+        margin-left: auto;
     }
     @include from(1680px) {
         --image-height: 320px;
@@ -920,6 +940,179 @@
     }
 }
 
+.common-form {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    background-color: var(--white);
+    padding: 40px;
+    max-width: 422px;
+    .mfp-close {
+        padding: 0 !important;
+        position: static;
+        width: 33px;
+        height: 33px;
+        cursor: pointer;
+        transition: 0.5s ease-out;
+    }
+    .help-span {
+        width: 100%;
+        margin-top: 20px;
+        color: #E3D4CF;
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 14px;
+    }
+    legend {
+        color: var(--yellow);
+        margin-bottom: 10px;
+        @include fontSizeLhToEm(24, 30);
+    }
+    button[type=submit] {
+        border: none;
+        font-family: $default-font;
+        width: 190px;
+        margin-left: auto;
+        margin-right: 0;
+        margin-top: 20px;
+    }
+    .checkbox-first {
+        margin-bottom: 0px;
+    }
+    input,
+    textarea {
+        background: transparent;
+        border: none;
+        font-size: 14px;
+        line-height: 22px;
+        font-family: Raleway;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 13px;
+        line-height: 13px;
+        width: 100%;
+    }
+    input::placeholder,
+    textarea::placeholder {
+        color: var(--black);
+    }
+    textarea {
+        resize: none;
+        height: calc(1.6em * 3);
+    }
+    .input-group {
+        position: relative;
+        display: flex;
+        align-items: flex-start;
+        margin-top: 15px;
+        padding-bottom: 25px;
+        margin-right: auto;
+        width: 100%;
+        overflow: hidden;
+    }
+    .checkbox-group {
+        margin-top: 0;
+        padding-bottom: 0;
+    }
+    .textarea {
+        margin-bottom: 20px;
+    }
+    .checkbox-group:after {
+        display: none;
+        // margin-top: 42px;
+    }
+    .checkbox-group.unfilled .toggle {
+        --border-color: red;
+    }
+    .input-group svg {
+        margin-right: 20px;
+        align-self: center;
+    }
+    .input-group:after {
+        content: '';
+        position: absolute;
+        height: 2px;
+        width: 100%;
+        background-color: rgba(227, 212, 207, 0.5);
+        left: 0;
+        bottom: 0;
+        transition: .5s;
+    }
+    .input-group.unfilled:after {
+        background-color: red;
+    }
+    .toggle__text {
+        font-weight: 500;
+        font-size: 12px;
+        line-height: 20px;
+    }
+    .toggle__label {
+        padding-left: 35px;
+    }
+    [type=submit]:disabled,
+    [type=submit]:disabled .button-std__icon {
+        background-color: var(--gray);
+        pointer-events: none;
+    }
+    .icon--letter {
+        width: 17px;
+        height: 10px;
+    }
+    .input-group.textarea svg {
+        align-self: flex-start;
+    }
+    .time-group-js {
+        opacity: 0;
+    }
+    @include from(769px) {
+        .mfp-close:hover {
+            transform: rotate(0.5turn);
+        }
+    }
+    @include from(1720px) {
+        .input-group:first-child {
+            padding-top: 10px;
+        }
+        legend {
+            @include fontSizeLhToEm(24, 30);
+            margin-bottom: 30px;
+        }
+        input,
+        textarea {
+            @include fontSizeLhToEm(14, 22);
+        }
+        .input-group {
+            padding-bottom: 20px;
+        }
+        .input-group svg {
+            width: 18px;
+            height: 18px;
+            margin-right: 20px;
+            align-self: center;
+        }
+        button {
+            --icon-width: 40px;
+            margin-left: auto;
+            margin-right: auto;
+            // margin-top: 30px;
+            width: 210px;
+            margin-bottom: auto;
+        }
+    }
+    @include to(575px) {
+        padding: 17px;
+        .input-group:first-child {
+            width: 100%;
+        }
+        button {
+            order: 2;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    }
+}
+
 .icon--tel-tube-rose {
     width: 14px;
     height: 14px;
@@ -938,4 +1131,19 @@
 .icon--dialog {
     width: 15px;
     height: 14px;
+}
+
+.icon--man {
+    width: 12px;
+    height: 16px;
+}
+
+.icon--lock {
+    width: 11px;
+    height: 16px;
+}
+
+.icon--lock-locked {
+    width: 11px;
+    height: 18px;
 }

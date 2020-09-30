@@ -204,7 +204,7 @@ block content
                         +svg('arrow')
                 -var count = 0;
                 while count < 7
-                    .product-card.liked
+                    a(href="product-page-inner.html").product-card.liked
                         .product-card__top-block
                             img(src="./assets/images/product-card-img.jpg").product-card__img
                             .product-card__promotion-item.red
@@ -227,9 +227,10 @@ block content
                             .product-card__buy-button.button-std.medium 
                                 +svg('product-card-bag')
                                 span Купить
-                            a(href="product-page-inner.html").product-card__link 
-                                span Подробнее
-                                +svg('product-card-arrow')
+                            object(type="owo/uwu")
+                                a(href="product-page-inner.html").product-card__link 
+                                    span Подробнее
+                                    +svg('product-card-arrow')
                     -count++
             .additional-goods-slider.same-prod-js
                 .subtitle Похожие товары
@@ -240,7 +241,7 @@ block content
                         +svg('arrow')
                 -var count = 0;
                 while count < 7
-                    .product-card.liked
+                    a(href="product-page-inner.html").product-card.liked
                         .product-card__top-block
                             img(src="./assets/images/product-card-img.jpg").product-card__img
                             .product-card__promotion-item.red
@@ -263,9 +264,10 @@ block content
                             .product-card__buy-button.button-std.medium 
                                 +svg('product-card-bag')
                                 span Купить
-                            a(href="product-page-inner.html").product-card__link 
-                                span Подробнее
-                                +svg('product-card-arrow')
+                            object(type="owo/uwu")
+                                a(href="product-page-inner.html").product-card__link 
+                                    span Подробнее
+                                    +svg('product-card-arrow')
                     -count++
         .invisible-block
             .sizes-popup-content-js.sizes-popup-content

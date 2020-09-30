@@ -19,9 +19,51 @@
     .time-group-js {
         opacity: 0;
     }
+    @include from(1680px) {
+        &.content-block {
+            @include shift-padding(1);
+        }
+        .shops-container {
+            .shop-card {
+                @include size(5.8)
+            }
+        }
+        form {
+            margin-top: 40px;
+        }
+    }
     @include to(950px) {
         .shops-container {
             @include size(12);
+        }
+        form {
+            @include size(8);
+            margin-left: auto;
+            margin-right: auto;
+        }
+    }
+    @include to(575px) {
+        width: 100%;
+        margin-left: 0;
+        margin-right: 0;
+        .shops-container {
+            width: 100%;
+            margin-left: 0;
+            margin-right: 0;
+            .shop-card {
+                width: 100%;
+                margin-left: 0;
+                margin-right: 0;
+            }
+        }
+        .shops-container .shop-card:nth-child(n+1) {
+            margin-top: 0px;
+            padding-bottom: 5px;
+            padding-top: 5px;
+        }
+        form {
+            padding: 20px 17px 28px 17px;
+            width: 100%;
         }
     }
 }
@@ -33,6 +75,7 @@
     justify-content: space-between;
     background-color: var(--white);
     .help-span {
+        width: 100%;
         margin-top: 20px;
         color: #E3D4CF;
         font-weight: 500;
@@ -44,12 +87,16 @@
         margin-bottom: 10px;
         @include fontSizeLhToEm(24, 30);
     }
-    button {
+    button[type=submit] {
         border: none;
         font-family: $default-font;
         width: 190px;
         margin-left: auto;
+        margin-right: 0;
         margin-top: 20px;
+    }
+    .checkbox-first {
+        margin-bottom: 20px;
     }
     input,
     textarea {
@@ -76,15 +123,18 @@
         position: relative;
         display: flex;
         align-items: flex-start;
-        margin-top: 30px;
+        margin-top: 15px;
         padding-bottom: 25px;
         margin-right: auto;
         width: 100%;
         overflow: hidden;
     }
     .checkbox-group {
-        margin-top: 20px;
+        margin-top: 0;
         padding-bottom: 0;
+    }
+    .textarea {
+        margin-bottom: 20px;
     }
     .checkbox-group:after {
         display: none;
@@ -135,12 +185,12 @@
             padding-top: 10px;
         }
         legend {
-            @include fontSizeLhToEm(36, 38);
+            @include fontSizeLhToEm(24, 30);
             margin-bottom: 30px;
         }
         input,
         textarea {
-            @include fontSizeLhToEm(18, 22);
+            @include fontSizeLhToEm(14, 22);
         }
         .input-group {
             padding-bottom: 20px;

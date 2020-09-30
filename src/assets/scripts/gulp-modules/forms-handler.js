@@ -181,4 +181,66 @@ document.querySelectorAll('.input-group').forEach(icon => {
     icon.addEventListener('click', function(evt) {
         icon.querySelector('input').focus();
     });
-})
+});
+
+
+
+
+/**вызов стандартной формы в всплывайке */
+$('.common-form-call-js').magnificPopup({
+    items: [{
+        type: 'inline',
+        src: $('.common-form-js')
+    }]
+});
+$.datetimepicker.setLocale('en');
+$('input[name=time-input]').datetimepicker({});
+
+
+
+function timeCheckboxesHandler() {
+    let contactFormTimeRadio = document.querySelector('.common-form .time-radio-js'),
+        contactFormTimeInput = document.querySelector('.common-form .time-group-js'),
+        $timeInputs = document.querySelectorAll('.common-form input[name=time],input[name=time-input]');
+
+
+    $timeInputs.forEach(input => {
+        input.addEventListener('change', function(evt) {
+            changeDisplaying(contactFormTimeInput.closest('.input-group'), contactFormTimeRadio.checked)
+        });
+    });
+
+
+    function changeDisplaying(el, status) {
+        if (!status) {
+            console.log();
+            el.querySelector('input').value = '';
+            gsap.fromTo(el, {
+                height: function(e, target) {
+                    return getComputedStyle(target).height;
+                },
+                marginTop: parseInt(getComputedStyle(el).marginTop),
+                autoAlpha: 1,
+            }, {
+                duration: 0.3,
+                marginTop: 0,
+                autoAlpha: 0,
+                height: 0,
+            });
+        } else {
+            gsap.fromTo(el, {
+                height: 0,
+                autoAlpha: 0,
+                marginTop: 0,
+            }, {
+                duration: 0.3,
+                height: function(e, target) {
+                    return target.scrollHeight;
+                },
+                marginTop: '',
+                autoAlpha: 1,
+            });
+        }
+    }
+}
+timeCheckboxesHandler();

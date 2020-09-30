@@ -36,6 +36,12 @@
     &__top {
         position: relative;
     }
+    &__top-slide {
+        img {
+            height: 100%;
+            object-fit: cover;
+        }
+    }
     &__nav {
         position: relative;
         margin-top: var(--gap);
@@ -459,6 +465,9 @@
         padding-top: 35px;
         margin-left: calc(var(--side-fields) - (var(--side-fields) * 2));
         margin-right: calc(var(--side-fields) - (var(--side-fields) * 2));
+        .product-card {
+            margin-right: 8px;
+        }
         .arrows,
         .subtitle {
             margin-bottom: 27px;

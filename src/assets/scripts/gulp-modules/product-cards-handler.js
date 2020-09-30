@@ -27,7 +27,7 @@ function openPopup(evt) {
 }
 
 function putInfoOnCard(card) {
-    console.log(card);
+    // console.log(card);
     if (card !== null) {
         productAddPopup.image.src = card.querySelector('.product-card__img').src;
         productAddPopup.productName.innerHTML = card.querySelector('.product-card__name').innerText;
@@ -41,4 +41,31 @@ let separateButtons = document.querySelectorAll('.buy-button-js');
 separateButtons.forEach(but => {
     but.separate = true;
     but.addEventListener('click', openPopup);
-})
+});
+
+
+
+//корректировка поведения ссылок
+
+
+let $cards = document.querySelectorAll('a.product-card');
+if (document.documentElement.clientWidth > 769) {
+    $cards.forEach(el => {
+        el.addEventListener('click', (e) => {
+            if (e.target.closest('object') === null) {
+                e.preventDefault();
+            }
+
+        })
+    })
+} else if (document.documentElement.clientWidth < 769) {
+    $cards.forEach(el => {
+        el.addEventListener('click', (e) => {
+            // e.preventDefault();
+            if (e.target.classList.value.match(/button-std/) !== null) {
+                e.preventDefault();
+            }
+
+        })
+    })
+}

@@ -1,0 +1,25 @@
+.sign-in {
+    .title {
+        margin-bottom: 20px;
+    }
+    .sign-in-form {
+        @include size(4.5);
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+.sign-in-form {
+    padding: 40px 40px 50px 40px;
+    .checkbox-group {
+        margin-top: 20px;
+    }
+    .button-std[type=submit] {
+        max-width: none;
+        width: 100%;
+    }
+    .delimiter {
+        margin-top: 30px;
+        margin-bottom: 20px;
+    }
+}

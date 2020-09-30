@@ -41,7 +41,7 @@ block content
         form.contact-form(data-name="contact-form")
             legend Форма обратной связи: 
             .input-group
-                +svg('letter')
+                +svg('man')
                 .input-group__icon
                 input(autocomplete="off" name="name" data-required="true" type="text" data-pattern="" placeholder="Имя:*")
             .input-group
@@ -52,7 +52,7 @@ block content
                 +svg('dialog')
                 .input-group__icon
                 textarea(autocomplete="off" name="message"  type="text" data-pattern="" placeholder="Комментарий:")
-            .page__toggle.checkbox-group.input-group.for-filter
+            .page__toggle.checkbox-group.input-group.for-filter.checkbox-first
                 label.toggle
                     input.toggle__input(name="time" value="no" type='radio'  )
                     span.toggle__label

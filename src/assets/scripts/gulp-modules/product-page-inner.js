@@ -65,9 +65,18 @@ dropDownMenuHandling(productPageInnerDropdown);
 
 
 /**Card Slider */
-
+const ImgHeightRatioCoef = 0.95;
 $('.product-page-slider__top-js').on('init', function(event, slickObject, current, next) {
-    initSlickCustomDots(slickObject, document.querySelector('.mobile-dots-container'))
+    initSlickCustomDots(slickObject, document.querySelector('.mobile-dots-container'));
+
+
+
+    console.log(slickObject);
+    slickObject.$slides.each((i, el) => {
+        console.log(el);
+        el.style.height = slickObject.slideWidth * ImgHeightRatioCoef + 'px';
+    })
+
 });
 
 $('.product-page-slider__top-js').on('beforeChange', function(event, slickObject, current, next) {
@@ -76,7 +85,7 @@ $('.product-page-slider__top-js').on('beforeChange', function(event, slickObject
 var topSlider = $('.product-page-slider__top-js').slick({
     asNavFor: $('.product-page-slider__nav-js'),
     infinite: false,
-    slide: 'img',
+    slide: '.product-page-slider__top-slide',
     nextArrow: '.slider-arrows .next',
     prevArrow: '.slider-arrows .prev',
     responsive: [{

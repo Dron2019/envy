@@ -62,6 +62,7 @@
         box-orient: vertical;
     }
     @include from(1680px) {
+        margin-top: 20px;
         .slide-text {
             @include size(3);
         }

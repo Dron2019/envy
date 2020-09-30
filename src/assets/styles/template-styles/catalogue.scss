@@ -35,7 +35,7 @@
     @include from(949px) {
         &__right {
             /*высота хлебных крошек*/
-            margin-top: -35px;
+            margin-top: -55px;
         }
     }
     @include from(1680px) {
@@ -216,6 +216,13 @@
         column-count: 2;
         break-inside: avoid;
     }
+    @include from(769px) {
+        &__article-content {
+            a:hover {
+                color: var(--pink);
+            }
+        }
+    }
     @include to(575px) {
         --left-padding: 0px;
         &__article-content {
@@ -237,6 +244,7 @@
     display: inline-block;
     height: 226px;
     --side-text-distance: 20px;
+    transition: .7s ease-out;
     margin-top: 20px;
     &-title {
         position: absolute;
@@ -266,6 +274,11 @@
         object-position: top right;
         z-index: 0;
     }
+    @include from(769px) {
+        &:hover {
+            transform: scale(1.03);
+        }
+    }
 }
 
 .catalogue-brands {
@@ -279,6 +292,7 @@
         height: auto;
         align-self: center;
         justify-self: center;
+        object-fit: contain;
     }
     @include from(576px) {
         display: grid;

@@ -2,6 +2,9 @@ header {
     padding: 25px var(--side-fields) 25px var(--side-fields);
     position: relative;
     z-index: 6;
+    @include from(1680px) {
+        padding-bottom: 0;
+    }
     @include from-to(769px, 1100px) {
         --side-fields: 25px;
         padding-left: var(--side-fields);
@@ -554,6 +557,15 @@ header {
     stroke: var(--black);
     width: 10px;
     height: 17px;
+    .icon-hover {
+        transition: .5s ease-out;
+        opacity: 0;
+    }
+    @include from(769px) {
+        &:hover .icon-hover {
+            opacity: 1;
+        }
+    }
 }
 
 .icon--instagram {
@@ -561,6 +573,15 @@ header {
     stroke: var(--black);
     width: 17px;
     height: 17px;
+    .icon-hover {
+        transition: .5s ease-out;
+        opacity: 0;
+    }
+    @include from(769px) {
+        &:hover .icon-hover {
+            opacity: 1;
+        }
+    }
 }
 
 .icon--header-woman {

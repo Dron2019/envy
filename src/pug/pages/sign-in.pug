@@ -1,0 +1,48 @@
+extends ../layout/main
+block variable
+    - var version = "ua";
+    - var pageName = "sign-in";
+block meta
+    title= 'ENVY Вход в личный кабинет'
+    meta(name='description', content='')
+block scripts
+    script(defer src='./assets/scripts/libs.js')
+    script(defer src='./assets/scripts/index.js')
+    script(defer src='./assets/scripts/forms-handler.js')
+    script(defer src='./assets/scripts/menu.js')
+    script(defer src="./assets/scripts/sign-in.js")
+block head
+    link(rel='stylesheet', href="./assets/styles/main.min.css")
+block content
+    +breadcrumbs(['index.html','#'],['Главная','Вход в личный кабинет'])
+    .content-block.color-bg.light-gray.sign-in
+        .title Вход в личный кабинет
+        form.common-form.sign-in-form(data-name="contact-form")
+            legend Введите свои данные для входа в кабинет: 
+            .input-group
+                +svg('man')
+                .input-group__icon
+                input(autocomplete="off" name="name" data-required="true" type="text" data-pattern="" placeholder="Имя:*")
+            .input-group
+                +svg('lock')
+                .input-group__icon
+                input(autocomplete="off" name="pass" type="password" data-required="true"  data-pattern="" placeholder="Пароль:*")
+            .page__toggle.checkbox-group.input-group
+                label.toggle
+                    input.toggle__input.time-radio-js(name="time" value="yes" type='checkbox')
+                    span.toggle__label
+                        span.toggle__text.text Запомнить меня
+            button.button-std.medium.green.green-light-icon.text-white.submit-js(type="submit")
+                span Войти
+            .delimiter
+            .sign-with-icon.key
+                +svg('key')
+                a(href="#" data-hover="Регистрация").sign-with-icon__text 
+                    span Регистрация
+            .sign-with-icon
+                +svg('lock-locked')
+                a(href="#" data-hover="Забыли пароль").sign-with-icon__text 
+                    span Забыли пароль
+
+block footer
+block header
