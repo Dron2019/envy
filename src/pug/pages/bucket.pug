@@ -1,0 +1,245 @@
+extends ../layout/main
+block variable
+    - var version = "ua";
+    - var pageName = "sign-in";
+block meta
+    title= 'ENVY Корзина'
+    meta(name='description', content='')
+block scripts
+    script(defer src='./assets/scripts/libs.js')
+    script(defer src='./assets/scripts/index.js')
+    script(defer src='./assets/scripts/forms-handler.js')
+    script(defer src='./assets/scripts/menu.js')
+    script(defer src='./assets/scripts/product-cards-handler.js')
+
+    script(defer src='./assets/scripts/bucket.js')
+block head
+    link(rel='stylesheet', href="./assets/styles/main.min.css")
+block content
+    +breadcrumbs(['index.html','#'],['Главная','Корзина'])
+    .content-block.color-bg.light-gray.bucket
+        .title Корзина
+        .tabs.make-order-tabs
+            .tab 
+                .tab__title У меня есть аккаунт
+                .tab__content.succes-order-block
+                    .succes-order-block__icon
+                        +svg('checkmark')
+                    .subtitle Заказ принят
+                    .text.bold Спасибо, что выбрали Envy! 
+                    .text.pink Наши менеджеры свяжутся с вами в ближайшее время для уточнения деталей заказа
+                    +button-std('На главную','color-bg medium')
+            .tab 
+                .tab__title У меня есть аккаунт
+                .tab__content.succes-order-block
+                    .succes-order-block__icon
+                        +svg('checkmark')
+                    .subtitle Заказ принят
+                    .text.bold Спасибо, что выбрали Envy! 
+                    .text.pink Наши менеджеры свяжутся с вами в ближайшее время для уточнения деталей заказа
+                    +button-std('На главную','color-bg medium')
+            .tab 
+                .tab__title Тест таб
+                .tab__content.product-card.liked(href="product-page-inner.html")
+                    .product-card__top-block
+                        img(src="./assets/images/product-card-img.jpg").product-card__img
+                        .product-card__top-block-text
+                            <svg class="product-card__like-button liked" width="18" height="16" viewBox="0 0 18 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <g class="liked">
+                                    <path d="M13 1C11.16 1 9.59002 2.03454 9.00002 3.47543C8.41002 2.03454 6.84001 1 5.00001 1C2.5 1 1 3.15385 1 5.23789C1 7.37928 2.33249 9.66275 4.9575 12.0285C6.1705 13.113 7.48199 14.0828 8.87502 14.9252L9.00002 15L9.12502 14.9252C10.518 14.0828 11.8295 13.113 13.0425 12.0285C15.6675 9.66275 17 7.37928 17 5.23789C17 3.15385 15.5 1 13 1Z" fill="#EB5757" stroke="#EB5757" stroke-width="0.3"/>
+                                    </g>
+                                <g class="unliked">
+                                    <path d="M13 1C11.16 1 9.59002 2.03454 9.00002 3.47543C8.41002 2.03454 6.84001 1 5.00001 1C2.5 1 1 3.15385 1 5.23789C1 7.37928 2.33249 9.66275 4.9575 12.0285C6.1705 13.113 7.48199 14.0828 8.87502 14.9252L9.00002 15L9.12502 14.9252C10.518 14.0828 11.8295 13.113 13.0425 12.0285C15.6675 9.66275 17 7.37928 17 5.23789C17 3.15385 15.5 1 13 1ZM9.00002 14.4192C8.00002 13.8159 1.5 9.6827 1.5 5.23789C1.5 3.40064 2.81 1.49858 5.00001 1.49858C6.80251 1.49858 8.75002 2.74502 8.75002 4.73932H9.25002C9.25002 2.74502 11.1975 1.49858 13 1.49858C15.19 1.49858 16.5 3.40064 16.5 5.23789C16.5 9.6802 10 13.8159 9.00002 14.4192Z" fill="#222222" stroke="#222222" stroke-width="0.3"/>
+                                    <path d="M12.9209 3.15381C12.8711 3.15381 12.8235 3.18218 12.7883 3.23267C12.7531 3.28316 12.7334 3.35163 12.7334 3.42304C12.7334 3.49444 12.7531 3.56292 12.7883 3.61341C12.8235 3.6639 12.8711 3.69227 12.9209 3.69227C13.9032 3.69227 14.4918 4.92535 14.4918 6.11535C14.4918 6.18675 14.5116 6.25523 14.5467 6.30572C14.5819 6.35621 14.6296 6.38458 14.6793 6.38458C14.729 6.38458 14.7767 6.35621 14.8118 6.30572C14.847 6.25523 14.8667 6.18675 14.8667 6.11535C14.8667 4.65881 14.1375 3.15381 12.9209 3.15381Z" fill="#222222" stroke="#222222" stroke-width="0.3"/>
+                                    </g>
+                            </svg>
+                            .product-card__price 13 350 грн.
+                            .product-card__special-price 3+2.
+                    .product-card__bottom-block
+                        .product-card__name ADELA Black
+                        .product-card__desc Балетки — мягкая (в отличие от жёстких пуант) балетная обувь из кожи или ткани.
+                        .product-card__buy-button.button-std.medium 
+                            +svg('product-card-bag')
+                            span Купить
+                        object(type="owo/uwu")
+                            a(href="product-page-inner.html").product-card__link 
+                                span Подробнее
+                                +svg('product-card-arrow')
+        .empty-bucket-block
+            +svg('bucket')
+            .subtitle Ваша корзина пуста
+            .text.gray Но это никогда не поздно исправить :)
+            a.button-std.no-bg.medium(href="catalogue.html").catalogue-links
+                <svg class="will-change-color" width="11" height="14" viewBox="0 0 13 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M11.7678 12.8039C11.1293 11.9255 10.1715 11.5137 8.80739 11.5137C8.37203 11.5137 7.79156 11.1843 7.79156 10.8275V9.64706C9.44591 9.31765 10.6649 8.30196 11.1583 7.39608C11.1873 7.34118 11.1873 7.28627 11.1873 7.23137C11.1873 7.17647 11.1583 7.12157 11.1293 7.09412L9.62005 5.3098C9.62005 4.54118 9.62005 3.52549 9.24274 2.64706C8.77836 1.54902 7.87863 1 6.54354 1C5.20844 1 4.30871 1.54902 3.84433 2.61961C3.49604 3.49804 3.46702 4.51373 3.46702 5.28235L1.95778 7.06667C1.92876 7.09412 1.89974 7.14902 1.89974 7.20392C1.89974 7.25882 1.89974 7.31373 1.92876 7.36863C2.42216 8.27451 3.55409 9.23529 5.1504 9.59216V10.8C5.1504 11.1569 4.62797 11.4863 4.22164 11.4863C2.8285 11.4863 1.89974 11.898 1.23219 12.749C1.23219 12.749 1.05805 12.9686 1 13.298C2.1029 14.0392 3.35092 14.5608 4.68602 14.8353C6.51451 15.1647 8.40106 15 10.1135 14.3412C10.781 14.0667 11.4195 13.7373 12 13.3255C11.9129 13.0235 11.7678 12.8039 11.7678 12.8039ZM2.53826 7.28627L3.96042 5.55686C3.98945 5.50196 4.01847 5.44706 3.98945 5.39216V5.3098C3.98945 4.59608 4.01847 3.60784 4.33773 2.83922C4.71504 1.96078 5.44063 1.54902 6.51451 1.54902C7.58839 1.54902 8.28496 1.96078 8.63325 2.83922C8.95251 3.60784 8.92348 4.59608 8.92348 5.3098V5.39216C8.92348 5.44706 8.98153 5.52941 9.01055 5.55686L10.4908 7.28627C9.96834 8.1098 8.54617 9.23529 6.48549 9.23529C4.48285 9.20784 3.06069 8.1098 2.53826 7.28627ZM6.48549 14.451C4.77309 14.451 3.11873 13.9569 1.69657 13.0784H1.72559C2.27704 12.3647 3.03166 12.0627 4.22164 12.0627C4.91821 12.0627 5.73087 11.5137 5.73087 10.8275V9.72941C5.99208 9.75686 6.2533 9.78431 6.51451 9.78431C6.7467 9.78431 6.94987 9.75686 7.18206 9.75686V10.8549C7.18206 11.5412 8.02375 12.0902 8.77837 12.0902C10.2876 12.0902 10.9261 12.6667 11.2744 13.1608C9.85224 13.9843 8.19789 14.451 6.48549 14.451Z" fill="url(#paint02_linear)" stroke="url(#paint12_linear)" stroke-width="0.3"/>
+                    <defs>
+                    <linearGradient id="paint02_linear" x1="12" y1="0.999992" x2="0.571288" y2="1.35918" gradientUnits="userSpaceOnUse">
+                    <stop stop-color="#FAA6A6"/>
+                    <stop offset="1" stop-color="#F8CEBC"/>
+                    </linearGradient>
+                    <linearGradient id="paint12_linear" x1="12" y1="0.999992" x2="0.571288" y2="1.35918" gradientUnits="userSpaceOnUse">
+                    <stop stop-color="#FAA6A6"/>
+                    <stop offset="1" stop-color="#F8CEBC"/>
+                    </linearGradient>
+                    </defs>
+                    </svg>
+                //- +svg('header-woman')
+                span Для женщин
+            a.button-std.no-bg.medium(href="catalogue.html").catalogue-links
+                <svg class="will-change-color" width="13" height="16" viewBox="0 0 13 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M1 13.2913C2.09711 14.063 3.33858 14.5866 4.69554 14.8346C6.51444 15.1654 8.39108 15 10.0945 14.3386C10.7585 14.063 11.3937 13.7323 12 13.3189C11.8556 13.0157 11.6824 12.9055 11.6824 12.9055L11.6247 12.8504C11.1339 12.5197 10.6142 12.5197 9.92126 12.5197H9.02625L8.07349 11.2244C8.04462 11.1693 7.98688 11.1417 7.92913 11.1142C8.50656 10.7008 8.9685 10.1772 9.28609 9.59843C9.63255 8.99213 9.80577 8.33071 9.86352 7.66929C10.7874 6.73228 10.1522 4.33465 10.0079 3.78346C10.1234 3.48032 10.1522 3.14961 10.0945 2.8189C10.0367 2.48819 9.92126 2.18504 9.71916 1.93701C9.48819 1.63386 9.19948 1.41339 8.88189 1.24803C8.5643 1.08268 8.18898 1 7.81365 1C7.09186 1.02756 6.42782 1.22047 5.82152 1.6063C3.36745 1.6063 2.99213 2.62598 2.99213 3.70079C2.53018 4.9685 2.55906 6.37402 3.10761 7.61417C3.13648 8.30315 3.33858 8.99213 3.68504 9.59843C4.0315 10.2047 4.49344 10.7559 5.07087 11.1693C5.01312 11.1969 4.95538 11.2244 4.92651 11.252L4.00262 12.5472H3.28084C2.53018 12.5472 1.92388 12.5472 1.37533 12.878C1.4042 12.878 1.17323 12.9882 1 13.2913ZM3.68504 7.55906C3.68504 7.5315 3.68504 7.47638 3.65617 7.44882C3.16535 6.3189 3.10761 5.05118 3.54068 3.8937C3.56955 3.86614 3.56955 3.83858 3.56955 3.78346C3.56955 2.87402 3.74278 2.15748 5.90814 2.15748C5.96588 2.15748 6.02362 2.12992 6.05249 2.12992C6.57218 1.79921 7.17848 1.6063 7.81365 1.57874C8.10236 1.57874 8.36221 1.63386 8.62205 1.74409C8.88189 1.85433 9.08399 2.04724 9.25722 2.26772C9.40158 2.48819 9.48819 2.70866 9.54593 2.95669C9.5748 3.20472 9.54593 3.45276 9.45932 3.70079C9.43045 3.75591 9.43045 3.81102 9.45932 3.86614C9.7769 4.94095 10.0656 6.84252 9.43045 7.36614C9.40158 7.3937 9.3727 7.42126 9.34383 7.44882C9.31496 7.47638 9.31496 7.5315 9.31496 7.55906C9.31496 9.10236 7.98688 11.0591 6.51444 11.0591C5.042 11.0591 3.68504 9.10236 3.68504 7.55906ZM3.28084 13.0709H4.14698C4.20472 13.0709 4.2336 13.0709 4.29134 13.0433C4.32021 13.0157 4.37795 12.9882 4.40682 12.9606L5.41732 11.5551C5.44619 11.5 5.47507 11.4449 5.47507 11.3622C5.79265 11.5276 6.16798 11.6102 6.51444 11.6102C6.88976 11.6102 7.26509 11.5 7.58268 11.3346C7.58268 11.4173 7.58268 11.4724 7.64042 11.5276L8.67979 12.9331C8.70866 12.9606 8.73753 12.9882 8.79528 13.0157C8.82415 13.0433 8.88189 13.0433 8.93963 13.0433H9.979C10.5564 13.0433 10.874 13.0433 11.1339 13.1811C9.74803 14.0079 8.16011 14.4213 6.54331 14.4213C4.92651 14.4213 3.36745 14.0079 1.98163 13.2087C2.38583 13.0709 2.84777 13.0433 3.28084 13.0709Z" fill="url(#paint01_linear)" stroke="url(#paint11_linear)" stroke-width="0.3"/>
+                    <defs>
+                    <linearGradient id="paint01_linear" x1="12" y1="0.999992" x2="0.571288" y2="1.35918" gradientUnits="userSpaceOnUse">
+                    <stop stop-color="#FAA6A6"/>
+                    <stop offset="1" stop-color="#F8CEBC"/>
+                    </linearGradient>
+                    <linearGradient id="paint11_linear" x1="12" y1="0.999992" x2="0.571288" y2="1.35918" gradientUnits="userSpaceOnUse">
+                    <stop stop-color="#FAA6A6"/>
+                    <stop offset="1" stop-color="#F8CEBC"/>
+                    </linearGradient>
+                    </defs>
+                    </svg>
+                //- +svg('header-woman')
+                span Для мужчин
+        .succes-order-block
+            .succes-order-block__icon
+                +svg('checkmark')
+            .subtitle Заказ принят
+            .text.bold Спасибо, что выбрали Envy! 
+            .text.pink Наши менеджеры свяжутся с вами в ближайшее время для уточнения деталей заказа
+            +button-std('На главную','color-bg medium')
+        .liked-products-container
+            -var i = 0;
+            while i < 10
+                a(href="product-page-inner.html").product-card.liked
+                    .product-card__top-block
+                        img(src="./assets/images/product-card-img.jpg").product-card__img
+                        .product-card__top-block-text
+                            <svg class="product-card__like-button liked" width="18" height="16" viewBox="0 0 18 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <g class="liked">
+                                    <path d="M13 1C11.16 1 9.59002 2.03454 9.00002 3.47543C8.41002 2.03454 6.84001 1 5.00001 1C2.5 1 1 3.15385 1 5.23789C1 7.37928 2.33249 9.66275 4.9575 12.0285C6.1705 13.113 7.48199 14.0828 8.87502 14.9252L9.00002 15L9.12502 14.9252C10.518 14.0828 11.8295 13.113 13.0425 12.0285C15.6675 9.66275 17 7.37928 17 5.23789C17 3.15385 15.5 1 13 1Z" fill="#EB5757" stroke="#EB5757" stroke-width="0.3"/>
+                                    </g>
+                                <g class="unliked">
+                                    <path d="M13 1C11.16 1 9.59002 2.03454 9.00002 3.47543C8.41002 2.03454 6.84001 1 5.00001 1C2.5 1 1 3.15385 1 5.23789C1 7.37928 2.33249 9.66275 4.9575 12.0285C6.1705 13.113 7.48199 14.0828 8.87502 14.9252L9.00002 15L9.12502 14.9252C10.518 14.0828 11.8295 13.113 13.0425 12.0285C15.6675 9.66275 17 7.37928 17 5.23789C17 3.15385 15.5 1 13 1ZM9.00002 14.4192C8.00002 13.8159 1.5 9.6827 1.5 5.23789C1.5 3.40064 2.81 1.49858 5.00001 1.49858C6.80251 1.49858 8.75002 2.74502 8.75002 4.73932H9.25002C9.25002 2.74502 11.1975 1.49858 13 1.49858C15.19 1.49858 16.5 3.40064 16.5 5.23789C16.5 9.6802 10 13.8159 9.00002 14.4192Z" fill="#222222" stroke="#222222" stroke-width="0.3"/>
+                                    <path d="M12.9209 3.15381C12.8711 3.15381 12.8235 3.18218 12.7883 3.23267C12.7531 3.28316 12.7334 3.35163 12.7334 3.42304C12.7334 3.49444 12.7531 3.56292 12.7883 3.61341C12.8235 3.6639 12.8711 3.69227 12.9209 3.69227C13.9032 3.69227 14.4918 4.92535 14.4918 6.11535C14.4918 6.18675 14.5116 6.25523 14.5467 6.30572C14.5819 6.35621 14.6296 6.38458 14.6793 6.38458C14.729 6.38458 14.7767 6.35621 14.8118 6.30572C14.847 6.25523 14.8667 6.18675 14.8667 6.11535C14.8667 4.65881 14.1375 3.15381 12.9209 3.15381Z" fill="#222222" stroke="#222222" stroke-width="0.3"/>
+                                    </g>
+                            </svg>
+                            .product-card__price 13 350 грн.
+                            .product-card__special-price 3+2.
+                    .product-card__bottom-block
+                        .product-card__name ADELA Black
+                        .product-card__desc Балетки — мягкая (в отличие от жёстких пуант) балетная обувь из кожи или ткани.
+                        .product-card__buy-button.button-std.medium 
+                            +svg('product-card-bag')
+                            span Купить
+                        object(type="owo/uwu")
+                            a(href="product-page-inner.html").product-card__link 
+                                span Подробнее
+                                +svg('product-card-arrow')
+                    -i++
+        .product-card-in-bucket
+            .product-card-in-bucket__img    
+                +img('product-card-img.jpg')
+            .product-card-in-bucket__text
+                .product-card-in-bucket__name ADELA Black
+                .product-card-in-bucket__price-wrap  
+                    .product-card-in-bucket__spec-price  
+                        span.striked 6 040 грн 
+                        span  (-30%)
+                    .product-card-in-bucket__price 4 440 грн.
+                .product-card-in-bucket__characteristic
+                    span.product-card-in-bucket__characteristic-name Размер на модели:
+                    span.product-card-in-bucket__characteristic-value 38 
+                .product-card-in-bucket__characteristic
+                    span.product-card-in-bucket__characteristic-name Цвет:
+                    span.product-card-in-bucket__characteristic-value оливковый
+                .product-card-in-bucket__characteristic
+                    span.product-card-in-bucket__characteristic-name Цвет:
+                    span.product-card-in-bucket__characteristic-value оливковый
+                .product-card-in-bucket__characteristic
+                    span.product-card-in-bucket__characteristic-name Цвет:
+                    span.product-card-in-bucket__characteristic-value оливковый
+                .product-card-in-bucket__characteristic
+                    span.product-card-in-bucket__characteristic-name Цвет:
+                    span.product-card-in-bucket__characteristic-value оливковый
+        .product-card-in-bucket
+            .product-card-in-bucket__img    
+                +img('product-card-img.jpg')
+            .product-card-in-bucket__text
+                .product-card-in-bucket__name ADELA Black
+                .product-card-in-bucket__price-wrap  
+                    .product-card-in-bucket__spec-price  
+                        span.striked 6 040 грн 
+                        span  (-30%)
+                    .product-card-in-bucket__price 4 440 грн.
+                .product-card-in-bucket__characteristic
+                    span.product-card-in-bucket__characteristic-name Размер на модели:
+                    span.product-card-in-bucket__characteristic-value 38 
+                .product-card-in-bucket__characteristic
+                    span.product-card-in-bucket__characteristic-name Цвет:
+                    span.product-card-in-bucket__characteristic-value оливковый
+                .product-card-in-bucket__characteristic
+                    span.product-card-in-bucket__characteristic-name Цвет:
+                    span.product-card-in-bucket__characteristic-value оливковый
+                .product-card-in-bucket__characteristic
+                    span.product-card-in-bucket__characteristic-name Цвет:
+                    span.product-card-in-bucket__characteristic-value оливковый
+                .product-card-in-bucket__characteristic
+                    span.product-card-in-bucket__characteristic-name Цвет:
+                    span.product-card-in-bucket__characteristic-value оливковый
+        .product-card-in-bucket
+            .product-card-in-bucket__img    
+                +img('product-card-img.jpg')
+            .product-card-in-bucket__text
+                .product-card-in-bucket__name ADELA Black
+                .product-card-in-bucket__price-wrap  
+                    .product-card-in-bucket__spec-price  
+                        span.striked 6 040 грн 
+                        span  (-30%)
+                    .product-card-in-bucket__price 4 440 грн.
+                .product-card-in-bucket__characteristic
+                    span.product-card-in-bucket__characteristic-name Размер на модели:
+                    span.product-card-in-bucket__characteristic-value 38 
+                .product-card-in-bucket__characteristic
+                    span.product-card-in-bucket__characteristic-name Цвет:
+                    span.product-card-in-bucket__characteristic-value оливковый
+                .product-card-in-bucket__characteristic
+                    span.product-card-in-bucket__characteristic-name Цвет:
+                    span.product-card-in-bucket__characteristic-value оливковый
+                .product-card-in-bucket__characteristic
+                    span.product-card-in-bucket__characteristic-name Цвет:
+                    span.product-card-in-bucket__characteristic-value оливковый
+                .product-card-in-bucket__characteristic
+                    span.product-card-in-bucket__characteristic-name Цвет:
+                    span.product-card-in-bucket__characteristic-value оливковый
+        .product-card-in-bucket
+            .product-card-in-bucket__img    
+                +img('product-card-img.jpg')
+            .product-card-in-bucket__text
+                .product-card-in-bucket__name ADELA Black
+                .product-card-in-bucket__price-wrap  
+                    .product-card-in-bucket__spec-price  
+                        span.striked 6 040 грн 
+                        span  (-30%)
+                    .product-card-in-bucket__price 4 440 грн.
+                .product-card-in-bucket__characteristic
+                    span.product-card-in-bucket__characteristic-name Размер на модели:
+                    span.product-card-in-bucket__characteristic-value 38 
+                .product-card-in-bucket__characteristic
+                    span.product-card-in-bucket__characteristic-name Цвет:
+                    span.product-card-in-bucket__characteristic-value оливковый
+                .product-card-in-bucket__characteristic
+                    span.product-card-in-bucket__characteristic-name Цвет:
+                    span.product-card-in-bucket__characteristic-value оливковый
+                .product-card-in-bucket__characteristic
+                    span.product-card-in-bucket__characteristic-name Цвет:
+                    span.product-card-in-bucket__characteristic-value оливковый
+                .product-card-in-bucket__characteristic
+                    span.product-card-in-bucket__characteristic-name Цвет:
+                    span.product-card-in-bucket__characteristic-value оливковый
+        .total-price Сумма к оплате 14 400 грн.
+    
+            
+    
+block footer
+block header

@@ -144,6 +144,7 @@ function customCursorEffect(container) {
     squareToTransform.style.transformOrigin = `75px 75px !important`;
     msSlider.style.cursor = `none`;
     msSlider.style.position = `relative`;
+    customCursorDOMel.style.opacity = `0`;
     customCursorDOMel.style.pointerEvents = `none`;
 
     //Запись параметров курсора

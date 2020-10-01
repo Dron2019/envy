@@ -54,7 +54,12 @@
     }
     &__text {
         width: 45%;
+        text-decoration: none;
+        color: var(--black);
         .text {
+            width: 100%;
+            display: inline-block;
+            color: var(--black);
             margin-bottom: 10px;
         }
         svg {

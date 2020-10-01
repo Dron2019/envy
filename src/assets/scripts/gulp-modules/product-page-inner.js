@@ -85,18 +85,15 @@ $('.product-page-slider__top-js').on('beforeChange', function(event, slickObject
 var topSlider = $('.product-page-slider__top-js').slick({
     asNavFor: $('.product-page-slider__nav-js'),
     infinite: false,
-    slide: '.product-page-slider__top-slide',
+    slide: 'img',
     nextArrow: '.slider-arrows .next',
     prevArrow: '.slider-arrows .prev',
     responsive: [{
-            breakpoint: 768,
-            settings: {
-                slidesToShow: 1.2
-            },
-
+        breakpoint: 768,
+        settings: {
+            slidesToShow: 1.2
         },
-
-    ]
+    }, ]
 
 });
 var bottomSlider = $('.product-page-slider__nav-js').slick({

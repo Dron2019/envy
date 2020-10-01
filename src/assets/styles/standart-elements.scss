@@ -53,10 +53,16 @@
     }
 }
 
+.page__content {
+    display: flex;
+    flex-direction: column;
+}
+
 .content-block {
     position: relative;
     padding-top: 20px;
     display: flex;
+    flex-grow: 1;
     flex-wrap: wrap;
     justify-content: space-between;
     &.color-bg {
@@ -704,29 +710,10 @@
     display: flex;
     align-items: center;
     color: var(--pink);
+    text-decoration: none;
     &>svg {
         margin-right: 10px;
     }
-}
-
-.icon--box {
-    width: 36px;
-    height: 30px;
-}
-
-.icon--clocks {
-    width: 30px;
-    height: 30px;
-}
-
-.icon--cash {
-    height: 19.78px;
-    width: 33.31px;
-}
-
-.icon--bucket-black {
-    height: 21px;
-    width: 14px;
 }
 
 .mfp-bg {
@@ -1146,4 +1133,81 @@
 .icon--lock-locked {
     width: 11px;
     height: 18px;
+}
+
+.icon--box {
+    width: 36px;
+    height: 30px;
+}
+
+.icon--clocks {
+    width: 30px;
+    height: 30px;
+}
+
+.icon--cash {
+    height: 19.78px;
+    width: 33.31px;
+}
+
+.icon--bucket-black {
+    height: 21px;
+    width: 14px;
+}
+
+.icon--tel-tube {
+    width: 14px;
+    height: 14px;
+}
+
+.icon--facebook {
+    fill: transparent;
+    stroke: var(--black);
+    width: 10px;
+    height: 17px;
+    .icon-hover {
+        transition: .5s ease-out;
+        opacity: 0;
+    }
+    @include from(769px) {
+        &:hover .icon-hover {
+            opacity: 1;
+        }
+    }
+}
+
+.icon--instagram {
+    fill: transparent;
+    stroke: var(--black);
+    width: 17px;
+    height: 17px;
+    .icon-hover {
+        transition: .5s ease-out;
+        opacity: 0;
+    }
+    @include from(769px) {
+        &:hover .icon-hover {
+            opacity: 1;
+        }
+    }
+}
+
+.icon--header-woman {
+    width: 13px;
+    height: 16px;
+}
+
+.icon--heart {
+    width: 18px;
+    height: 16px;
+}
+
+.icon--entry {
+    width: 18px;
+    height: 16px;
+}
+
+.icon--bucket {
+    width: 14px;
+    height: 21px;
 }

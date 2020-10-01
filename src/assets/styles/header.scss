@@ -319,6 +319,34 @@ header {
     }
 }
 
+@include from(769px) {
+    .dropdown-title {
+        position: relative;
+    }
+    .dropdown-title span {
+        transition: .3s ease-out;
+        transform-origin: bottom;
+        perspective: 10px;
+        position: relative;
+    }
+    .dropdown-title:before {
+        position: absolute;
+        transition: .3s ease-out;
+        transform: translateY(-100%) scaleY(0);
+        top: 0;
+        left: 0;
+        content: attr(data-hover);
+    }
+    .dropdown:hover .dropdown-title:before {
+        transform: scaleY(1);
+        font-weight: 500;
+    }
+    .dropdown:hover .dropdown-title>span {
+        opacity: 0;
+        transform: translateY(13px) rotateY(10deg);
+    }
+}
+
 .mobile-header-top {
     display: flex;
     justify-content: space-between;
@@ -545,63 +573,6 @@ header {
     --self-width: 75px;
     width: var(--self-width);
     height: calc(var(--self-width) * 0.53);
-}
-
-.icon--tel-tube {
-    width: 14px;
-    height: 14px;
-}
-
-.icon--facebook {
-    fill: transparent;
-    stroke: var(--black);
-    width: 10px;
-    height: 17px;
-    .icon-hover {
-        transition: .5s ease-out;
-        opacity: 0;
-    }
-    @include from(769px) {
-        &:hover .icon-hover {
-            opacity: 1;
-        }
-    }
-}
-
-.icon--instagram {
-    fill: transparent;
-    stroke: var(--black);
-    width: 17px;
-    height: 17px;
-    .icon-hover {
-        transition: .5s ease-out;
-        opacity: 0;
-    }
-    @include from(769px) {
-        &:hover .icon-hover {
-            opacity: 1;
-        }
-    }
-}
-
-.icon--header-woman {
-    width: 13px;
-    height: 16px;
-}
-
-.icon--heart {
-    width: 18px;
-    height: 16px;
-}
-
-.icon--entry {
-    width: 18px;
-    height: 16px;
-}
-
-.icon--bucket {
-    width: 14px;
-    height: 21px;
 }
 
 .mobile-tablet-menu {

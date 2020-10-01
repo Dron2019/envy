@@ -20,6 +20,8 @@ videos.forEach(video => {
 $('.single-news-container .slider').slick({
     slide: '.slide',
     prevArrow: '.arrow-prev',
+    speed: 1000,
+    cssEase: 'cubic-bezier(.18,1,.56,1)',
     nextArrow: '.arrow-next',
     responsive: [{
             breakpoint: 575,

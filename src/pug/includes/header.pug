@@ -5,7 +5,9 @@ header
             +svg('tel-tube')
             span Обратный звонок
         a.header-top__telephone(href="tel:(068) 297 70 77 ") (068) 297 70 77
-        +img('logo.svg').main-logo
+        
+        a(href="index.html").main-logo
+            +img('logo.svg')
         .header-top__right-group
             .search-input
                 <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -64,8 +66,8 @@ header
                 a(href="news.html"  data-hover="Новости") 
                     span Новости
             li.dropdown 
-                .dropdown-title 
-                    span Сервис
+                .dropdown-title(data-hover="Сервис")
+                    span(data-hover="Сервис") Сервис
                 .dropdown-content
                     a(href="return-conditions.html" data-hover="0")
                         span Обмен и возврат
@@ -131,7 +133,7 @@ header
                     span 0
             .sign-with-icon.bucket
                 +svg('bucket')
-                a(href="#" data-hover="Корзина").sign-with-icon__text 
+                a(href="bucket.html" data-hover="Корзина").sign-with-icon__text 
                     span Корзина
                 .sign-with-icon__short-text 0
     .mobile-header-top

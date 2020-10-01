@@ -115,6 +115,8 @@
         left: 50%;
         top: 50%;
         position: absolute;
+        pointer-events: none;
+        transition: .5s;
         transform: translate(-50%, -50%);
     }
     .video-container {
@@ -128,6 +130,11 @@
             height: 100%;
             left: 0;
             top: 0;
+        }
+    }
+    @include from(769px) {
+        .video-container:hover .video-play-button {
+            transform: translate(-50%, -50%) scale(1.1);
         }
     }
     @include from(1680px) {

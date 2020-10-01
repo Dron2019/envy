@@ -187,11 +187,23 @@ document.querySelectorAll('.input-group').forEach(icon => {
 
 
 /**вызов стандартной формы в всплывайке */
+const formRemovalDelay = 500;
+let $commonForm = document.querySelector('.common-form-js')
 $('.common-form-call-js').magnificPopup({
+    removalDelay: formRemovalDelay,
     items: [{
         type: 'inline',
         src: $('.common-form-js')
-    }]
+    }],
+    callbacks: {
+        beforeOpen: function() {
+            gsap.fromTo($commonForm, { y: -500 }, { y: 0 })
+        },
+        beforeClose: function() {
+            let $commonForm = document.querySelector('.common-form-js')
+            gsap.fromTo($commonForm, { y: 0 }, { y: -1000 })
+        },
+    }
 });
 $.datetimepicker.setLocale('en');
 $('input[name=time-input]').datetimepicker({});
@@ -219,27 +231,32 @@ function timeCheckboxesHandler() {
                 height: function(e, target) {
                     return getComputedStyle(target).height;
                 },
-                marginTop: parseInt(getComputedStyle(el).marginTop),
+                // marginTop: parseInt(getComputedStyle(el).marginTop),
                 autoAlpha: 1,
             }, {
                 duration: 0.3,
-                marginTop: 0,
+                // marginTop: 0,
                 autoAlpha: 0,
                 height: 0,
             });
         } else {
-            gsap.fromTo(el, {
+            let tl = gsap.timeline()
+            tl.fromTo(el, {
                 height: 0,
-                autoAlpha: 0,
-                marginTop: 0,
+
             }, {
                 duration: 0.3,
                 height: function(e, target) {
                     return target.scrollHeight;
                 },
-                marginTop: '',
+            });
+            tl.fromTo(el, {
+                autoAlpha: 0,
+            }, {
+                duration: 0.3,
                 autoAlpha: 1,
             });
+
         }
     }
 }
