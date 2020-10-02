@@ -199,7 +199,6 @@
 }
 
 .make-order-tabs {
-    @include size(7);
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -219,5 +218,86 @@
     }
     .active {
         background: #E3D4CF;
+    }
+    @include from(950px) {
+        @include size(7);
+    }
+}
+
+.bucket-card {
+    width: 100%;
+    background-color: var(--white);
+    position: relative;
+    margin-top: 20px;
+    padding-bottom: 40px;
+    @include row-flex();
+    .mfp-close {
+        right: 30px;
+        top: 30px;
+    }
+    &__img {
+        @include size(3);
+        @include shift(0);
+        max-width: 230px;
+        max-height: 210px;
+        width: calc(37.5% - 20px);
+        margin-left: -10px;
+    }
+    &__text-wrapper {
+        @include shift(0);
+        @include size(9);
+    }
+    &__name {
+        margin: 30px 0;
+        width: 100%;
+    }
+    &__main-inform-block {
+        @include row-flex();
+    }
+    &__main-inform-block>* {
+        @include size(3);
+        @include size-md(12);
+        @include shift(0);
+    }
+    @include to(995px) {
+        &__img {
+            max-height: 210px;
+            object-fit: cover;
+            @include size(4.5);
+        }
+        &__text-wrapper {
+            @include size(7.5);
+        }
+        &__main-inform-block>*:not(:last-child) {
+            margin-bottom: 1.6em;
+        }
+    }
+    @include to(575px) {
+        padding: 10px 10px 25px 10px;
+        margin: 10px 0 20px 0;
+        &__img {
+            max-width: none;
+            max-height: none;
+            width: calc(100vw - var(--side-fields) * 2 - 20px);
+            height: calc((100vw - var(--side-fields) * 2 - 20px) * 0.95);
+            object-fit: cover;
+            @include size(12);
+            margin-left: auto;
+            margin-right: auto;
+        }
+        &__text-wrapper {
+            @include size(12);
+        }
+        &__main-inform-block>*:not(:last-child) {
+            margin-bottom: 10px;
+        }
+    }
+}
+
+.pass-recovery-form {
+    @include to(575px) {
+        .sign-with-icon {
+            display: none;
+        }
     }
 }

@@ -12,6 +12,7 @@ block scripts
     script(defer src='./assets/scripts/menu.js')
     script(defer src="./assets/scripts/product-cards-handler.js")
     script(defer src="./assets/scripts/product-page-inner.js")
+
 block head
     link(rel='stylesheet', href="./assets/styles/main.min.css")
 block content
@@ -108,8 +109,8 @@ block content
             .product-page-slider
                 -var slides = ['product-card-img.jpg','product-card-img2.jpg','product-card-img.jpg','product-card-img2.jpg']
                 .product-page-slider__top.product-page-slider__top-js
-                    each val in slides
-                        +img(val)
+                    each val,index in slides
+                        +img('product-card-img.jpg').xzoom(data-zoom-image="./assets/images/product-card-img-zoom.jpg" xoriginal='./assets/images/product-card-img-zoom.jpg')
                     .product-card__promotion-item.red
                         span New
                 .mobile-dots-container
@@ -157,7 +158,7 @@ block content
                 a(href="return-conditions.html").link-with-icon
                     +svg('clocks')
                     span Возврат и обмен
-                +button-std('Купить в 1 клик','no-icon no-bg')
+                +button-std('Купить в 1 клик','no-icon no-bg one-click-js')
                 +button-std('В корзину','buy-button-js','bucket-black')
                 .product-page-characteristics
                     .product-page__characteristics-title Информация о товаре

@@ -1,5 +1,6 @@
 /* beautify preserve:start */
 @@include('../libs/magnific-popup/dist/jquery.magnific-popup.min.js')
+@@include('../libs/elevate-zoom/elevate-zoom.js')
 /* beautify preserve:end */
 
 
@@ -82,10 +83,19 @@ $('.product-page-slider__top-js').on('init', function(event, slickObject, curren
 $('.product-page-slider__top-js').on('beforeChange', function(event, slickObject, current, next) {
     switchSlickActiveDot(slickObject, current, next)
 });
+
+
 var topSlider = $('.product-page-slider__top-js').slick({
     asNavFor: $('.product-page-slider__nav-js'),
     infinite: false,
     slide: 'img',
+    slidesToShow: 1,
+    draggable: false,
+    centerMode: true,
+    adaptiveHeight: true,
+    swipe: false,
+    swipe: false,
+    fade: true,
     nextArrow: '.slider-arrows .next',
     prevArrow: '.slider-arrows .prev',
     responsive: [{
@@ -96,6 +106,7 @@ var topSlider = $('.product-page-slider__top-js').slick({
     }, ]
 
 });
+if (document.documentElement.clientWidth > 768) $('.xzoom').elevateZoom();
 var bottomSlider = $('.product-page-slider__nav-js').slick({
     slidesToShow: 4,
     infinite: false,
@@ -109,6 +120,8 @@ var bottomSlider = $('.product-page-slider__nav-js').slick({
     }, ],
 
 });
+
+
 
 /**Card Slider End */
 
@@ -232,3 +245,15 @@ $('.same-prod-js').slick({
         ],
     })
     /** additional produtcs sliders END*/
+
+
+/**OneClick Popup Handler  */
+
+$('.one-click-js').magnificPopup({
+    items: [{
+        src: $('.one-click-popup-js'), // Dynamically created element
+        type: 'inline'
+    }, ]
+
+});
+/**OneClick Popup Handler END */

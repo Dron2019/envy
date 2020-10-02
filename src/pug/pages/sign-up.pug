@@ -1,0 +1,45 @@
+extends ../layout/main
+block variable
+    - var version = "ua";
+    - var pageName = "sign-in";
+block meta
+    title= 'ENVY регистрация'
+    meta(name='description', content='')
+block scripts
+    script(defer src='./assets/scripts/libs.js')
+    script(defer src='./assets/scripts/index.js')
+    script(defer src='./assets/scripts/forms-handler.js')
+    script(defer src='./assets/scripts/menu.js')
+    script(defer src='./assets/scripts/product-cards-handler.js')
+    script(defer src='./assets/scripts/sign-up.js')
+block head
+    link(rel='stylesheet', href="./assets/styles/main.min.css")
+block content
+    +breadcrumbs(['index.html','#'],['Главная','Регистрация'])
+    .content-block.color-bg.light-gray
+        .title Регистрация
+        form.common-form.sign-up-form
+            legend Введите свои данные для входа в кабинет:
+            .groups-wrapper
+                .input-group
+                    +svg('man').input-group__icon
+                    input(autocomplete="off" name="name" data-required="true" type="text" data-pattern="" placeholder="Имя:*")
+                .input-group
+                    +svg('man').input-group__icon
+                    input(autocomplete="off" name="surname" data-required="true" type="text" data-pattern="" placeholder="Фамилия:*")
+                .input-group
+                    +svg('tel-tube-rose').input-group__icon
+                    input(autocomplete="off" name="tel" inputmode="tel" data-required="true" type="text" data-pattern="" placeholder="Телефон:*")
+                .input-group
+                    +svg('letter').input-group__icon
+                    input(autocomplete="off" name="email" inputmode="email" data-required="true" type="text" data-pattern="" placeholder="E-mail:*")
+                .input-group
+                    +svg('man').input-group__icon
+                    input(autocomplete="off" name="pass" data-required="true" type="password" data-pattern="" placeholder="Пароль:*")
+                .input-group
+                    +svg('man').input-group__icon
+                    input(autocomplete="off" name="pass-repeat" data-required="true" type="password" data-pattern="" placeholder="Повторите пароль:*")
+            button.button-std.medium.green.green-light-icon.text-white.submit-js(type="submit")
+                span Регистрация
+block footer
+block header

@@ -1,3 +1,9 @@
+form.disabled {
+    filter: opacity(0.5) grayscale(1);
+    color: #A0A0A0;
+    pointer-events: none;
+}
+
 .subtitle {
     @include fontSizeLhToEm(24, 24);
     font-weight: normal;
@@ -954,6 +960,7 @@
     legend {
         color: var(--yellow);
         margin-bottom: 10px;
+        font-weight: normal;
         @include fontSizeLhToEm(24, 30);
     }
     button[type=submit] {
@@ -978,6 +985,7 @@
         font-weight: 500;
         font-size: 13px;
         line-height: 13px;
+        align-self: center;
         width: 100%;
     }
     input::placeholder,
@@ -1053,6 +1061,9 @@
         opacity: 0;
     }
     @include from(769px) {
+        .sign-with-icon {
+            height: 1.6em;
+        }
         .mfp-close:hover {
             transform: rotate(0.5turn);
         }
@@ -1097,6 +1108,28 @@
             margin-left: auto;
             margin-right: auto;
         }
+    }
+}
+
+.popup-std {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    background-color: var(--white);
+    padding: 42px;
+    .mfp-close {
+        cursor: pointer;
+        transition: .4s ease-out;
+        width: 47px;
+        position: static;
+        height: 47px;
+        padding: 0;
+        right: 30px;
+        top: 30px;
+        margin-left: auto;
+    }
+    @include to(575px) {
+        padding: 20px;
     }
 }
 
