@@ -8,12 +8,39 @@
     margin-top: 20px;
     legend {
         width: 100%;
-        margin-bottom: 40px;
+        margin-bottom: 10px;
     }
     .input-group {
         margin-top: 30px;
     }
+    .sublegend-wrap {
+        display: block;
+    }
+    .groups-wrapper-second .input-group {
+        margin-right: 0;
+    }
+    .groups-wrapper-second .input-group::after {
+        display: none;
+    }
+    .captcha-input::after {
+        display: block !important;
+    }
+    .button-std[type=submit] {
+        align-self: flex-end;
+    }
     @include from(950px) {
+        .sublegend-wrap>* {
+            margin-bottom: 0.5em;
+        }
+        .groups-wrapper-second {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+        .groups-wrapper-second>* {
+            width: calc(50% - 20px);
+        }
         .groups-wrapper {
             column-count: 2;
             break-inside: avoid;
@@ -22,5 +49,25 @@
         .input-group:nth-child(4) {
             padding-top: 30px;
         }
+    }
+    @include from(1680px) {
+        @include size(5.5);
+        legend {
+            margin-bottom: 0px;
+        }
+        .input-group:nth-child(4) {
+            padding-top: 40px;
+        }
+    }
+    @include to(575px) {
+        width: 100%;
+        padding: 22px 17px 40px 17px;
+    }
+}
+
+.pass-recovery-form {
+    .delimiter {
+        margin-top: 60px;
+        margin-bottom: 20px;
     }
 }

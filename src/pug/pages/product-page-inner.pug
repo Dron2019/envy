@@ -133,7 +133,7 @@ block content
                             </g>
                     </svg>
                     .product-page-content__price-wrap
-                        .product-page-content__price.subtitle 14 450 грн.
+                        .product-page-content__price.subtitle 14 450 <span class="text">грн.</span>
                         .product-page-content__promotion-price
                             span.striked 6 040 грн 
                             span (-30%)
@@ -207,7 +207,7 @@ block content
                 while count < 7
                     a(href="product-page-inner.html").product-card.liked
                         .product-card__top-block
-                            img(src="./assets/images/product-card-img.jpg").product-card__img
+                            img(data-src="./assets/images/product-card-img.jpg" data-hover-src="./assets/images/product-card-img2.jpg" src="./assets/images/product-card-img.jpg").product-card__img
                             .product-card__promotion-item.red
                                 span New
                             .product-card__top-block-text
@@ -244,7 +244,7 @@ block content
                 while count < 7
                     a(href="product-page-inner.html").product-card.liked
                         .product-card__top-block
-                            img(src="./assets/images/product-card-img.jpg").product-card__img
+                            img(data-src="./assets/images/product-card-img.jpg" data-hover-src="./assets/images/product-card-img2.jpg" src="./assets/images/product-card-img.jpg").product-card__img
                             .product-card__promotion-item.red
                                 span New
                             .product-card__top-block-text

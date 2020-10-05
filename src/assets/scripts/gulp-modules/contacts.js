@@ -24,29 +24,34 @@ function changeDisplaying(el, status) {
             height: function(e, target) {
                 return getComputedStyle(target).height;
             },
-            marginTop: parseInt(getComputedStyle(el).marginTop),
+            // marginTop: parseInt(getComputedStyle(el).marginTop),
             autoAlpha: 1,
         }, {
             duration: 0.3,
-            marginTop: 0,
+            // marginTop: 0,
             autoAlpha: 0,
             height: 0,
         });
     } else {
-        gsap.fromTo(el, {
+        let tl = gsap.timeline()
+        tl.fromTo(el, {
             height: 0,
-            autoAlpha: 0,
-            marginTop: 0,
+
         }, {
             duration: 0.3,
             height: function(e, target) {
                 return target.scrollHeight;
             },
-            marginTop: '',
+        });
+        tl.fromTo(el, {
+            autoAlpha: 0,
+        }, {
+            duration: 0.3,
             autoAlpha: 1,
         });
+
     }
-};
+}
 
 
 let target = {};

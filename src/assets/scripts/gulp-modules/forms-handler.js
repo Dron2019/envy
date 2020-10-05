@@ -42,8 +42,9 @@ function checkRequiredFields(form) {
             inputGroup.classList.add('unfilled')
         } else if (!checkFieldWithPatter(input)) {
             inputGroup.classList.add('unfilled');
-
         } else if (input.dataset.required === 'true' && checkboxes.includes(input.type) && !input.checked) {
+            inputGroup.classList.add('unfilled');
+        } else if (input.type === "password" && !validPassRepeat(form)) {
             inputGroup.classList.add('unfilled');
         } else {
             inputGroup.classList.remove('unfilled');
@@ -53,7 +54,6 @@ function checkRequiredFields(form) {
         } else {
             sendObject[input.name] = input.value;
         }
-
     });
     if (form.querySelector('.unfilled') === null) {
         //console.log(sendObject);
@@ -61,8 +61,6 @@ function checkRequiredFields(form) {
     } else {
         return false;
     }
-    // //console.log(form.querySelector('.unfilled'));
-
 };
 /**Можно добавить дата аттрибут pattern для проверки по регулярному выражению */
 function checkFieldWithPatter(input) {
@@ -156,6 +154,14 @@ function sendMessageStatus(form, status) {
 
 }
 
+/**Для пароля необходимо ввести 
+ * input name (pass)
+ * input name (pass-repeat)
+ */
+function validPassRepeat(form) {
+    return form.querySelector('input[name=pass]').value === form.querySelector('input[name=pass-repeat]').value;
+}
+
 function pageRedirect() {
     window.location.href = 'message';
 }
@@ -172,8 +178,6 @@ function putCallbackFormInPopup(selector) {
 
 }
 /*Form handler END */
-
-
 ;
 
 
@@ -247,7 +251,7 @@ function timeCheckboxesHandler() {
             }, {
                 duration: 0.3,
                 height: function(e, target) {
-                    return target.scrollHeight;
+                    return target.scrollHeight * 1.2;
                 },
             });
             tl.fromTo(el, {

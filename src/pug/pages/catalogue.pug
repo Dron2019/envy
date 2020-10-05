@@ -14,7 +14,7 @@ block scripts
 block head
 	link(rel='stylesheet', href="./assets/styles/main.min.css")
 block content
-	+breadcrumbs(['index.html','catalogue.html','#'],['Главная','Каталог','Обувь'])
+	+breadcrumbs(['index.html','#'],['Главная','Для женщин'])
 	.content-block.catalogue
 		.catalogue__left
 			.goods-dropdown
@@ -101,8 +101,8 @@ block content
 				.special-offer-title.white New/ новые поступления
 				+img('catalogue/special2.jpg').special-offer-img 
 			.catalogue-brands
-				-var brands = ['charo-ruiz.svg','Fabiana Filippi.svg','jacobcohen.svg','Kiton.svg','Max and Moi.svg','MC2.svg','Moorer.svg','Red Valentino.svg','stuartweitzman_logo 1.svg'];
-				each val in brands
-					img(src="assets/images/catalogue/brands/"+val)
+				- var brandsTop = ['Frame 10_brand.png','Frame 11_brand.png','Frame 12_brand.png','Frame 13_brand.png','Frame 4_brand.png','Frame 5_brand.png','Frame 6_brand.png','Frame 7_brand.png','Frame 8_brand.png','Frame 9_brand.png',];
+				each val in brandsTop
+					img(src="assets/images/brands/"+val)
 block footer
 block header

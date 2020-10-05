@@ -1,3 +1,7 @@
+/* beautify preserve:start */
+@@include('../libs/ion.rangeSlider/js/ion.rangeSlider.min.js')
+/* beautify preserve:end */
+
 /**Каталог выпадайка */
 const dropdownHandlerObject = {
     parentSelector: '.goods-dropdown',
@@ -164,4 +168,65 @@ function innerCatalogueMobilePopup() {
         el.style.opacity = 1;
         el.style.overflow = 'auto';
     }
+}
+
+
+/**ranges */
+
+let ranges = document.querySelectorAll(".ion-range-block");
+
+
+ranges.forEach(rangeBlock => {
+
+    $(rangeBlock.querySelector('.js-range-slider')).ionRangeSlider({
+        type: "double",
+        min: 0,
+        max: 900,
+        from: 0,
+        to: 900,
+        hide_from_to: 1,
+        hide_min_max: 1,
+        onChange: function(e, r) {
+            e.showInputs.min.value = e.from;
+            e.showInputs.max.value = e.to;
+            // console.log(r);
+        },
+        onStart: function(e) {
+            configSideValueInputs(e);
+        },
+    });
+    // console.log($(rangeBlock.querySelector('.js-range-slider')).data("ionRangeSlider"));
+    rangeBlock.ionGlobalObject = $(rangeBlock.querySelector('.js-range-slider')).data("ionRangeSlider");
+});
+
+
+function configSideValueInputs(ionObject, r) {
+    let minInput = ionObject.slider[0].closest('.ion-range-block').querySelector('.min'),
+        maxInput = ionObject.slider[0].closest('.ion-range-block').querySelector('.max');
+    minInput.value = ionObject.min;
+    maxInput.value = ionObject.max;
+    minInput.addEventListener('change', function(evt) {
+        this.closest('.ion-range-block').ionGlobalObject.update({
+            from: minInput.value,
+            to: maxInput.value
+        });
+        console.log(this.value > maxInput.value);
+        if (this.value > maxInput.value) this.value = maxInput.value;
+        // if (this.value > this.closest('.ion-range-block').ionGlobalObject.from) this.value = this.closest('.ion-range-block').ionGlobalObject.from;
+    });
+    maxInput.addEventListener('change', function(evt) {
+        this.closest('.ion-range-block').ionGlobalObject.update({
+            from: minInput.value,
+            to: maxInput.value
+        });
+        if (this.value < minInput.value) this.value = minInput.value;
+        // if (this.value > this.closest('.ion-range-block').ionGlobalObject.to) this.value = this.closest('.ion-range-block').ionGlobalObject.to;
+        // if (this.value < this.closest('.ion-range-block').ionGlobalObject.from) this.value = this.closest('.ion-range-block').ionGlobalObject.from;
+    });
+
+    ionObject.showInputs = {
+        min: minInput,
+        max: maxInput,
+    }
+
 }

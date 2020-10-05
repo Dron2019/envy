@@ -112,7 +112,8 @@
     &__price-wrap {
         margin-right: auto;
         display: flex;
-        align-items: center;
+        align-items: baseline;
+        // align-items: center;
     }
     &__promotion-price {
         color: #EB5757;
@@ -382,6 +383,11 @@
     li.selected:after {
         opacity: 1;
     }
+    @include from(575px) {
+        li:hover {
+            color: var(--pink);
+        }
+    }
 }
 
 .slider-arrows {
@@ -622,6 +628,9 @@
     .text.bold {
         margin-top: 30px;
         margin-bottom: 10px;
+    }
+    @include to(575px) {
+        max-width: 80%;
     }
 }
 

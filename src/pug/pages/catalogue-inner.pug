@@ -96,6 +96,26 @@ block content
                                         span.toggle__label
                                             span.toggle__text.text #{chBx}мм
                                 -chBx += 15;
+                .goods-dropdown__article
+                    .goods-dropdown__article-title 
+                        span Цена
+                        +svg('birdy')
+                    .goods-dropdown__article-content
+                        .ion-range-block(data-min="" data-max="" data-name="price")
+                            input( class="ion-range-block-value-show min" type="text" value="0")
+                            span.ion-range-block__separator -
+                            input( class="ion-range-block-value-show max" type="text" value="1000")
+                            <input type="text" class="js-range-slider" name="my_range" value="" />
+                .goods-dropdown__article
+                    .goods-dropdown__article-title 
+                        span Цена
+                        +svg('birdy')
+                    .goods-dropdown__article-content
+                        .ion-range-block(data-min="" data-max="" data-name="price")
+                            input( class="ion-range-block-value-show min" type="text" value="0")
+                            span.ion-range-block__separator -
+                            input( class="ion-range-block-value-show max" type="text" value="1000")
+                            <input type="text" class="js-range-slider" name="my_range" value="" />
         .content-block__right
             .top-filter-wrap
                 .subtitle.black Обувь
@@ -123,7 +143,7 @@ block content
                     while n < 2
                         a(href="product-page-inner.html").product-card.liked
                             .product-card__top-block
-                                img(src="./assets/images/product-card-img.jpg").product-card__img
+                                img(data-src="./assets/images/product-card-img.jpg" data-hover-src="./assets/images/product-card-img2.jpg" src="./assets/images/product-card-img.jpg").product-card__img
                                 .product-card__promotion-item.red
                                     span New
                                 .product-card__top-block-text

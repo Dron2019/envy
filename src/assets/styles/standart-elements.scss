@@ -38,6 +38,9 @@ form.disabled {
     }
     font-size: 14px;
     line-height: 1.6em;
+    &.gray-light {
+        color: #E3D4CF;
+    }
     &.pink {
         color: #8F677F;
     }
@@ -569,8 +572,14 @@ form.disabled {
         --image-height: 320px;
     }
     @include from(769px) {
+        &__link:hover span {
+            color: var(--pink);
+        }
+        &__link:hover svg {
+            stroke: var(--pink);
+        }
         &:hover {
-            transform: scale(1.025);
+            // transform: scale(1.025);
         }
         &:hover &__bottom-block {
             border: 1px solid #E7E2E0;
@@ -697,6 +706,14 @@ form.disabled {
         opacity: 0;
     }
     @include from(769px) {
+        .forward:hover span,
+        .to-finish:hover span {
+            color: var(--pink);
+        }
+        .forward:hover svg,
+        .to-finish:hover svg {
+            stroke: var(--pink);
+        }
         .digit:hover:after {
             opacity: 1;
         }
@@ -724,7 +741,8 @@ form.disabled {
 
 .mfp-bg {
     // background: transparent;
-    background: #f9afab40;
+    // background: #f9afab40;
+    background: #E5E5E5;
 }
 
 .mfp-content>* {
@@ -887,6 +905,10 @@ form.disabled {
         margin-right: 15px;
         transition: var(--transition);
     }
+    & path {
+        fill: #f9b1ac;
+        transition: var(--transition);
+    }
     &.medium {
         height: 36px;
     }
@@ -925,8 +947,7 @@ form.disabled {
         &.no-bg:hover:after {
             opacity: 1;
         }
-        &:hover svg.will-change-color *[fill],
-        &:hover svg.will-change-color *[stroke] {
+        &:hover svg.will-change-color path {
             stroke: var(--black);
             fill: var(--black);
         }
@@ -944,8 +965,8 @@ form.disabled {
     .mfp-close {
         padding: 0 !important;
         position: static;
-        width: 33px;
-        height: 33px;
+        width: 29px;
+        height: 29px;
         cursor: pointer;
         transition: 0.5s ease-out;
     }
@@ -953,9 +974,9 @@ form.disabled {
         width: 100%;
         margin-top: 20px;
         color: #E3D4CF;
-        font-weight: 500;
-        font-size: 14px;
-        line-height: 14px;
+        font-weight: normal;
+        font-size: 13px;
+        line-height: 13px;
     }
     legend {
         color: var(--yellow);
@@ -1244,3 +1265,40 @@ form.disabled {
     width: 14px;
     height: 21px;
 }
+
+
+/*ranges customizing*/
+
+.ion-range-block {
+    @include row-flex();
+    align-items: center;
+    .irs {
+        // width: ;
+        @include size(12);
+        overflow: visible;
+        @include shift(0);
+    }
+    &__separator {
+        width: 1ch;
+        color: #F9F3F0;
+    }
+    input {
+        width: calc(50% - 20px - 0.5ch);
+        // @include size(6);
+        @include shift(0);
+        padding: 12px;
+        border: 1px solid #F9F3F0;
+    }
+}
+
+.irs--flat {
+    .irs-handle {
+        transform: rotate(45deg) scale(0.88);
+    }
+    .irs-bar {
+        background-color: var(--black);
+    }
+}
+
+
+/*ranges customizing end*/

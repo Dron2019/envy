@@ -29,6 +29,9 @@
     .button-std {
         transition: none;
     }
+    .goods-dropdown__article:not(:last-child) {
+        margin-bottom: 0;
+    }
     @include to(1160px) {
         .select-filter-item>.text {
             display: none;

@@ -259,6 +259,12 @@
         @include size-md(12);
         @include shift(0);
     }
+    @include from(1680px) {
+        &__img {
+            max-width: 367px;
+            max-height: 350px;
+        }
+    }
     @include to(995px) {
         &__img {
             max-height: 210px;

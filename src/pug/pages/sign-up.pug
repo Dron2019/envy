@@ -34,12 +34,21 @@ block content
                     +svg('letter').input-group__icon
                     input(autocomplete="off" name="email" inputmode="email" data-required="true" type="text" data-pattern="" placeholder="E-mail:*")
                 .input-group
-                    +svg('man').input-group__icon
+                    +svg('lock').input-group__icon
                     input(autocomplete="off" name="pass" data-required="true" type="password" data-pattern="" placeholder="Пароль:*")
                 .input-group
-                    +svg('man').input-group__icon
+                    +svg('lock-locked').input-group__icon
                     input(autocomplete="off" name="pass-repeat" data-required="true" type="password" data-pattern="" placeholder="Повторите пароль:*")
-            button.button-std.medium.green.green-light-icon.text-white.submit-js(type="submit")
-                span Регистрация
+            .groups-wrapper-second
+                .input-group
+                    +img('captcha-test-image.jpg')
+                .sublegend-wrap.input-group
+                    .text.gray-light * пароль должен быть не меньше 6 символов
+                    .text.gray-light * поля со звездочкой обязательны для заполнения
+                .input-group.captcha-input
+                    +svg('letter').input-group__icon
+                    input(autocomplete="off" name="pass-repeat" data-required="true" type="captcha" data-pattern="" placeholder="Введите слово с изображения:*")
+                button.button-std.medium.green.green-light-icon.text-white.submit-js(type="submit")
+                    span Регистрация
 block footer
 block header

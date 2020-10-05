@@ -87,21 +87,26 @@ $('.product-page-slider__top-js').on('beforeChange', function(event, slickObject
 
 var topSlider = $('.product-page-slider__top-js').slick({
     asNavFor: $('.product-page-slider__nav-js'),
-    infinite: false,
+    infinite: true,
     slide: 'img',
     slidesToShow: 1,
     draggable: false,
     centerMode: true,
     adaptiveHeight: true,
     swipe: false,
-    swipe: false,
+
     fade: true,
     nextArrow: '.slider-arrows .next',
     prevArrow: '.slider-arrows .prev',
     responsive: [{
         breakpoint: 768,
         settings: {
-            slidesToShow: 1.2
+            draggable: true,
+            swipe: true,
+            fade: false,
+            slidesToShow: 1.2,
+            centerMode: false,
+            infinite: false,
         },
     }, ]
 
@@ -109,7 +114,7 @@ var topSlider = $('.product-page-slider__top-js').slick({
 if (document.documentElement.clientWidth > 768) $('.xzoom').elevateZoom();
 var bottomSlider = $('.product-page-slider__nav-js').slick({
     slidesToShow: 4,
-    infinite: false,
+    infinite: true,
     slide: 'img',
     arrows: false,
     focusOnSelect: true,
@@ -117,6 +122,7 @@ var bottomSlider = $('.product-page-slider__nav-js').slick({
     responsive: [{
         breakpoint: 768,
         settings: 'unslick',
+        infinite: false,
     }, ],
 
 });
@@ -127,22 +133,64 @@ var bottomSlider = $('.product-page-slider__nav-js').slick({
 
 
 /**Sizes Popup Handler */
+var $sizePopup = document.querySelector('.sizes-popup-content-js');
 $('.sizes-popup-js').magnificPopup({
+    removalDelay: 500,
     items: [{
         src: $('.sizes-popup-content-js'), // Dynamically created element
         type: 'inline'
-    }, ]
+    }, ],
+    callbacks: {
+        beforeOpen: function() {
+            gsap.fromTo($sizePopup, { y: -500 }, { y: 0 })
+        },
+        beforeClose: function() {
+            var $sizePopup = document.querySelector('.sizes-popup-content-js')
+            gsap.fromTo($sizePopup, { y: 0 }, { y: -1000 })
+        },
+    }
 
 });
+
+var $paymentDetails = document.querySelector('.payment-details-popup-content-js')
 $('.payment-details-popup-js').magnificPopup({
+    removalDelay: 500,
     items: [{
         src: $('.payment-details-popup-content-js'), // Dynamically created element
         type: 'inline'
-    }, ]
+    }, ],
+    callbacks: {
+        beforeOpen: function() {
+            gsap.fromTo($paymentDetails, { y: -500 }, { y: 0 })
+        },
+        beforeClose: function() {
+            var $paymentDetails = document.querySelector('.payment-details-popup-content-js')
+            gsap.fromTo($paymentDetails, { y: 0 }, { y: -1000 })
+        },
+    }
 
 });
 /**Sizes Popup Handler end*/
+/**OneClick Popup Handler  */
+var $oneClickPopup = document.querySelector('.one-click-popup-js');
+$('.one-click-js').magnificPopup({
+    removalDelay: 500,
+    items: [{
+        src: $('.one-click-popup-js'), // Dynamically created element
+        type: 'inline'
+    }, ],
+    callbacks: {
+        beforeOpen: function() {
+            gsap.fromTo($oneClickPopup, { y: -500 }, { y: 0 })
+        },
+        beforeClose: function() {
+            var $paymentDetails = document.querySelector('.one-click-popup-js')
+            gsap.fromTo($oneClickPopup, { y: 0 }, { y: -1000 })
+        },
+    }
 
+});
+/**OneClick Popup Handler END */
 
 
 
@@ -245,15 +293,3 @@ $('.same-prod-js').slick({
         ],
     })
     /** additional produtcs sliders END*/
-
-
-/**OneClick Popup Handler  */
-
-$('.one-click-js').magnificPopup({
-    items: [{
-        src: $('.one-click-popup-js'), // Dynamically created element
-        type: 'inline'
-    }, ]
-
-});
-/**OneClick Popup Handler END */

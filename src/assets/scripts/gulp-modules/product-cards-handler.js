@@ -12,7 +12,21 @@ productAddPopup.image = productAddPopup.querySelector('img');
 productAddPopup.productName = productAddPopup.querySelector('.product-addition-popup-content__name');
 $prodCards.forEach(card => {
     card.querySelector('.product-card__buy-button').addEventListener('click', openPopup);
+    let cardImg = card.querySelector('img');
+    if (cardImg.dataset.src && cardImg.dataset.hoverSrc) {
+        cardImg.style.transition = `0.5s ease-out`;
+        card.addEventListener('mouseenter', function(evt) {
+            cardImg.style.opacity = 0.5;
+            cardImg.src = cardImg.dataset.hoverSrc;
 
+
+            cardImg.style.opacity = 1;
+
+        });
+        card.addEventListener('mouseleave', function(evt) {
+            cardImg.src = cardImg.dataset.src;
+        });
+    }
 });
 
 function openPopup(evt) {
@@ -52,7 +66,7 @@ let $cards = document.querySelectorAll('a.product-card');
 if (document.documentElement.clientWidth > 769) {
     $cards.forEach(el => {
         el.addEventListener('click', (e) => {
-            if (e.target.closest('object') === null) {
+            if (e.target.closest('.button-std') !== null || e.target.closest('.product-card__like-button') !== null) {
                 e.preventDefault();
             }
 
@@ -68,4 +82,4 @@ if (document.documentElement.clientWidth > 769) {
 
         })
     })
-}
+};
