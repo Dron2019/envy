@@ -40,9 +40,9 @@ function dropDownMenuHandling(config) {
 
 
                 config.customCallback(article, 180);
-                setTimeout(() => {
-                    hide(article.querySelector(childcontent));
-                }, 800);
+
+                hide(article.querySelector(childcontent));
+
             } else {
                 show(article.querySelector(childcontent));
                 config.customCallback(article, 0);

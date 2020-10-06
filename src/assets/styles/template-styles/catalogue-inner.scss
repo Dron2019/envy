@@ -76,28 +76,42 @@
 }
 
 .cards-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    width: 100%;
+    // display: flex;
+    // flex-wrap: wrap;
+    // justify-content: space-between;
+    // width: 100%;
     --offset: 20px;
     --cards-per-row: 3;
+    font-size: 0;
+    @include row-ib();
     // &>.product-card:nth-last-child(-n+2) {
     //     margin-left: var(--offset);
     //     margin-right: auto;
     // }
     &>.product-card {
-        width: calc((100% / var(--cards-per-row)) - (var(--offset) / var(--cards-per-row) * (var(--cards-per-row) - 1)));
-        margin-bottom: var(--offset);
+        // width: calc((100% / var(--cards-per-row)) - (var(--offset) / var(--cards-per-row) * (var(--cards-per-row) - 1)));
+        // margin-bottom: var(--offset);
+        // margin-left: 10px;
+        // margin-right: 10px;
+        font-size: initial;
+        @include col-ib();
+        @include size(4);
+        @include shift(0);
     }
     @include from(1680px) {
+        &>.product-card {
+            @include size(3);
+        }
         --cards-per-row: 4;
     }
     @include to(950px) {
+        &>.product-card {
+            @include size(6);
+        }
         --cards-per-row: 2;
     }
     @include to(575px) {
-        width: 100%;
+        // width: 100%;
         --offset: 8px;
     }
 }
@@ -171,7 +185,7 @@
     .select-std:before {
         display: none;
     }
-    @include from(769px) {
+    @include from(576px) {
         display: none;
     }
     @include to(375px) {

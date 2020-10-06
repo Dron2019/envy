@@ -273,13 +273,11 @@
     &>.button-std {
         margin-left: auto;
     }
-    @include from(950px) {
-        // .slick-list {
-        //     overflow: visible;
-        // }
-        .title {
-            margin-bottom: -36px;
-        }
+    // .slick-list {
+    //     overflow: visible;
+    // }
+    .title {
+        margin-bottom: -36px;
     }
     @include from(1680px) {
         padding-top: 60px;
@@ -290,6 +288,8 @@
     @include to(575px) {
         --vert-padding: 40px;
         .news-card {
+            margin-left: 0;
+            margin-top: 0;
             padding-left: 5px;
             padding-right: 5px;
         }
@@ -398,7 +398,7 @@
             margin-bottom: 24px;
         }
         .double-slider-wrapper {
-            padding: 0 75px;
+            padding: 0 45px;
             margin-bottom: 40px;
         }
     }

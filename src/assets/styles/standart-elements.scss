@@ -309,7 +309,7 @@ form.disabled {
         text-decoration: none;
     }
     @include from(1720px) {
-        margin-top: 30px;
+        margin-top: 25px;
         &__item {
             // font-size: 18px;
         }
@@ -385,6 +385,7 @@ form.disabled {
         border: 1px solid #F9F3F0;
         padding: 11px 20px;
         width: 190px;
+        border-radius: 0;
         z-index: 1;
         background: #ffffff;
         -moz-appearance: none;

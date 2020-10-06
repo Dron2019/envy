@@ -3,10 +3,13 @@ let menuButtons = document.querySelectorAll('.mobile-tablet-menu-button-js'),
 menuContent.hide = function() {
     this.style.opacity = 0;
     this.style.pointerEvents = 'none';
+    document.documentElement.style.overflow = '';
 }
 menuContent.show = function() {
     this.style.opacity = 1;
     this.style.pointerEvents = 'all';
+    document.documentElement.style.overflow = 'hidden';
+
 }
 
 menuButtons.forEach(button => {
@@ -78,5 +81,11 @@ buttonIconTransform.to('.mobile-tablet-menu-button line', {
         // if (target.dataset.number === '2') return -45;
     },
     transformOrigin: "10px 10px"
+});
 
-})
+
+/**Header Mobile pining */
+if (document.documentElement.clientWidth < 576) {
+    var header = new Headroom(document.querySelector('header'));
+    header.init();
+}

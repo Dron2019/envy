@@ -7,7 +7,11 @@
     }
     .delivery-wrap,
     .payment-wrap {
+        background-color: var(--white);
         display: inline-block;
+        .for-title {
+            text-align: center;
+        }
     }
     .content-block__right .delivery-wrap,
     .content-block__right .payment-wrap {

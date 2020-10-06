@@ -264,6 +264,7 @@
             font-size: 12px;
             line-height: 14px;
             padding-left: 0;
+            margin-left: 0;
         }
     }
 }
@@ -467,7 +468,7 @@
     }
     @include to(575px) {
         // margin-top: 40px;
-        padding-bottom: 30px;
+        padding-bottom: 10px;
         padding-top: 35px;
         margin-left: calc(var(--side-fields) - (var(--side-fields) * 2));
         margin-right: calc(var(--side-fields) - (var(--side-fields) * 2));

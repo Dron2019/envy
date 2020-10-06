@@ -226,6 +226,9 @@
     }
     @include to(575px) {
         --left-padding: 0px;
+        &__article:not(:last-child) {
+            margin-bottom: 15px;
+        }
         &__article-content {
             a {
                 line-height: 1.15em;
@@ -315,10 +318,10 @@
     }
     @include from(1680px) {
         display: grid;
-        grid-template-columns: repeat(5, calc(20% - 16px));
+        grid-template-columns: repeat(5, calc(20% - 0px));
         grid-template-rows: repeat(2, auto);
-        grid-column-gap: 21px;
-        grid-row-gap: 56px;
+        grid-column-gap: 0px;
+        grid-row-gap: 0px;
         img {
             width: 75%;
             height: 100%;

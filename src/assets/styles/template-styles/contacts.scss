@@ -2,7 +2,8 @@
     align-items: flex-start;
     @include row-flex();
     .shops-container {
-        padding-top: 20px;
+        // padding-top: 20px;
+        padding-top: 40px;
         background: var(--white);
         @include size(7);
         @include shift(0);

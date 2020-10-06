@@ -5,5 +5,5 @@
 @@include('../libs/masked-input/masked-input.min.js')
 @@include('../libs/datetimepicker/datetimepicker.js')
 @@include('../libs/slick/slick.min.js')
-
+@@include('../libs/headroom/headroom.js')
 /* beautify preserve:end */

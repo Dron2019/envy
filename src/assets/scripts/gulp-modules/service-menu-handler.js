@@ -1,11 +1,3 @@
-/* beautify preserve:start */
-@@include('../libs/headroom/headroom.js')
-/* beautify preserve:end */
-
-
-
-
-
 /////////////////
 if (document.documentElement.clientWidth < 576) {
     innerCatalogueMobilePopup();
@@ -22,7 +14,7 @@ function innerCatalogueMobilePopup() {
         top: `0`,
         width: `100%`,
         display: `flex`,
-        zIndex: 10,
+        zIndex: 50,
         background: `white`,
         transformOrigin: `top`,
     };
@@ -49,7 +41,8 @@ function innerCatalogueMobilePopup() {
         transferBlock.prevSibling = transferBlock.previousElementSibling;
         setStyles(container, stylePopupOpened);
         // show(transferBlock);
-        console.log(container);
+        // console.log(container);
+        document.documentElement.style.overflow = 'hidden';
         transferBlock.forEach(elem => {
             container.insertAdjacentElement('beforeend', elem);
         })
@@ -71,7 +64,9 @@ function innerCatalogueMobilePopup() {
     };
 
     function closePopup(evt) {
+        document.documentElement.style.overflow = '';
         let tl = new TimelineLite();
+
         tl.fromTo(container.children, { y: 0, autoAlpha: 1, }, {
 
             y: function(some, target) {
@@ -88,6 +83,7 @@ function innerCatalogueMobilePopup() {
             container.style.display = `none`;
         })
         transferBlock.parent.insertAdjacentElement('afterend', transferBlock);
+
         hide(transferBlock);
     };
 
