@@ -267,6 +267,12 @@
             margin-left: 0;
         }
     }
+    @include to(375px) {
+        &__size-block {
+            padding-left: 10px;
+            padding-right: 10px;
+        }
+    }
 }
 
 .sizes-popup-content {
@@ -633,6 +639,10 @@
     @include to(575px) {
         max-width: 80%;
     }
+}
+
+.zoomContainer {
+    z-index: 2;
 }
 
 // .xzoom-preview {

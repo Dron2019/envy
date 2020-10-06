@@ -13,10 +13,7 @@ const productPageInnerDropdown = {
     childcontent: '.goods-dropdown__article-content',
     customCallback: function(title, closing) {
         // title.querySelector('.icon--birdy').style.transform = `rotate(${trnsfrmValue}deg)`;
-        if (!closing) {
-
-        } else {
-
+        if (!closing) {} else {
             // gsap.fromTo(`${this.childcontent}  a`, { autoAlpha: 0, y: -100 }, { stagger: 0.025, autoAlpha: 1, y: 0, duration: 0.1, });
         }
 
@@ -70,11 +67,7 @@ const ImgHeightRatioCoef = 0.95;
 $('.product-page-slider__top-js').on('init', function(event, slickObject, current, next) {
     initSlickCustomDots(slickObject, document.querySelector('.mobile-dots-container'));
 
-
-
-    console.log(slickObject);
     slickObject.$slides.each((i, el) => {
-        console.log(el);
         el.style.height = slickObject.slideWidth * ImgHeightRatioCoef + 'px';
     })
 
@@ -172,14 +165,21 @@ $('.payment-details-popup-js').magnificPopup({
 });
 /**Sizes Popup Handler end*/
 /**OneClick Popup Handler  */
+
 var $oneClickPopup = document.querySelector('.one-click-popup-js');
+/**Общий обьект для добавления данных для отправки */
+var PRODUCT__DATA = {
+    price: document.querySelector('.product-page-content__price').innerText,
+}
 $('.one-click-js').magnificPopup({
     removalDelay: 500,
     items: [{
         src: $('.one-click-popup-js'), // Dynamically created element
         type: 'inline'
     }, ],
+
     callbacks: {
+        open: onClickPopupAddActualInfo.bind(null, $oneClickPopup, PRODUCT__DATA),
         beforeOpen: function() {
             gsap.fromTo($oneClickPopup, { y: -500 }, { y: 0 })
         },
@@ -188,8 +188,42 @@ $('.one-click-js').magnificPopup({
             gsap.fromTo($oneClickPopup, { y: 0 }, { y: -1000 })
         },
     }
-
 });
+
+function onClickPopupAddActualInfo(popup, dataObj) {
+    var priceShowEl = popup.querySelector('.one-click-price-show-el-js');
+    var oneClickForm = popup.querySelector('form');
+    priceShowEl.innerText = dataObj.price;
+    // popup;
+    for (const key in dataObj) {
+        oneClickForm.insertAdjacentHTML('beforeend', `
+            <div class="input-group hidden">
+                <input type="hidden" name="${key}" value="${dataObj[key]}">
+            </div>
+        `);
+    }
+
+};
+
+
+/**sizeList Handler */
+
+var $sizeWrap = document.querySelector('ul.sizes-list');
+$sizeWrap.querySelectorAll('li').forEach((evt) => {
+    switchSelectedSize(evt, $sizeWrap);
+});
+
+function switchSelectedSize(el, parentList) {
+    console.log(el);
+    el.addEventListener('click', function(evt) {
+        parentList.querySelector('.selected').classList.remove('selected');
+        this.classList.add('selected');
+        PRODUCT__DATA.size = this.innerText;
+    });
+}
+
+
+/**sizeList Handler END */
 /**OneClick Popup Handler END */
 
 

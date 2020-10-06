@@ -1028,6 +1028,9 @@ form.disabled {
         width: 100%;
         overflow: hidden;
     }
+    .input-group.hidden {
+        display: none;
+    }
     .checkbox-group {
         margin-top: 0;
         padding-bottom: 0;

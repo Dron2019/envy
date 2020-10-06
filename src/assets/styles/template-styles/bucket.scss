@@ -307,3 +307,60 @@
         }
     }
 }
+
+.order-no-sign-up {
+    @include row-flex();
+    @include size(6);
+    max-width: none;
+    &.common-form>* {
+        @include size(6);
+        margin-bottom: 20px;
+        @include shift(0);
+    }
+    &.common-form>.text {
+        width: 100%;
+    }
+    .select-std {
+        // width: 100%;
+        display: flex;
+        &.wide {
+            width: 100%;
+        }
+        select {
+            width: 100%;
+            max-width: none;
+        }
+    }
+    .input-group label:not(.toggle) {
+        position: absolute;
+        width: 100%;
+        transition: .3s ease-out;
+        background-color: transparent;
+        cursor: pointer;
+        height: 100%;
+        left: 0;
+        top: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    input[type=radio] {
+        display: none;
+    }
+    input[type=radio]:checked~label {
+        background-color: #E3D4CF;
+    }
+    .label-radio-group {
+        padding-bottom: 32px;
+        padding-top: 18px;
+    }
+    .label-radio-group:after {
+        display: none;
+    }
+    .checkbox-group label {
+        margin-bottom: 20px;
+    }
+    .textarea svg {
+        align-self: flex-start;
+    }
+}
