@@ -173,17 +173,24 @@ function innerCatalogueMobilePopup() {
 
 /**ranges */
 
+let GET = (function() {
+    let array = window.location.search.replace('?', '').split('&').map(el => el.split('='));
+    let obj = {};
+    array.forEach(el => obj[el[0]] = el[1]);
+    if (obj.rooms === undefined) obj.rooms = '1';
+    return obj;
+})();
 let ranges = document.querySelectorAll(".ion-range-block");
 
 
 ranges.forEach(rangeBlock => {
-
+    console.log(rangeBlock);
     $(rangeBlock.querySelector('.js-range-slider')).ionRangeSlider({
         type: "double",
-        min: 0,
-        max: 900,
-        from: 0,
-        to: 900,
+        min: rangeBlock.dataset.min || 0,
+        max: rangeBlock.dataset.max || 901,
+        from: GET['arrFilter_P1_MIN'] || rangeBlock.dataset.min || 0,
+        to: GET['arrFilter_P1_MAX'] || rangeBlock.dataset.max || 901,
         hide_from_to: 1,
         hide_min_max: 1,
         onChange: function(e, r) {
@@ -203,8 +210,8 @@ ranges.forEach(rangeBlock => {
 function configSideValueInputs(ionObject, r) {
     let minInput = ionObject.slider[0].closest('.ion-range-block').querySelector('.min'),
         maxInput = ionObject.slider[0].closest('.ion-range-block').querySelector('.max');
-    minInput.value = ionObject.min;
-    maxInput.value = ionObject.max;
+    minInput.value = ionObject.from;
+    maxInput.value = ionObject.to;
     minInput.addEventListener('change', function(evt) {
         this.closest('.ion-range-block').ionGlobalObject.update({
             from: minInput.value,
@@ -229,4 +236,26 @@ function configSideValueInputs(ionObject, r) {
         max: maxInput,
     }
 
+};
+
+
+
+
+
+/**СОртировка по изменению селекта */
+
+let sortingSelects = document.querySelectorAll('.sort-js');
+sortingSelects.forEach(sendSortParams);
+
+function sendSortParams(selectGroup) {
+    selectGroup = selectGroup.querySelector('select');
+    selectGroup.addEventListener('change', function(evt) {
+        console.log(this.value);
+        changeLocation(this.value)
+    })
 }
+
+function changeLocation(newGETS) {
+    window.location.href =
+        window.location.origin + window.location.pathname + newGETS;;
+};

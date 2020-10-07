@@ -124,20 +124,20 @@ block content
                     span 350
                 .select-filter-item
                     .text.gray.text-smaller  Специальные предложения
-                    .select-std
+                    .select-std.sort-js
                         select(name="")
-                            option(value="") Все товары
-                            option(value="") Акционные 
+                            option(value="?sort=price&order=asc") Все товары
+                            option(value="?sort=price&order=asc") Акционные 
                 .select-filter-item
                     .text.gray.text-smaller  Сортировать по
-                    .select-std
+                    .select-std.sort-js
                         select(name="" value="vdv") vdv
-                            option(value="") По рейтингу 
-                            option(value="") От дешевых к дорогим 
-                            option(value="") От дорогих к дешевым 
-                            option(value="") Популярные 
-                            option(value="") Новинки 
-                            option(value="") По рейтингу
+                            option(value="?2sort=price&order=asc") По рейтингу 
+                            option(value="?3sort=price&order=asc") От дешевых к дорогим 
+                            option(value="?4sort=price&order=asc") От дорогих к дешевым 
+                            option(value="?sort=price&order=asc") Популярные 
+                            option(value="?sort=price&order=asc") Новинки 
+                            option(value="?1sort=price&order=asc") По рейтингу
             .cards-container
                 - var n = 0;
                     while n < 2

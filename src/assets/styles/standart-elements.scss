@@ -393,6 +393,7 @@ form.disabled {
         -webkit-appearance: none;
         /* Safari and Chrome */
         appearance: none;
+        text-overflow: ellipsis;
     }
     &:focus-within .custom-options {
         opacity: 1;
@@ -655,6 +656,10 @@ form.disabled {
         color: #E3D4CF;
         text-decoration: none;
     }
+    a.forward[data-src],
+    a.back[data-src] {
+        display: none;
+    }
     .back>svg {
         transform: rotate(180deg);
         stroke: #E3D4CF;
@@ -705,6 +710,9 @@ form.disabled {
         transform-origin: left top;
         z-index: 0;
         opacity: 0;
+    }
+    .digit.current__page:after {
+        opacity: 1;
     }
     @include from(769px) {
         .forward:hover span,
@@ -897,6 +905,11 @@ form.disabled {
     cursor: pointer;
     transition: .7s;
     position: relative;
+    &.btn {
+        border: none;
+        height: 36px;
+        color: var(--black);
+    }
     & * {
         position: relative;
         pointer-events: none;

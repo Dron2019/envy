@@ -77,6 +77,7 @@ function checkFieldWithPatter(input) {
 
 function send(object, url, form, callback = function() {}) {
     let data = new FormData();
+    // let Data1 = new FormData(form);
     form.querySelector('button[type="submit"]').setAttribute('disabled', '');
     for (const key in object) {
         data.append(key, object[key]);

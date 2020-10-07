@@ -320,6 +320,12 @@
     &.common-form>.text {
         width: 100%;
     }
+    .checkbox-group {
+        flex-direction: column;
+    }
+    .checkbox-group>* {
+        width: 100%;
+    }
     .select-std {
         // width: 100%;
         display: flex;
@@ -327,10 +333,14 @@
             width: 100%;
         }
         select {
+            padding-right: 25px;
             width: 100%;
             max-width: none;
         }
     }
+    // select::blank {
+    //     opacity: 0;
+    // }
     .input-group label:not(.toggle) {
         position: absolute;
         width: 100%;
@@ -362,5 +372,39 @@
     }
     .textarea svg {
         align-self: flex-start;
+    }
+    .nova-city-search-results {
+        position: absolute;
+        top: 100%;
+        padding: 5px 10px;
+        background-color: #fff;
+        left: 0;
+        width: 100%;
+        z-index: 10;
+    }
+    .input-group.overflowed {
+        overflow: visible;
+    }
+    .input-group.wide {
+        width: 100%;
+    }
+    .nova-city-search-results {
+        max-height: calc(1.6em * 10);
+        overflow-y: scroll;
+        visibility: hidden;
+        overflow-x: hidden;
+    }
+    .nova-city-search-results>div {
+        cursor: pointer;
+        padding: 0.3em 0;
+        line-height: 1em;
+    }
+    @include to(950px) {
+        @include size(12);
+    }
+    @include to(575px) {
+        &.common-form>* {
+            @include size(12);
+        }
     }
 }

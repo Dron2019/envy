@@ -10,6 +10,19 @@
     .goods-dropdown {
         --left-padding: 0px;
     }
+    .goods-dropdown .row {
+        width: 100%;
+        .btn {
+            max-width: none;
+            width: 100%;
+        }
+    }
+    .bx-filter-block div>* {
+        margin-top: 15px;
+    }
+    .goods-dropdown .row>* {
+        width: 100%;
+    }
     .goods-dropdown__article-content {
         column-count: 1;
     }
@@ -67,6 +80,9 @@
             // display: flex;
             flex-wrap: wrap;
             justify-content: space-between;
+            max-height: calc(100vh - 60px);
+            overflow-x: hidden;
+            overflow-y: scroll;
             padding: var(--side-padding);
             .button-std {
                 width: 100%;

@@ -37,14 +37,18 @@ block content
                 input(data-required="true" type="text" name="tel" placeholder="Телефон:*" inputmode="tel")
                 .input-group__line 
             .text.bold Доставка
-            .select-std.wide
-                select(name="" value="vdv") 
-                    option(value="") Выберите город
-                    option(value="") От дешевых к дорогим 
-                    option(value="") От дорогих к дешевым  
-                    option(value="") Популярные 
-                    option(value="") Новинки 
-                    option(value="") По рейтингу
+            .input-group.overflowed.wide
+                +svg('marker')
+                input(type="text" placeholder="Введите город или населенный пункт").nova-city-search-js
+                .nova-city-search-results.nova-city-search-results-js
+            //- .select-std.wide
+            //-     select(name="nova-cities-js" value="vdv") 
+            //-         option(value="") Выберите город
+            //-         option(value="") От дешевых к дорогим 
+            //-         option(value="") От дорогих к дешевым  
+            //-         option(value="") Популярные 
+            //-         option(value="") Новинки 
+            //-         option(value="") По рейтингу
             .input-group.label-radio-group
                 input(id="nove-poshta" type="radio" value="nova-delivery" name="nova-poshta-del-type")
                 label(for="nove-poshta") На отделение “Нова Пошта”
@@ -52,13 +56,7 @@ block content
                 input(id="nove-poshta1" type="radio" value="nova-courier"  name="nova-poshta-del-type")
                 label(for="nove-poshta1") Курьер “Нова Пошта”
             .select-std(data-id="nove-poshta")
-                select(name="" value="vdv" id="otdeleniye") 
-                    option(value="0") Улица или номер отделения
-                    option(value="1") От дешевых к дорогим 
-                    option(value="2") От дорогих к дешевым 
-                    option(value="3") Популярные 
-                    option(value="4") Новинки 
-                    option(value="5") По рейтингу
+                select(name=""  id="otdeleniye") 
             .input-group(data-id="nove-poshta1")
                 +svg('tel-tube-rose')
                 input(type="text" name="nova-adress" placeholder="Данные получателя (ФИО, номер телефона:*" inputmode="tel")
@@ -77,8 +75,8 @@ block content
                 +svg('dialog')
                 textarea(type="textarea" name="comment" placeholder="Комментарий к заказу:" inputmode="tel")
                 .input-group__line 
-            button.button-std.no-bg.medium.submit-js(href="catalogue.html" type="submit").catalogue-links
-                +svg('bucket')
+            button.button-std.medium.submit-js(href="catalogue.html" type="submit").catalogue-links
+                +svg('bucket-black')
                 span Заказать
         .bucket-card 
             <svg onclick="let tl = gsap.timeline(); tl.to(this.closest('div'),{ease: Power4.easeIn,duration:0.4, paddingBottom:0,height:0}).add(()=>{this.closest('div').remove()})" class="mfp-close" width="48" height="48" viewBox="12 12 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
