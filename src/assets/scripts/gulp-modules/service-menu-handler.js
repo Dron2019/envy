@@ -4,7 +4,7 @@ if (document.documentElement.clientWidth < 576) {
 }
 
 function innerCatalogueMobilePopup() {
-    let filterCall = document.querySelector('.mobile-open-button-js');
+    // let filterCall = document.querySelector('.mobile-open-button-js');
     let filterCallList = document.querySelectorAll('.mobile-open-button-js');
     let container = document.querySelector('.invisible-block');
     let transferBlock = document.querySelectorAll('.faq-menu a');
@@ -35,7 +35,7 @@ function innerCatalogueMobilePopup() {
         }
     }
 
-    function openPopup(evt) {
+    function openPopup() {
         transferBlock = document.querySelectorAll(this.dataset.content);
         transferBlock.parent = transferBlock.parentElement;
         transferBlock.prevSibling = transferBlock.previousElementSibling;
@@ -47,6 +47,7 @@ function innerCatalogueMobilePopup() {
             container.insertAdjacentElement('beforeend', elem);
         })
         console.log(container.children);
+        // eslint-disable-next-line no-undef
         gsap.fromTo(container.children, {
             y: function(some, target) {
                 return -100;

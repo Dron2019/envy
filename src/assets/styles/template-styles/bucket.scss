@@ -361,10 +361,18 @@
         background-color: #E3D4CF;
     }
     .label-radio-group {
+        width: calc(50% - 10px);
         padding-bottom: 32px;
         padding-top: 18px;
+        position: relative;
     }
-    .label-radio-group:after {
+    .label-radio-group:last-child {
+        margin-left: auto;
+    }
+    .for-labels.unfilled {
+        border-bottom: 2px solid red;
+    }
+    .for-labels:after {
         display: none;
     }
     .checkbox-group label {

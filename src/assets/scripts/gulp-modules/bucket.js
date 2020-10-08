@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 /**
     * Табы
     * 
@@ -20,7 +21,7 @@ function tab(navContainer) {
             link: '.' + el.classList[0] + index,
             contentElement: el.querySelector('.tab__content'),
         };
-        el.addEventListener('click', function(evt) {
+        el.addEventListener('click', function() {
             if (tabList.activeContentContainer.querySelector('div') !== null) {
                 tabList.activeContentContainer.querySelector('div').remove();
             }
@@ -80,7 +81,7 @@ noSignUpForm.querySelectorAll('.label-radio-group input').forEach(el => {
 });
 
 noSignUpForm.querySelectorAll('select').forEach((select, index) => {
-        select.addEventListener('change', function(evt) {
+        select.addEventListener('change', function() {
             if (noSignUpForm.querySelector(`#${select.dataset.id}${index}`) === null) {
                 noSignUpForm.insertAdjacentHTML('beforeend', `
                 <div id="${select.dataset.id}${index}" class="input-group hidden">
@@ -106,9 +107,10 @@ let searchInput = document.querySelector('.nova-city-search-js');
 let citySearchResult = document.querySelector('.nova-city-search-results-js');
 let warehouseBlock = document.querySelector('#otdeleniye');
 
-warehouseBlock.addEventListener('change', function(evt) {
+warehouseBlock.addEventListener('change', function() {
     console.log(this.value);
     console.log();
+    // eslint-disable-next-line no-extra-boolean-cast
     if (!!noSignUpForm.querySelector(`input[name=${this.id}]`)) {
         noSignUpForm.querySelector(`input[name=${this.id}]`).value = this.value
     } else {
@@ -141,10 +143,10 @@ let novaCitySearch = {
 
 
 
-searchInput.addEventListener('focus', function(evt) {
+searchInput.addEventListener('focus', function() {
     citySearchResult.style.visibility = 'visible';
 });
-searchInput.addEventListener('blur', function(evt) {
+searchInput.addEventListener('blur', function() {
     setTimeout(() => {
         citySearchResult.style.visibility = 'hidden';
     }, 100);
@@ -248,3 +250,13 @@ function novaFetch(url, body, callback) {
 }
 
 /**Выбор отделения новой почты  END*/
+
+
+
+let svgDash = document.querySelector('.dashoffset');
+console.log(svgDash.querySelector('circle').getTotalLength());
+/*
+*stroke-dashoffset: 1.519104;
+    stroke-dasharray: 90.51910400390625 89.519104;
+
+*/

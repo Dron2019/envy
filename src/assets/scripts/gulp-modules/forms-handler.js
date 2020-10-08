@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 /*Form handler */
 let submitList = document.querySelectorAll('.submit-js');
 const SEND_URL = '/wp-admin/admin-ajax.php';
@@ -30,24 +31,24 @@ function counterHandler(input) {
 }
 
 function checkRequiredFields(form) {
-    const inputs = form.querySelectorAll('input,textarea');
-    const checkboxes = ['checkbox', 'radio'];
+    const inputs = form.querySelectorAll('input[type=text],input[type=hidden],input[type=password],textarea');
+    const checkboxes = ['checkbox'];
     let sendObject = {};
+    const invalidClassName = 'unfilled';
     // sendObject.form_name = form.dataset.name || '';
     sendObject.metka = window.location.href || '';
     inputs.forEach(input => {
         let inputGroup = input.closest('.input-group');
-
         if (input.dataset.required === 'true' && input.value.length === 0) {
-            inputGroup.classList.add('unfilled')
+            inputGroup.classList.add(invalidClassName)
         } else if (!checkFieldWithPatter(input)) {
-            inputGroup.classList.add('unfilled');
+            inputGroup.classList.add(invalidClassName);
         } else if (input.dataset.required === 'true' && checkboxes.includes(input.type) && !input.checked) {
-            inputGroup.classList.add('unfilled');
+            inputGroup.classList.add(invalidClassName);
         } else if (input.type === "password" && !validPassRepeat(form)) {
-            inputGroup.classList.add('unfilled');
+            inputGroup.classList.add(invalidClassName);
         } else {
-            inputGroup.classList.remove('unfilled');
+            inputGroup.classList.remove(invalidClassName);
         }
         if (checkboxes.includes(input.type)) {
             if (input.checked) sendObject[input.name] = input.value;
@@ -55,13 +56,46 @@ function checkRequiredFields(form) {
             sendObject[input.name] = input.value;
         }
     });
-    if (form.querySelector('.unfilled') === null) {
-        //console.log(sendObject);
+    /**Чекбоксы */
+    const checkboxesInputs = form.querySelectorAll('input[type=checkbox]');
+    checkboxesInputs.forEach(box => {
+            // let checkboxGroup = box.closest('.input-group');
+            box.checked ?
+                sendObject[box.name] = box.value :
+                null;
+        })
+        /**Радио */
+    const radios = form.querySelectorAll('input[type=radio]');
+    radios.forEach(el => {
+        let radioGroup = el.closest('.input-group');
+        if (el.dataset.required === 'true' && handleRadios(radioGroup)) {
+            radioGroup.classList.remove(invalidClassName);
+            if (el.checked) {
+                sendObject[el.name] = el.value;
+            }
+        } else if (el.dataset.required === 'true') {
+            radioGroup.classList.add(invalidClassName);
+        } else if (!el.dataset.required === 'true' && el.checked) {
+            sendObject[el.name] = el.value;
+        }
+    });
+
+
+    if (form.querySelector(`.${invalidClassName}`) === null) {
         return sendObject;
     } else {
         return false;
     }
-};
+}
+
+function handleRadios(radioGroup) {
+    for (var i = 0; i < radioGroup.querySelectorAll('input[type=radio]').length; i++) {
+        if (radioGroup.querySelectorAll('input[type=radio]')[i].checked) {
+            return true;
+        }
+    }
+    return false;
+}
 /**Можно добавить дата аттрибут pattern для проверки по регулярному выражению */
 function checkFieldWithPatter(input) {
     if (input.pattern === undefined || input.pattern === null || input.pattern === false) {
@@ -80,7 +114,11 @@ function send(object, url, form, callback = function() {}) {
     // let Data1 = new FormData(form);
     form.querySelector('button[type="submit"]').setAttribute('disabled', '');
     for (const key in object) {
-        data.append(key, object[key]);
+        if (key === 'tel') {
+            data.append(key, object[key].replace(/-|\(|\)|\s/g, ''));
+        } else {
+            data.append(key, object[key]);
+        }
     }
     data.append(WP_ACTION.keyname, WP_ACTION.keyValue);
     data.append('count', _counter);
@@ -111,7 +149,7 @@ function send(object, url, form, callback = function() {}) {
             form.querySelector('button[type=submit]').removeAttribute('disabled');
         }, 2000);
     })
-};
+}
 
 
 function loadIndication(form, icon, switchStatus) {
@@ -133,12 +171,15 @@ function resetForm(form) {
 
 function sendMessageStatus(form, status) {
     let element = document.createElement('span');
-    element.style.cssText = `animation: fadeIn 1s 1 ease-in-out ; 
-            color:#222222; position:absolute; 
+    element.style.cssText = `
+            animation: fadeIn 1s 1 ease-in-out ; 
+            color:#222222; 
+            position:absolute; 
             padding:10px 20px; 
-            background:var(--blue);
+            white-space:nowrap;
+            background:var(--white);
             left:50%;
-            top:50%;
+            top:25%;
             font-size:24px; 
             transform:translateX(-50%) translateY(-50%) `;
     element.innerHTML = status;
@@ -146,7 +187,7 @@ function sendMessageStatus(form, status) {
     form.append(element);
     setTimeout(() => {
         form.querySelector('.send-message').style.animation = 'fadeOut 1s 1 ease-in';
-        form.querySelector('.send-message').addEventListener('animationend', function(evt) {
+        form.querySelector('.send-message').addEventListener('animationend', function() {
             form.querySelector('.send-message').remove();
             // form.querySelector('.send-message').style.opacity = `0`;
         });
@@ -169,21 +210,21 @@ function pageRedirect() {
 /** Маска телефонного номера */
 $.mask.definitions['#'] = '[0-9]';
 $.mask.definitions['9'] = '';
-$('input[name=tel]').mask("+(38) ### ###-##-##", {
+$('input[name=tel]').mask("+(38) 0## ###-##-##", {
     placeholder: "_"
 });
 
 
-function putCallbackFormInPopup(selector) {
-    return document.querySelector(selector);
+// function putCallbackFormInPopup(selector) {
+//     return document.querySelector(selector);
 
-}
+// }
 /*Form handler END */
-;
+
 
 
 document.querySelectorAll('.input-group').forEach(icon => {
-    icon.addEventListener('click', function(evt) {
+    icon.addEventListener('click', function() {
         icon.querySelector('input').focus();
     });
 });
@@ -222,7 +263,7 @@ function timeCheckboxesHandler() {
 
 
     $timeInputs.forEach(input => {
-        input.addEventListener('change', function(evt) {
+        input.addEventListener('change', function() {
             changeDisplaying(contactFormTimeInput.closest('.input-group'), contactFormTimeRadio.checked)
         });
     });
