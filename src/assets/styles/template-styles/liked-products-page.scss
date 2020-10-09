@@ -1,0 +1,21 @@
+.liked-products-page {
+    &__cards-wrap {
+        @include row-flex();
+        .product-card {
+            @include size(4);
+            @include shift(0);
+            margin-bottom: 10px;
+        }
+    }
+    .title {
+        margin-bottom: 20px;
+    }
+    @include to(950px) {
+        &__cards-wrap {
+            .product-card {
+                @include size(6);
+                @include shift(0);
+            }
+        }
+    }
+}

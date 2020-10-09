@@ -107,6 +107,7 @@
     display: flex;
     --part-block-start-padding: 82px;
     margin-top: 20px;
+    overflow: hidden;
     &__part {
         text-decoration: none;
         color: var(--black);

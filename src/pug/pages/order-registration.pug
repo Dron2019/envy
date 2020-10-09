@@ -1,0 +1,138 @@
+extends ../layout/main
+block variable
+    - var version = "ua";
+    - var pageName = "order-registration";
+block meta
+    title= ' '
+    meta(name='description', content='')
+block scripts
+    script(defer src='./assets/scripts/libs.js')
+    script(defer src='./assets/scripts/index.js')
+    script(defer src='./assets/scripts/forms-handler.js')
+    script(defer src='./assets/scripts/menu.js')
+    script(defer src="./assets/scripts/order-registration.js")
+block head
+    link(rel='stylesheet', href="./assets/styles/main.min.css")
+block content
+    +breadcrumbs(['index.html','bucket.html','#'],['Главная','Корзина','Оформление заказа'])
+    .content-block.color-bg.light-gray.order-registration
+        .title Оформление заказа
+        .tabs.make-order-tabs
+            .tab 
+                .tab__title У меня есть аккаунт
+                form.tab__content.common-form.sign-in-form(data-name="contact-form")
+                    legend Введите свои данные для входа в кабинет: 
+                    .input-group
+                        +svg('man')
+                        .input-group__icon
+                        input(autocomplete="off" name="name" data-required="true" type="text" data-pattern="" placeholder="Имя:*")
+                    .input-group
+                        +svg('lock')
+                        .input-group__icon
+                        input(autocomplete="off" name="pass" type="password" data-required="true"  data-pattern="" placeholder="Пароль:*")
+                    .page__toggle.checkbox-group.input-group
+                        label.toggle
+                            input.toggle__input.time-radio-js(name="time" value="yes" type='checkbox')
+                            span.toggle__label
+                                span.toggle__text.text Запомнить меня
+                    button.button-std.medium.green.green-light-icon.text-white.submit-js(type="submit")
+                        span Войти
+                    .delimiter
+                    .sign-with-icon.key
+                        +svg('key')
+                        a(href="#" data-hover="Регистрация").sign-with-icon__text 
+                            span Регистрация
+                    .sign-with-icon
+                        +svg('lock-locked')
+                        a(href="#" data-hover="Забыли пароль").sign-with-icon__text 
+                            span Забыли пароль
+            .tab 
+                .tab__title Я новый покупатель
+                form.common-form.order-no-sign-up.tab__content
+                    .text.bold Данные покупателя
+                    .input-group
+                        +svg('man')
+                        input(data-required="true" type="text" name="name" placeholder="Имя:*")
+                        .input-group__line 
+                    .input-group
+                        +svg('letter')
+                        input(data-required="true" type="text" name="email" placeholder="E-mail:*")
+                        .input-group__line 
+                    .input-group
+                        +svg('man')
+                        input(data-required="true" type="text" name="surname" placeholder="Фамилия:*")
+                        .input-group__line 
+                    .input-group
+                        +svg('tel-tube-rose')
+                        input(data-required="true" type="text" name="tel" placeholder="Телефон:*" inputmode="tel")
+                        .input-group__line 
+                    .text.bold Доставка
+                    .input-group.overflowed.wide
+                        +svg('marker')
+                        input(type="text" name="nova-city"  placeholder="Введите город или населенный пункт").nova-city-search-js
+                        .nova-city-search-results.nova-city-search-results-js
+                    .input-group.wide.for-labels
+                        .label-radio-group
+                            input(id="nove-poshta" data-error="Выберите один из вариантов" data-required="true" type="radio" value="nova-delivery"  name="nova-poshta-del-type")
+                            label(for="nove-poshta") На отделение “Нова Пошта”
+                        .label-radio-group
+                            input(id="nove-poshta1" data-required="true" type="radio" value="nova-courier"  name="nova-poshta-del-type")
+                            label(for="nove-poshta1") Курьер “Нова Пошта”
+                    .select-std(data-id="nove-poshta")
+                        select(name=""  id="otdeleniye") 
+                            <option value="">Выберите отделение</option>
+                    .input-group(data-id="nove-poshta1")
+                        +svg('tel-tube-rose')
+                        input(type="text" data-required="true" name="nova-adress" placeholder="Данные получателя (ФИО, номер телефона:*" inputmode="tel")
+                        .input-group__line 
+                    .text.bold Оплата
+                    .page__toggle.checkbox-group.input-group
+                        label.toggle
+                            input.toggle__input(type='radio' data-required="true" name="payment-type" value="cash" )
+                            span.toggle__label
+                                span.toggle__text.text Оплата при получении
+                        label.toggle
+                            input.toggle__input(type='radio' data-required="true" name="payment-type" value="card" )
+                            span.toggle__label
+                                span.toggle__text.text Оплата картой на сайте
+                    .input-group.textarea
+                        +svg('dialog')
+                        textarea(type="textarea" name="comment" placeholder="Комментарий к заказу:" inputmode="tel")
+                        .input-group__line
+                    .input-group.checkbox-group
+                        label.toggle
+                            input.toggle__input(type='checkbox'  name="mailing" value="+" )
+                            span.toggle__label
+                                span.toggle__text.text Хочу получать еmail сообщение о новых поступлениях, скидках и акциях
+                    button.button-std.medium.submit-js(href="catalogue.html" type="submit").catalogue-links
+                        +svg('bucket-black')
+                        span Заказать
+        .products-in-bucket-wrap
+            .product-card-in-bucket
+                .product-card-in-bucket__img    
+                    +img('product-card-img.jpg')
+                .product-card-in-bucket__text
+                    .product-card-in-bucket__name ADELA Black
+                    .product-card-in-bucket__price-wrap  
+                        .product-card-in-bucket__spec-price  
+                            span.striked 6 040 грн 
+                            span  (-30%)
+                        .product-card-in-bucket__price 4 440 грн.
+                    .product-card-in-bucket__characteristic
+                        span.product-card-in-bucket__characteristic-name Размер на модели:
+                        span.product-card-in-bucket__characteristic-value 38 
+                    .product-card-in-bucket__characteristic
+                        span.product-card-in-bucket__characteristic-name Цвет:
+                        span.product-card-in-bucket__characteristic-value оливковый
+                    .product-card-in-bucket__characteristic
+                        span.product-card-in-bucket__characteristic-name Цвет:
+                        span.product-card-in-bucket__characteristic-value оливковый
+                    .product-card-in-bucket__characteristic
+                        span.product-card-in-bucket__characteristic-name Цвет:
+                        span.product-card-in-bucket__characteristic-value оливковый
+                    .product-card-in-bucket__characteristic
+                        span.product-card-in-bucket__characteristic-name Цвет:
+                        span.product-card-in-bucket__characteristic-value оливковый
+            .total-price Сумма к оплате 14 400 грн.
+block footer
+block header

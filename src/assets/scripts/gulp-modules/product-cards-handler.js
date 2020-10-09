@@ -10,6 +10,8 @@ let $prodCards = document.querySelectorAll('.product-card');
 let productAddPopup = document.querySelector('.product-addition-popup-content-js');
 productAddPopup.image = productAddPopup.querySelector('img');
 productAddPopup.productName = productAddPopup.querySelector('.product-addition-popup-content__name');
+
+/*Смена картинки при ховере(при налачии ее в админке)*/
 $prodCards.forEach(card => {
     card.querySelector('.product-card__buy-button').addEventListener('click', openPopup);
     let cardImg = card.querySelector('img');
@@ -18,10 +20,7 @@ $prodCards.forEach(card => {
         card.addEventListener('mouseenter', function(evt) {
             cardImg.style.opacity = 0.5;
             cardImg.src = cardImg.dataset.hoverSrc;
-
-
             cardImg.style.opacity = 1;
-
         });
         card.addEventListener('mouseleave', function(evt) {
             cardImg.src = cardImg.dataset.src;
@@ -83,3 +82,49 @@ if (document.documentElement.clientWidth > 769) {
         })
     })
 };
+
+
+/**Обработка понравившихся  товаров */
+/**
+ * Добавить в отмеченые - add
+ * Убрать из отмеченых - remove
+ */
+const likeButtons = document.querySelectorAll('.product-card__like-button');
+likeButtons.forEach(handleLikeButtons);
+
+
+function handleLikeButtons(button) {
+    button.classList.value.match(/liked/) ?
+        button.likeStatus = true :
+        button.likeStatus = false;
+    button.belogsToCard = button.closest('.product-card');
+    button.addEventListener('click', function(evt) {
+        button.likeStatus = !button.likeStatus;
+        button.likeStatus ?
+            sendLikeStatus(button, 'add') :
+            sendLikeStatus(button, 'remove');
+    });
+
+    function sendLikeStatus(button, action) {
+        button.setAttribute('disabled', '');
+        let send = new FormData();
+        send.append('action', action);
+        fetch('./static/liked-products.php', {
+                method: 'POST',
+                body: send
+            })
+            .then(el => el.text())
+            .then(el => {
+                handleResponse(el);
+                button.removeAttribute('disabled');
+            })
+    }
+
+    function handleResponse(response) {
+        if (response == 'add') {
+            button.belogsToCard.classList.add('liked')
+        } else if (response == 'remove') {
+            button.belogsToCard.classList.remove('liked')
+        } else {}
+    }
+}

@@ -407,6 +407,11 @@
         padding: 0.3em 0;
         line-height: 1em;
     }
+    @include from(769px) {
+        .nova-city-search-results>div:hover {
+            color: var(--pink);
+        }
+    }
     @include to(950px) {
         @include size(12);
     }

@@ -1,3 +1,9 @@
+/* beautify preserve:start */
+@@include('../libs/locomotive-scroll/dist/locomotive-scroll.min.js')
+@@include('../libs/gsap/dist/ScrollTrigger.min.js')
+/* beautify preserve:end */
+
+
 $('.main-screen-slider-js').on('init', function(event, slickObject, current, next) {
     slickObject.changeSubtitle = document.querySelector('.slide-text .subtitle');
     slickObject.changeText = document.querySelector('.slide-text>.text');
@@ -207,4 +213,51 @@ function customCursorEffect(container) {
         }
         return wrapper;
     }
-}
+};
+
+
+(function() {
+    const locoScroll = new LocomotiveScroll({
+        el: document.body,
+        smooth: true,
+        smoothMobile: false,
+        inertia: 1.1
+    });
+    locoScroll.on("scroll", ScrollTrigger.update);
+    ScrollTrigger.scrollerProxy(document.body, {
+        scrollTop(value) {
+            return arguments.length ? locoScroll.scrollTo(value, 0, 0) : locoScroll.scroll.instance.scroll.y;
+        }, // we don't have to define a scrollLeft because we're only scrolling vertically.
+        getBoundingClientRect() {
+            return {
+                top: 0,
+                left: 0,
+                width: window.innerWidth,
+                height: window.innerHeight
+            };
+        },
+        // LocomotiveScroll handles things completely differently on mobile devices - it doesn't even transform the container at all! So to get the correct behavior and avoid jitters, we should pin things with position: fixed on mobile. We sense it by checking to see if there's a transform applied to the container (the LocomotiveScroll-controlled element).
+        pinType: document.body.style.transform ? "transform" : "fixed"
+    });
+    gsap.registerPlugin(ScrollTrigger);
+    gsap.set('.home-block2__part-people-photo', { top: 100 })
+    ScrollTrigger.create({
+        trigger: ".main-screen-slider",
+        start: "top",
+        endTrigger: ".main-screen-slider",
+        // markers: true,
+        end: "bottom",
+        onToggle: self => console.log("toggled, isActive:", self.isActive),
+        onUpdate: self => {
+            gsap.to('.home-block2__part-people-photo', { y: (self.progress) * -100 })
+            gsap.to('.home-block2 .title-large', { y: (self.progress) * 150 })
+            console.log("progress:", self.progress.toFixed(3), "direction:", self.direction, "velocity", self.getVelocity());
+        }
+    });
+    // each time the window updates, we should refresh ScrollTrigger and then update LocomotiveScroll. 
+    ScrollTrigger.addEventListener("refresh", () => locoScroll.update());
+
+    // after everything is set up, refresh() ScrollTrigger and update LocomotiveScroll because padding may have been added for pinning, etc.
+    ScrollTrigger.refresh();
+
+})();

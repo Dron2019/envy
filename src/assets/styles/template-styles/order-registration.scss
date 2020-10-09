@@ -1,0 +1,33 @@
+.order-registration {
+    align-items: flex-start;
+    align-content: flex-start;
+    .title {
+        margin-bottom: 20px;
+    }
+    .tabs {
+        @include size(7);
+        .tab:not(.active) {
+            background: var(--white);
+        }
+        .order-no-sign-up {
+            width: 100%;
+        }
+    }
+    .products-in-bucket-wrap {
+        @include size(5);
+        &>* {
+            width: 100%;
+        }
+        .total-price {
+            margin-top: 20px;
+            margin-left: auto;
+            text-align: right;
+        }
+    }
+    @include to(950px) {
+        .tabs,
+        .products-in-bucket-wrap {
+            width: 100%;
+        }
+    }
+}
