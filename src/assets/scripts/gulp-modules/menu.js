@@ -85,7 +85,9 @@ buttonIconTransform.to('.mobile-tablet-menu-button line', {
 
 
 /**Header Mobile pining */
-if (document.documentElement.clientWidth < 576) {
-    var header = new Headroom(document.querySelector('header'));
-    header.init();
-}
+// if (document.documentElement.clientWidth < 576) {
+var header = new Headroom(document.querySelector('header'), {
+    offset: 120,
+});
+header.init();
+// }

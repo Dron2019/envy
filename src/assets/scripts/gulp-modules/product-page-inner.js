@@ -92,7 +92,7 @@ var topSlider = $('.product-page-slider__top-js').slick({
     nextArrow: '.slider-arrows .next',
     prevArrow: '.slider-arrows .prev',
     responsive: [{
-        breakpoint: 768,
+        breakpoint: 769,
         settings: {
             draggable: true,
             swipe: true,
@@ -290,6 +290,12 @@ $('.add-prod-js').slick({
             breakpoint: 1680,
             settings: {
                 slidesToShow: 3,
+            },
+        },
+        {
+            breakpoint: 1024,
+            settings: {
+                slidesToShow: 2.5,
             },
         },
         {

@@ -1,3 +1,7 @@
+/* beautify preserve:start */
+@@include('../../../../node_modules/mixitup/dist/mixitup.min.js')
+/* beautify preserve:end */
+
 $('.catalogue-slider-js').on('init', function(event, slickObject, current, next) {
     slickObject.changeSubtitle = document.querySelector('.slide-text .subtitle');
     slickObject.changeText = document.querySelector('.slide-text>.text');
@@ -53,9 +57,8 @@ function customCursorEffect(container) {
     let customCursorDOMel = msSlider.querySelector('.custom-cursor-js');
     let squareToTransform = customCursorDOMel.querySelector('.square-to-transform');
 
-
     //Применение стартовых свойств
-    squareToTransform.style.transform = `scale(0.85)`;
+    squareToTransform.style.transform = `scale(0.95)`;
     squareToTransform.style.transformOrigin = `75px 75px !important`;
     msSlider.style.cursor = `none`;
     msSlider.style.position = `relative`;
@@ -253,4 +256,34 @@ if (document.documentElement.clientWidth > 769) {
     $cards.forEach(el => {
         el.addEventListener('click', (e) => e.preventDefault())
     })
-}
+};
+
+
+var mixer = mixitup('.catalogue-brands', {
+    selectors: {
+        target: 'img'
+    },
+    animation: {
+        duration: 300
+    }
+});
+
+// document.querySelector('.catalogue-brands').addEventListener('click', function(evt) {
+//     // mixer.filter('img:first-child');
+
+
+//     mixer.sort('default:desc')
+//     setTimeout(() => {
+
+//         if (mixer.getState().totalHide === 0) {
+//             mixer.hide('img', function(state) {
+//                 console.log(state) // false
+//             }).then((state) => {
+//                 console.log(state);
+//             })
+//         } else {
+//             mixer.show()
+//         }
+//     }, 1000);
+//     console.log(mixer.getState());
+// });

@@ -24,7 +24,15 @@ $('.main-screen-slider-js').slick({
     arrows: false,
     infinite: false,
     easing: 'ease-out',
-    slide: '.slide'
+    slide: '.slide',
+    responsive: [{
+        breakpoint: 950,
+        settings: {
+            autoplay: true,
+            infinite: true,
+            autoplaySpeed: 2000,
+        }
+    }, ]
 })
 
 
@@ -43,7 +51,8 @@ $('.home-news-slider').slick({
         }, {
             breakpoint: 975,
             settings: {
-                slidesToShow: 2
+                slidesToShow: 1.85,
+
             }
         },
         {
@@ -217,6 +226,10 @@ function customCursorEffect(container) {
 
 
 (function() {
+
+    /**block2 people transform length */
+    let block2ImgTransform = -100;
+    if (document.documentElement.clientWidth < 576) block2ImgTransform = -50;
     const locoScroll = new LocomotiveScroll({
         el: document.body,
         smooth: true,
@@ -249,8 +262,8 @@ function customCursorEffect(container) {
         end: "bottom",
         onToggle: self => console.log("toggled, isActive:", self.isActive),
         onUpdate: self => {
-            gsap.to('.home-block2__part-people-photo', { y: (self.progress) * -100 })
-            gsap.to('.home-block2 .title-large', { y: (self.progress) * 150 })
+            gsap.to('.home-block2__part-people-photo', { y: (self.progress) * block2ImgTransform })
+            gsap.to('.home-block2 .title-large', { y: (self.progress) * 10 })
             console.log("progress:", self.progress.toFixed(3), "direction:", self.direction, "velocity", self.getVelocity());
         }
     });

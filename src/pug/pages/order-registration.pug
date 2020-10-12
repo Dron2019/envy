@@ -52,11 +52,11 @@ block content
                     .text.bold Данные покупателя
                     .input-group
                         +svg('man')
-                        input(data-required="true" type="text" name="name" placeholder="Имя:*")
+                        input(data-required="true" data-error_mes="Введите имя" type="text" name="name" placeholder="Имя:*")
                         .input-group__line 
                     .input-group
                         +svg('letter')
-                        input(data-required="true" type="text" name="email" placeholder="E-mail:*")
+                        input(data-required="true" data-error_mes="Введите email" type="text" name="email" placeholder="E-mail:*")
                         .input-group__line 
                     .input-group
                         +svg('man')
@@ -64,7 +64,7 @@ block content
                         .input-group__line 
                     .input-group
                         +svg('tel-tube-rose')
-                        input(data-required="true" type="text" name="tel" placeholder="Телефон:*" inputmode="tel")
+                        input(data-required="true" data-error_mes="Введите телефон" type="text" name="tel" placeholder="Телефон:*" inputmode="tel")
                         .input-group__line 
                     .text.bold Доставка
                     .input-group.overflowed.wide
@@ -73,26 +73,26 @@ block content
                         .nova-city-search-results.nova-city-search-results-js
                     .input-group.wide.for-labels
                         .label-radio-group
-                            input(id="nove-poshta" data-error="Выберите один из вариантов" data-required="true" type="radio" value="nova-delivery"  name="nova-poshta-del-type")
+                            input(id="nove-poshta" data-error_mes="Выберите тип доставки" data-error="Выберите один из вариантов" data-required="true" type="radio" value="nova-delivery"  name="nova-poshta-del-type")
                             label(for="nove-poshta") На отделение “Нова Пошта”
                         .label-radio-group
-                            input(id="nove-poshta1" data-required="true" type="radio" value="nova-courier"  name="nova-poshta-del-type")
+                            input(id="nove-poshta1" data-error_mes="Выберите тип доставки" data-required="true" type="radio" value="nova-courier"  name="nova-poshta-del-type")
                             label(for="nove-poshta1") Курьер “Нова Пошта”
                     .select-std(data-id="nove-poshta")
                         select(name=""  id="otdeleniye") 
                             <option value="">Выберите отделение</option>
                     .input-group(data-id="nove-poshta1")
                         +svg('tel-tube-rose')
-                        input(type="text" data-required="true" name="nova-adress" placeholder="Данные получателя (ФИО, номер телефона:*" inputmode="tel")
+                        input(type="text" data-required="true" name="nova-adress" data-error_mes="Введите данные получателя" placeholder="Данные получателя (ФИО, номер телефона:*" inputmode="tel")
                         .input-group__line 
                     .text.bold Оплата
                     .page__toggle.checkbox-group.input-group
                         label.toggle
-                            input.toggle__input(type='radio' data-required="true" name="payment-type" value="cash" )
+                            input.toggle__input(type='radio' data-error_mes="Выберите тип оплаты" data-required="true" name="payment-type" value="cash" )
                             span.toggle__label
                                 span.toggle__text.text Оплата при получении
                         label.toggle
-                            input.toggle__input(type='radio' data-required="true" name="payment-type" value="card" )
+                            input.toggle__input(type='radio' data-error_mes="Выберите тип оплаты" data-required="true" name="payment-type" value="card" )
                             span.toggle__label
                                 span.toggle__text.text Оплата картой на сайте
                     .input-group.textarea

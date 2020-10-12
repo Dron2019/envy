@@ -2,6 +2,7 @@
     width: 450px;
     margin-left: auto;
     margin-right: auto;
+    flex-grow: 1;
     .icon--bucket {
         width: 70px;
         height: 78px;
@@ -39,6 +40,7 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        min-height: 100vh;
         .icon--bucket {
             float: none;
             padding-left: 0;
@@ -258,6 +260,11 @@
         @include size(3);
         @include size-md(12);
         @include shift(0);
+    }
+    &__price {
+        position: absolute;
+        left: 10px;
+        top: 10px;
     }
     @include from(1680px) {
         &__img {

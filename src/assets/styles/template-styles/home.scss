@@ -163,10 +163,16 @@
         transition: .7s ease-out;
     }
     @include from(1680px) {
+        &__part {
+            height: 60vh;
+        }
         &__part .title-large {
             padding-top: 1.5em;
         }
         &__part>svg {
+            stroke-width: 20;
+        }
+        &__part>svg rect {
             stroke-width: 20;
         }
     }
@@ -286,6 +292,11 @@
             margin-top: 46px;
         }
     }
+    @include to(950px) {
+        .home-news-slider .slick-list {
+            overflow: visible;
+        }
+    }
     @include to(575px) {
         --vert-padding: 40px;
         .news-card {
@@ -344,6 +355,11 @@
             line-height: 1.6em;
         }
     }
+    @include from-to(576px, 950px) {
+        &__img {
+            height: 230px;
+        }
+    }
 }
 
 .brands {
@@ -384,6 +400,7 @@
     @include to(950px) {
         .double-slider-wrapper {
             @include shift-padding-left(2);
+            padding-left: 86px;
             padding-right: 86px;
         }
         .title {
@@ -468,6 +485,9 @@
         margin-right: 0;
         margin-top: 60px;
         width: 100%;
+        .title {
+            padding-right: 40%;
+        }
         .mailing-form {
             @include shift-padding-left(2.3);
         }
@@ -477,6 +497,9 @@
     }
     @include to(575px) {
         margin-top: 40px;
+        .title {
+            padding-right: 0;
+        }
         .mailing-form {
             padding-left: 0;
         }
@@ -615,5 +638,14 @@
             margin-left: auto;
             margin-right: auto;
         }
+    }
+}
+
+
+/*MFP position fixing in smooth scrool pages*/
+
+body[style*='matrix3d'] {
+    .mfp-wrap {
+        height: 100vh;
     }
 }

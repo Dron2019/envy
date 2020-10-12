@@ -85,6 +85,14 @@ header {
     @include from(1680px) {
         --between-margin: 30px;
     }
+    @include from-to(576px, 950px) {
+        .main-logo {
+            position: absolute;
+            left: 50%;
+            top: 18px;
+            transform: translate(-60%, 0);
+        }
+    }
     @include to(768px) {
         &>.button-std,
         .search-input {
@@ -138,6 +146,7 @@ header {
             align-items: flex-start;
             max-width: 6.5ch;
             height: var(--self-height);
+            position: relative;
         }
         li.dropdown .dropdown-title {
             display: flex;
@@ -170,6 +179,10 @@ header {
             margin-left: -15px;
             width: 280px;
             pointer-events: none;
+            display: none;
+            position: absolute;
+            top: 100%;
+            z-index: 10;
         }
         li.dropdown .dropdown-content a {
             line-height: 2.57em;
@@ -177,6 +190,7 @@ header {
             margin-left: -30px;
             padding-left: 30px;
             padding-right: 20px;
+            background-color: var(--white);
             position: relative;
         }
         li>a {
@@ -255,6 +269,8 @@ header {
             order: 3;
             margin-left: auto;
             margin-right: auto;
+            width: 100%;
+            justify-content: center;
         }
     }
     @include to(1200px) {
@@ -280,6 +296,7 @@ header {
         }
         &__menu li.dropdown:hover .dropdown-content {
             opacity: 1;
+            display: flex;
             pointer-events: all;
         }
         &__menu li.dropdown .dropdown-content a:hover:after {
@@ -611,26 +628,50 @@ header {
     align-items: center;
 }
 
-header.headroom {
+.page__inner {
+    padding-top: 140px;
+    @include from-to(950px, 1200px) {
+        padding-top: 180px;
+    }
     @include to(575px) {
-        width: 100%;
-        background-color: var(--white);
-        position: fixed;
+        padding-top: 60px;
+    }
+}
+
+header.headroom {
+    // @include to(575px) {
+    width: 100%;
+    background-color: var(--white);
+    position: fixed;
+    top: 0;
+    left: 0;
+    .mobile-menu {
         top: 0;
-        left: 0;
+        transform: translateY(60px);
+        overflow: hidden scroll;
+    }
+    &.headroom--top {
+        // position: static;
+        transform: none !important;
+    }
+    @include from(1680px) {
+        padding-bottom: 10px;
+    }
+    @include to(950px) {
         .mobile-menu {
-            top: 0;
-            transform: translateY(60px);
-            height: calc(100vh - 60px);
-            overflow: hidden scroll;
-        }
-        &.headroom--top {
-            position: static;
-            transform: none !important;
-        }
-        &.headroom--not-top.headroom--unpinned {
-            transform: translateY(-100%) !important;
-            overflow: hidden;
+            align-content: flex-start;
+            top: 75px;
         }
     }
+    &.headroom--not-top.headroom--unpinned {
+        transform: translateY(-100%) !important;
+        overflow: hidden;
+    }
+    @include to(575px) {
+        .mobile-menu {
+            top: 0;
+            height: calc(100vh - 60px);
+        }
+    }
+    // }
 }

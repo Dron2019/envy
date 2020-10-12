@@ -39,16 +39,31 @@ function checkRequiredFields(form) {
     sendObject.metka = window.location.href || '';
     inputs.forEach(input => {
         let inputGroup = input.closest('.input-group');
-        if (input.dataset.required === 'true' && input.value.length === 0) {
+        if (
+            input.dataset.required === 'true' &&
+            input.value.length === 0
+        ) {
             inputGroup.classList.add(invalidClassName)
+            putInvalidMessage(inputGroup);
         } else if (!checkFieldWithPatter(input)) {
             inputGroup.classList.add(invalidClassName);
-        } else if (input.dataset.required === 'true' && checkboxes.includes(input.type) && !input.checked) {
+        } else if (
+            input.dataset.required === 'true' &&
+            checkboxes.includes(input.type) &&
+            !input.checked
+        ) {
+
             inputGroup.classList.add(invalidClassName);
+
         } else if (input.type === "password" && !validPassRepeat(form)) {
+
             inputGroup.classList.add(invalidClassName);
+
         } else {
+
+            offInvalidMessage(inputGroup);
             inputGroup.classList.remove(invalidClassName);
+
         }
         if (checkboxes.includes(input.type)) {
             if (input.checked) sendObject[input.name] = input.value;
@@ -68,12 +83,16 @@ function checkRequiredFields(form) {
     const radios = form.querySelectorAll('input[type=radio]');
     radios.forEach(el => {
         let radioGroup = el.closest('.input-group');
+
         if (el.dataset.required === 'true' && handleRadios(radioGroup)) {
             radioGroup.classList.remove(invalidClassName);
+            offInvalidMessage(radioGroup);
+
             if (el.checked) {
                 sendObject[el.name] = el.value;
             }
         } else if (el.dataset.required === 'true') {
+            putInvalidMessage(radioGroup);
             radioGroup.classList.add(invalidClassName);
         } else if (!el.dataset.required === 'true' && el.checked) {
             sendObject[el.name] = el.value;
@@ -167,6 +186,24 @@ function resetForm(form) {
     form.querySelectorAll('input, textarea').forEach(input => {
         input.value = '';
     })
+}
+
+function putInvalidMessage(inputGroup) {
+    let div = document.createElement('div');
+    div.innerHTML = inputGroup.querySelector('input').dataset.error_mes || '';
+
+    if (inputGroup.querySelector('.invalid-message') === null) {
+
+        div.classList.add('invalid-message');
+        inputGroup.append(div);
+    }
+}
+
+function offInvalidMessage(inputGroup) {
+    if (inputGroup.querySelector('.invalid-message') !== null) {
+        inputGroup.querySelector('.invalid-message').remove();
+    }
+
 }
 
 function sendMessageStatus(form, status) {

@@ -12,11 +12,11 @@ form.common-form.common-form-js(data-name="contact-form")
     .input-group
         +svg('man')
         .input-group__icon
-        input(autocomplete="off" name="name" data-required="true" type="text" data-pattern="" placeholder="Имя:*")
+        input(autocomplete="off" data-error_mes="Введите имя" name="name" data-required="true" type="text" data-pattern="" placeholder="Имя:*")
     .input-group
         +svg('tel-tube-rose')
         .input-group__icon
-        input(autocomplete="off" name="tel" inputmode="tel" data-required="true" type="text" data-pattern="" placeholder="Телефон:*")
+        input(autocomplete="off" data-error_mes="Введите номер телефона" name="tel" inputmode="tel" data-required="true" type="text" data-pattern="" placeholder="Телефон:*")
     .input-group.textarea
         +svg('dialog')
         .input-group__icon
