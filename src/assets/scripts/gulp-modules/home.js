@@ -66,7 +66,9 @@ $('.home-news-slider').slick({
 
 const doubleSlidesToShow = 4;
 $('.brands__slider-top-js').slick({
-    infinite: false,
+    infinite: true,
+    autoplay: true,
+
     slidesToShow: doubleSlidesToShow,
     slide: 'img',
     nextArrow: '.brands__slider-js .arrow-next',
@@ -90,7 +92,9 @@ $('.brands__slider-top-js').slick({
 
 });
 $('.brands__slider-bottom-js').slick({
-    infinite: false,
+    infinite: true,
+    autoplay: true,
+
     slidesToShow: doubleSlidesToShow,
     slide: 'img',
     nextArrow: '.brands .arrow-next',
@@ -228,7 +232,7 @@ function customCursorEffect(container) {
 (function() {
 
     /**block2 people transform length */
-    let block2ImgTransform = -100;
+    let block2ImgTransform = -80;
     if (document.documentElement.clientWidth < 576) block2ImgTransform = -50;
     const locoScroll = new LocomotiveScroll({
         el: document.body,
@@ -274,3 +278,17 @@ function customCursorEffect(container) {
     ScrollTrigger.refresh();
 
 })();
+
+let
+    prox = new Proxy({ a: 10 }, {
+        set: function(e, name, value) {
+            if (value > 100) { throw new Error('value is too big') } else {
+                e[name] = value
+            }
+            console.log(name);
+            console.log('---------');
+            console.log(value);
+        }
+    });
+
+// console.log(object);

@@ -459,6 +459,9 @@
         margin-left: auto;
         width: calc(var(--self-arrow-side) * 2 + 20px);
     }
+    &.same-prod-js {
+        padding-bottom: 0;
+    }
     @include from(769px) {
         .product-card:hover {
             transform: none;

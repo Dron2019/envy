@@ -192,17 +192,36 @@ form.disabled {
         width: var(--self-arrow-side);
         height: var(--self-arrow-side);
         border: 0.5px solid var(--black);
+        position: relative;
         cursor: pointer;
         // border-right-color: transparent;
         // transition: .7s;
-        background: linear-gradient(267.71deg, #ffffff 0%, #ffffff 100%);
+        &:after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            left: 0;
+            top: 0;
+            background: linear-gradient(267.71deg, #FF8298 0%, #FFDEAC 100%);
+            transform: scaleY(0);
+            transform-origin: top;
+            transition: .2s ease-out;
+            opacity: 0;
+            z-index: -1;
+        }
     }
     @include from(769px) {
         .arrow-prev:hover,
         .arrow-next:hover {
             border-left: none;
             border-color: transparent;
-            background: linear-gradient(267.71deg, #FF8298 0%, #FFDEAC 100%);
+            // background: linear-gradient(267.71deg, #FF8298 0%, #FFDEAC 100%);
+        }
+        .arrow-prev:hover:after,
+        .arrow-next:hover:after {
+            opacity: 1;
+            transform: scaleY(1);
         }
         .arrow-prev:hover svg,
         .arrow-next:hover svg {
@@ -1304,6 +1323,9 @@ form.disabled {
         @include size(12);
         overflow: visible;
         @include shift(0);
+    }
+    .irs--flat .irs-line {
+        background-color: transparent;
     }
     &__separator {
         width: 1ch;

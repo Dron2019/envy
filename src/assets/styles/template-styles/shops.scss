@@ -22,6 +22,11 @@
             margin-top: 30px;
         }
     }
+    @include from-to(576px, 950px) {
+        .shop-card:nth-child(n+3) {
+            margin-top: 0px;
+        }
+    }
     @include to(575px) {
         margin-top: 10px;
         .shop-card {
@@ -40,7 +45,7 @@
     flex-wrap: wrap;
     border: 1px solid #F9F3F0;
     background-color: var(--white);
-    padding: 5px 30px 5px 50px;
+    padding: 15px 30px 15px 50px;
     min-height: 300px;
     &.no-image {
         border: none;
@@ -108,6 +113,9 @@
         &__img {
             height: 200px;
         }
+    }
+    @include from-to(576px, 950px) {
+        padding: 12px 17px;
     }
     @include to(575px) {
         padding: 17px;

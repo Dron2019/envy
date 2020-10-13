@@ -1,6 +1,7 @@
 .liked-products-page {
     &__cards-wrap {
         @include row-flex();
+        flex-grow: 1;
         .product-card {
             @include size(4);
             @include shift(0);
