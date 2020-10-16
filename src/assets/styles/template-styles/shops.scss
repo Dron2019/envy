@@ -24,7 +24,7 @@
     }
     @include from-to(576px, 950px) {
         .shop-card:nth-child(n+3) {
-            margin-top: 0px;
+            margin-top: 20px;
         }
     }
     @include to(575px) {

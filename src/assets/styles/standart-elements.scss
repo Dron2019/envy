@@ -1,3 +1,16 @@
+* {
+    --theme-color-primary: #ff8a9a;
+}
+
+.sale-personal-section-index-block {
+    height: 3.2em !important;
+    display: flex;
+    align-items: center;
+    &>* {
+        padding: 0.8em 10px !important;
+    }
+}
+
 form.disabled {
     filter: opacity(0.5) grayscale(1);
     color: #A0A0A0;
@@ -784,6 +797,7 @@ form.disabled {
     background-color: var(--white);
     padding: 23px 30px;
     a.current-page {
+        pointer-events: none;
         color: var(--black);
     }
     &>.text {
@@ -926,6 +940,10 @@ form.disabled {
     cursor: pointer;
     transition: .7s;
     position: relative;
+    &.unaviable {
+        pointer-events: none;
+        background: linear-gradient(267.71deg, rgb(181, 181, 181) 0%, rgb(245, 245, 245) 100%) !important;
+    }
     &.btn {
         border: none;
         height: 36px;

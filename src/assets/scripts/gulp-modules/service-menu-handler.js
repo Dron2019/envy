@@ -1,3 +1,5 @@
+/* eslint-disable no-undef */
+/* eslint-disable quotes */
 /////////////////
 if (document.documentElement.clientWidth < 576) {
     innerCatalogueMobilePopup();
@@ -49,7 +51,7 @@ function innerCatalogueMobilePopup() {
         console.log(container.children);
         // eslint-disable-next-line no-undef
         gsap.fromTo(container.children, {
-            y: function(some, target) {
+            y: function() {
                 return -100;
                 // return -target.getBoundingClientRect().height;
             },
@@ -64,13 +66,13 @@ function innerCatalogueMobilePopup() {
         });
     };
 
-    function closePopup(evt) {
+    function closePopup() {
         document.documentElement.style.overflow = '';
         let tl = new TimelineLite();
 
         tl.fromTo(container.children, { y: 0, autoAlpha: 1, }, {
 
-            y: function(some, target) {
+            y: function() {
                 return -100;
                 // return target.getBoundingClientRect().height * -1;
             },
@@ -99,11 +101,11 @@ function innerCatalogueMobilePopup() {
 
     function show(el) {
         el.style.opacity = 1;
-        el.style.height = '';
-        el.style.padding = '';
-        el.style.width = '';
+        el.style.height = "";
+        el.style.padding = "";
+        el.style.width = "";
         el.style.opacity = 1;
-        el.style.overflow = 'auto';
+        el.style.overflow = "auto";
     }
 };
 

@@ -292,3 +292,17 @@ let
     });
 
 // console.log(object);
+
+
+function isPrime(num) {
+    var flag = true;
+    var corrNumber = Math.abs(num)
+    if (num === undefined) return 0;
+    if (num <= 0) return false;
+
+    for (var i = 1; i < corrNumber - 1; i++) {
+        if (((corrNumber / i) ^ 0) === (corrNumber / i) === true) flag = false;
+    }
+    return flag;
+}
+isPrime(8);
