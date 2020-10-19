@@ -148,6 +148,9 @@
         &>*:last-child {
             margin-bottom: 50px;
         }
+        .slider {
+            overflow: hidden;
+        }
     }
     @include to(950px) {
         width: 100%;

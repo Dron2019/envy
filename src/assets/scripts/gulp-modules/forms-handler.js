@@ -1,3 +1,7 @@
+/* beautify preserve:start */
+@@include('../libs/Inputmask/dist/jquery.inputmask.min.js')
+/* beautify preserve:end */
+
 /* eslint-disable no-undef */
 /*Form handler */
 let submitList = document.querySelectorAll('.submit-js');
@@ -193,7 +197,6 @@ function putInvalidMessage(inputGroup) {
     div.innerHTML = inputGroup.querySelector('input').dataset.error_mes || '';
 
     if (inputGroup.querySelector('.invalid-message') === null) {
-
         div.classList.add('invalid-message');
         inputGroup.append(div);
     }
@@ -344,3 +347,37 @@ function timeCheckboxesHandler() {
     }
 }
 timeCheckboxesHandler();
+
+
+
+
+
+$(function() {
+    $('input[name=e-mail]').inputmask({
+        mask: "*{1,20}@*{1,20}.*{1,20}",
+        clearMaskOnLostFocus: false,
+        greedy: false,
+        tabThrough: true,
+        definitions: {
+            '*': {
+                validator: ".",
+            }
+        }
+    });
+
+});
+
+
+function qs(selector) {
+    var elem = document.querySelector(selector);
+    if (elem === null) {
+        console.warn(`Elem  - "${selector}" is not defined`)
+        return elem;
+    } else {
+        return elem;
+    }
+}
+
+function qsA(selector) {
+    return document.querySelectorAll(selector);
+}

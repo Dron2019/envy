@@ -16,6 +16,13 @@ header
                 input(type="text", placeholder="Поиск" name="")
                 button.search-input__button
                     +svg('arrow')
+                .search-res
+                    a(href="#").search-res__item
+                        +img('test-image.jpg')
+                        .text Сапоги
+                    a(href="#").search-res__item
+                        .text Все результаты
+                        +svg('arrow')
             a(target='_blank' href="https://instagram.com").social-link
                 <svg class="icon--instagram" width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <rect x="1" y="1" width="15" height="15" rx="4"  stroke="#222222" stroke-width="0.8"/>

@@ -508,9 +508,10 @@ header {
         border: none;
         margin-left: 17px;
         transition: .7s;
+        text-overflow: ellipsis;
     }
     input:focus {
-        max-width: 30ch;
+        max-width: 15ch;
     }
     &:focus-within button {
         opacity: 1;

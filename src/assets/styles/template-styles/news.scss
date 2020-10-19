@@ -1,4 +1,7 @@
 .news {
+    // align-items: center;
+    align-content: flex-start;
+    flex-direction: column;
     .pagination {
         margin-top: 40px;
     }

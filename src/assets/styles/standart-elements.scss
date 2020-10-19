@@ -1083,6 +1083,9 @@ form.disabled {
     .input-group.hidden {
         display: none;
     }
+    .input-group:focus-within:after {
+        background-color: var(--pink);
+    }
     .checkbox-group {
         margin-top: 0;
         padding-bottom: 0;
@@ -1369,3 +1372,67 @@ form.disabled {
 
 
 /*ranges customizing end*/
+
+.search-input {
+    .search-res {
+        transition: .7s ease-out;
+        opacity: 0;
+        pointer-events: none;
+    }
+    &:focus-within .search-res {
+        opacity: 1;
+        pointer-events: all;
+    }
+}
+
+.search-res {
+    position: absolute;
+    width: 100%;
+    left: 0;
+    top: calc(100% + 1em);
+    padding: 5px;
+    z-index: 5;
+    background-color: var(--white);
+    --image-param: 30px;
+    &__item {
+        margin: 0.5em auto;
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        color: var(--black);
+        font-size: 0.8rem;
+        img {
+            width: var(--image-param);
+            height: var(--image-param);
+            object-fit: cover;
+            margin-right: 10px;
+        }
+        .text {
+            width: 80%;
+            font-weight: bold;
+        }
+        .icon--arrow {
+            width: 14px;
+            height: 14px;
+        }
+    }
+    &__item:last-child {
+        margin-top: 1em;
+    }
+    &.large {
+        --image-param: 100px;
+    }
+    @include from(769px) {
+        &__item:not(:last-child):hover:after {
+            content: '';
+            display: inline-block;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 16 11' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M9.9796 0.669024C9.83102 0.505537 9.84311 0.25256 10.0066 0.103984C10.1701 -0.044593 10.4231 -0.0325056 10.5716 0.130981L14.7599 4.73957L15.0044 5.00859L14.7599 5.27761L10.5716 9.8862C10.4231 10.0497 10.1701 10.0618 10.0066 9.9132C9.84311 9.76462 9.83102 9.51164 9.9796 9.34816L13.5241 5.44795H1.38311C1.16219 5.44795 0.983105 5.26887 0.983105 5.04795C0.983105 4.82704 1.16219 4.64795 1.38311 4.64795H13.5956L9.9796 0.669024Z' fill='%23222222'/%3E%3C/svg%3E%0A");
+            width: 16px;
+            height: 11px;
+            background-size: contain;
+        }
+        &__item:hover {
+            color: var(--pink);
+        }
+    }
+}

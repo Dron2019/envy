@@ -66,3 +66,33 @@ let proxy = new Proxy(target, {
 }); // пустой handler
 
 // proxy.test = 5; // записываем в прокси (1)
+
+
+
+let a = ['qwe', 'rty', 'uioе', 'qqsd'];
+
+function longestWord(arr) {
+    let max = (arr.reduce((max = "", word, index) => {
+        if (word.length > max.length) max = arr[index];
+        return max;
+    }));
+
+    return `${max} - самое длинное слово(${max.length} символов)`
+}
+
+console.log(longestWord(a));
+
+
+function cookies() {
+    elem = {};
+
+    document.cookie.split(';').forEach(el => {
+        var tempArr = el.split('=');
+        elem[tempArr[0]] = tempArr[1];
+        console.log(elem);
+
+
+    })
+    return elem;
+};
+cookies();
