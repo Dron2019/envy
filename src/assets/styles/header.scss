@@ -537,6 +537,22 @@ header {
     display: flex;
     align-items: center;
     cursor: pointer;
+    position: relative;
+    // overflow: hidden;
+    // overflow: visible;
+    &__hover {
+        position: absolute;
+        left: 38px;
+        top: 100%;
+        opacity: 0;
+        visibility: hidden;
+        color: #222222;
+        font-size: 13px;
+        text-decoration: underline;
+        padding: 0px 1rem 0px 0rem;
+        width: calc(100% - 41px);
+        transition: .3s ease-out;
+    }
     &.bucket {
         text-decoration: none;
         color: var(--black);
@@ -546,6 +562,7 @@ header {
         color: var(--black);
         text-decoration: none;
         position: relative;
+        overflow: hidden;
         -webkit-transition: -webkit-transform 0.3s;
         -moz-transition: -moz-transform 0.3s;
         transition: transform 0.3s;
@@ -584,8 +601,16 @@ header {
         width: 21px;
         height: 21px;
     }
-    overflow: hidden;
     @include from(769px) {
+        &:hover &__hover {
+            opacity: 1;
+            visibility: visible;
+            animation: fadeInUp .3s 1 ease-out;
+        }
+        &__hover:hover {
+            color: var(--pink);
+            // border-color: var(--pink);
+        }
         &__short-text {
             display: none;
         }
