@@ -8,7 +8,13 @@
         @include shift(0);
     }
     .shop-card:nth-child(n+3) {
-        margin-top: 20px;
+        // margin-top: 20px;
+        margin-top: 0;
+    }
+    @include from(769px) {
+        .shop-card a:hover {
+            color: var(--pink);
+        }
     }
     @include from(1680px) {
         margin-top: 40px;
@@ -79,6 +85,9 @@
         .text span {
             display: inline-block;
             max-width: 80%;
+        }
+        &-tel.text {
+            width: max-content;
         }
         &-tel span {
             display: inline-block;

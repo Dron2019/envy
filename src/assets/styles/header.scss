@@ -58,7 +58,8 @@ header {
     &__telephone {
         color: var(--black);
         text-decoration: none;
-        margin-left: var(--between-margin)
+        margin-left: var(--between-margin);
+        transition: color .3s ease-out;
     }
     .main-logo {
         margin-left: auto;
@@ -72,6 +73,9 @@ header {
     }
     @include from(769px) {
         position: relative;
+        &__telephone:hover {
+            color: var(--pink);
+        }
         .main-logo {
             position: absolute;
             left: 50%;
@@ -429,6 +433,7 @@ header {
         text-align: center;
         text-decoration: none;
         color: var(--black);
+        width: calc(50% + 14px);
     }
     .search-input {
         padding-top: 10px;
@@ -437,6 +442,9 @@ header {
         justify-content: center;
         background-color: #F5F5F5;
         width: 100%;
+        width: calc(100% + 28px);
+        margin-left: -14px;
+        margin-right: -14px;
         input {
             background-color: #F5F5F5;
         }
@@ -446,6 +454,12 @@ header {
     }
     &__tab.active {
         background-color: #F5F5F5;
+    }
+    &__tab.left {
+        margin-left: -14px;
+    }
+    &__tab.right {
+        margin-right: -14px;
     }
     .button-std.medium {
         margin: 20px auto 30px auto;
@@ -472,6 +486,10 @@ header {
                 height: 2.5em;
                 line-height: 1em;
             }
+        }
+        &:focus-within .search-input {
+            opacity: 1;
+            pointer-events: all;
         }
     }
     @include from-to(576px, 768px) {
@@ -531,6 +549,11 @@ header {
         font-family: $default-font;
         font-weight: 500;
     }
+    @include to(575px) {
+        input {
+            max-width: 20ch;
+        }
+    }
 }
 
 .sign-with-icon {
@@ -552,6 +575,33 @@ header {
         padding: 0px 1rem 0px 0rem;
         width: calc(100% - 41px);
         transition: .3s ease-out;
+        background-color: var(--white);
+        visibility: visible;
+        // height: 1.6em;
+        text-decoration: none;
+        line-height: 2.57em;
+        transition: .3s;
+        background-color: var(--white);
+        pointer-events: none;
+        z-index: 1;
+    }
+    &__hover a {
+        color: var(--black);
+    }
+    &__hover:after {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 2.57em;
+        left: 0;
+        top: 0;
+        background: linear-gradient(267.71deg, #FAA6A6 0%, #F8CEBC 100%);
+        opacity: 0;
+        transition: .3s ease-out;
+        z-index: -1;
+        // margin-left: -38px;
+        // padding-left: 38px;
+        // width: calc(100% + 45px);
     }
     &.bucket {
         text-decoration: none;
@@ -587,6 +637,7 @@ header {
         -webkit-transform: translate3d(0, 0, 0);
         -moz-transform: translate3d(0, 0, 0);
         transform: translate3d(0, 0, 0);
+        white-space: nowrap;
     }
     &>svg {
         margin-right: 20px;
@@ -601,11 +652,20 @@ header {
         width: 21px;
         height: 21px;
     }
+    &:hover &__hover {
+        opacity: 1;
+        pointer-events: all;
+        visibility: visible;
+        animation: fadeInUp .3s 1 ease-out;
+    }
     @include from(769px) {
-        &:hover &__hover {
+        &__hover {
+            padding-left: 35px;
+            margin-left: -35px;
+            width: calc(100% + 41px);
+        }
+        &__hover:hover:after {
             opacity: 1;
-            visibility: visible;
-            animation: fadeInUp .3s 1 ease-out;
         }
         &__hover:hover {
             color: var(--pink);
@@ -636,9 +696,24 @@ header {
         //     transform: translateY(-5px);
         // }
     }
+    &.with-dropdown {
+        height: var(--self-height);
+    }
     @include to(768px) {
         .bucket &__text {
             display: none;
+        }
+    }
+    @include to(575px) {
+        &__hover {
+            // width: 100%;
+            width: auto;
+            display: flex;
+            flex-direction: column;
+            left: 0;
+        }
+        &__hover a {
+            padding: 0.2em 3px;
         }
     }
 }
@@ -688,7 +763,7 @@ header.headroom {
         transform: none !important;
     }
     @include from(1680px) {
-        padding-bottom: 10px;
+        padding-bottom: 25px;
     }
     @include to(950px) {
         .mobile-menu {

@@ -33,6 +33,7 @@
         display: flex;
         flex-wrap: wrap;
         z-index: 5;
+        cursor: pointer;
         .subtitle {
             margin-bottom: 10px;
         }
@@ -161,6 +162,8 @@
     }
     &__part>svg rect {
         transition: .7s ease-out;
+        transform: scale(0.9);
+        transform-origin: center;
     }
     @include from(1680px) {
         &__part {
@@ -396,6 +399,9 @@
     }
     .delimiter {
         margin-bottom: 60px;
+    }
+    @include from(1680px) {
+        @include shift-padding-left(1);
     }
     @include to(950px) {
         .double-slider-wrapper {

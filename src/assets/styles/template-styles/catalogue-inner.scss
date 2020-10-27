@@ -113,6 +113,8 @@
         @include col-ib();
         @include size(4);
         @include shift(0);
+        display: inline-flex;
+        flex-direction: column;
     }
     @include from(1680px) {
         &>.product-card {

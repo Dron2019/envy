@@ -169,6 +169,7 @@
     &.goods-dropdown-products &__article-content a {
         color: var(--pink);
         padding-left: 20px;
+        width: max-content;
     }
     &__article:not(:last-child) {
         margin-bottom: 32px;
@@ -220,7 +221,7 @@
     @include from(769px) {
         &__article-content {
             a:hover {
-                color: var(--pink);
+                color: var(--black) !important;
             }
         }
     }

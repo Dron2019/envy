@@ -295,7 +295,7 @@
             width: calc(100vw - var(--side-fields) * 2 - 20px);
             height: calc((100vw - var(--side-fields) * 2 - 20px) * 0.95);
             object-fit: cover;
-            @include size(12);
+            width: 100%;
             margin-left: auto;
             margin-right: auto;
         }
@@ -426,6 +426,18 @@
     @include to(575px) {
         &.common-form>* {
             @include size(12);
+        }
+    }
+}
+
+.bucket {
+    @include to(575px) {
+        .total-price-wrapper {
+            width: 100% !important;
+            margin-bottom: 10px;
+        }
+        .basket-btn-checkout {
+            width: 100% !important;
         }
     }
 }
