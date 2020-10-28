@@ -804,6 +804,11 @@ form.disabled {
     margin-right: auto;
 }
 
+.invisible-block a.current-page {
+    pointer-events: none;
+    color: var(--black);
+}
+
 .faq-menu {
     display: flex;
     flex-direction: column;
@@ -903,6 +908,9 @@ form.disabled {
         height: 3px;
         border-radius: 50%;
         background-color: var(--black);
+    }
+    &.pink li:after {
+        background-color: var(--pink);
     }
     margin-bottom: 0.6em;
 }
@@ -1516,6 +1524,12 @@ form.disabled {
             margin-left: 0;
             margin-top: 0.5em;
         }
+    }
+}
+
+.search-input:focus-within .sm-search-result {
+    .search-res__item {
+        width: 100%;
     }
 }
 
