@@ -317,13 +317,40 @@
         }
     }
     @include to(575px) {
-        padding: var(--side-fields)
+        padding: var(--side-fields);
+        &.sizes-popup-content-default {
+            max-width: 100%;
+            overflow-y: hidden;
+            overflow-x: scroll;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+        &.sizes-popup-content-default>.subtitle {
+            margin-left: 0;
+            margin-top: 1.6em;
+        }
+        &.sizes-popup-content-default .mfp-close {
+            position: sticky;
+            order: 0;
+            right: 0;
+            top: 0;
+        }
+        &.sizes-popup-content-default table {
+            order: 2;
+        }
+        &.sizes-popup-content-default .subtitle,
+        &.sizes-popup-content-default .icon--horizontal-lines {
+            order: 1;
+        }
+        &.sizes-popup-content-default .icon--horizontal-lines {
+            display: none;
+        }
     }
 }
 
 .size-table {
     font-weight: 500;
-    td:first-child {
+    &:not(.size-table-default) td:first-child {
         text-align: left;
         color: var(--light-gray);
         padding-right: 20px;
@@ -331,27 +358,57 @@
     td[colspan] {
         background: #EDEDED !important;
     }
-    tr:nth-child(2) td:nth-child(even) {
+    &:not(.size-table-default) tr:nth-child(2) td:nth-child(even) {
         background: #F5F5F5;
     }
-    tr:nth-child(3) td:nth-child(3n+3) {
+    &:not(.size-table-default) tr:nth-child(3) td:nth-child(3n+3) {
         background: #F5F5F5;
     }
     .med-gray {
         background: #F5F5F5;
     }
-    td {
+    &:not(.size-table-default) td {
         // border:1px solid green;
         text-align: center;
         width: 44px;
         padding: 17px 8.5px;
     }
+    &.size-table-default td {
+        text-align: center;
+        padding: 0.5em 10px;
+    }
+    &.size-table-default td:first-child {
+        text-align: left;
+        color: var(--black);
+        padding-right: 20px;
+    }
+    &.size-table-default td[colspan] {
+        background: transparent !important;
+    }
+    &.size-table-default tr:nth-child(even) td:nth-child(odd) {
+        background: #EDEDED !important;
+    }
+    &.size-table-default tr:nth-child(odd) td:nth-child(even) {
+        background: #F5F5F5 !important;
+    }
     @include to(768px) {
         td:first-child {
             display: none;
         }
+        &.size-table-default td:first-child {
+            display: initial;
+            width: auto;
+        }
     }
     @include to(575px) {
+        &.size-table-default {
+            overflow-x: scroll;
+            overflow-y: hidden;
+        }
+        &.size-table-default td:first-child {
+            white-space: nowrap;
+            padding: 0.5em 5px;
+        }
         td {
             width: 10px;
             padding: 2px;

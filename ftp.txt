@@ -1,0 +1,10 @@
+
+open customsh.ftp.ukraine.com.ua
+user customsh_ftp szs0a108
+literal PASV
+cd smarto.com.ua/o2
+mkdir aa
+
+put  C:\OSPanel\domains\envy\ftp.txt
+bye
+
